@@ -1,0 +1,755 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CR7 Jersey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">Best Selling</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">☰</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="main-content">
+  <div class="title-text">
+    <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
+  </div>
+
+  <div class="content-row">
+    <div class="description">
+      <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
+      <button>Check More</button>
+    </div>
+
+    <div class="jersey-center">
+      <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey" />
+    </div>
+
+    <div class="add-to-cart">
+      <div class="circle">+</div>
+      <p>Add To Cart</p>
+    </div>
+  </div>
+</section>
+
+<!-- category -->
+
+ <section class="category-wrapper">
+    <h2>Catogory</h2>
+    <div class="category-row-layout">
+
+      <div class="category-col category-col-4">
+        <div class="category-card category-tall" style="background-image: url('{% static 'img/rono/c-p.jpg' %}')">
+          <span style="font-size: 30px;">Portugal</span>
+        </div>
+      </div>
+
+      <div class="category-col category-col-3">
+        <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-j.webp' %}')">
+          <span style="font-size: 30px;">Juventus</span>
+        </div>
+        <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-m.jpg' %}')">
+          <span style="left: 0; right: 0; text-align: center;font-size: 28px;">Manchester United</span>
+        </div>
+      </div>
+
+      <div class="category-col category-col-5">
+        <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-r.jpg' %}');background-position: center top;">
+          <span style="right: 10px; bottom: 10px;">Real Madrid</span>
+        </div>
+        <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-a.jpg' %}')">
+          <span style="top: 10px; left: 10px;">Al Nassr</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- category end -->
+
+  <!-- slider category -->
+
+  
+<div class="slider-categorytwo-container">
+
+  <div class="slider-categorytwo-info-box" id="infoBox"></div>
+
+  <div class="slider-categorytwo-slider-controls">
+    <div class="dot" onclick="goToSlide(0)"></div>
+    <div class="dot" onclick="goToSlide(1)"></div>
+    <div class="dot" onclick="goToSlide(2)"></div>
+    <div class="dot" onclick="goToSlide(3)"></div>
+    <div class="arrow" onclick="prevSlide()">&#8592;</div>
+    <div class="arrow" onclick="nextSlide()">&#8594;</div>
+  </div>
+
+  <div class="slider-categorytwo-main-content" id="slidesWrapper"></div>
+</div>
+
+<!-- slide category end -->
+
+ <!-- 3rd category -->
+
+<div class="category3-body">
+  
+  <h2 class="category3-heading">Category</h2>
+  
+  <div class="category3-container">
+    <div class="category3-card right">
+      <img src="{% static 'img/rono/cr7-4.jpg' %}" alt="National Team" class="category3-image">
+      <div class="category3-label">Champions Leagues</div>
+    </div>
+
+    <div class="category3-card left">
+      <img src="{% static 'img/rono/c-p.jpg' %}" alt="Champions Leagues" class="category3-image">
+      <div class="category3-label">National Team</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 3rd category end -->
+
+
+<!-- club logo -->
+  
+<div class="club-selection">
+  <h2 class="club-head">Club</h2>
+  <div class="club-logos">
+    <div class="club-card">
+      <img src="{% static 'img/rono/manchester.png' %}" alt="Manchester United">
+      <!-- <div class="club-name">Manchester United</div> -->
+    </div>
+    <div class="club-card">
+      <img src="{% static 'img/rono/real-madrid.jpg' %}" alt="Real Madrid">
+      <!-- <div class="club-name">Real Madrid</div> -->
+    </div>
+    <div class="club-card">
+      <img src="{% static 'img/rono/Juventus.jpg' %}" alt="Juventus">
+      <!-- <div class="club-name">Juventus</div> -->
+    </div>
+    <div class="club-card">
+      <img src="{% static 'img/rono/al-nassar.jpg' %}" alt="Al-Nassr">
+      <!-- <div class="club-name">Al-Nassr</div> -->
+    </div>
+  </div>
+</div>
+
+<!-- club logo end -->
+
+
+<!-- offer -->
+ <div class="offer-section">
+  <h2 class="offer-head">Offers</h2>
+  <img src="{% static 'img/rono/banner1.png' %}" alt="Special Offer" class="offer-banner">
+</div>
+
+<!-- offer end -->
+
+
+<!-- product -->
+
+<div class="product-section">
+  <h2 class="product-h2">Product</h2>
+
+  <div class="product-grid">
+    <!-- Product Card 1 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 2 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j1.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2020 Portugal Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 3 -->
+   <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Product Card 1 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 2 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j1.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2020 Portugal Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 3 -->
+   <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Product Card 1 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 2 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j1.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2020 Portugal Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 3 -->
+   <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Product Card 1 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 2 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j1.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2020 Portugal Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 3 -->
+   <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- product end -->
+
+<div class="banner2">
+  <img src="{% static 'img/rono/banner2.webp' %}" alt="banner">
+</div>
+
+
+<!-- best seller -->
+
+<div class="product-section">
+  <h2 class="product-h2">Bset Seller</h2>
+
+  <div class="product-grid">
+    <!-- Product Card 1 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 2 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j1.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2020 Portugal Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 3 -->
+   <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Product Card 1 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 2 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j1.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2020 Portugal Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 3 -->
+   <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<!-- best seller end -->
+
+
+<!-- product carousel -->
+ <div class="product-carousel-container">
+<div class="product-carousel-box">
+    <div class="product-carousel-image-container">
+      <img id="product-carousel-image" src="{% static 'img/rono/j1.png' %}" alt="Jersey">
+    </div>
+    <div class="product-carousel-text-container">
+      <h2>Qualities of Wearing a Jersey:</h2>
+      <ul>
+        <li><strong>Comfortable:</strong> Lightweight, breathable, and soft on the skin.</li>
+        <li><strong>Stylish:</strong> Shows off team spirit and looks great casually.</li>
+        <li><strong>Durable:</strong> Long-lasting prints and strong stitching.</li>
+        <li><strong>Versatile:</strong> Great for sports, casual wear, or fan events.</li>
+        <li><strong>Emotional:</strong> Connects you to your team and community.</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+  <!-- product carousel end -->
+
+
+  
+<!-- best seller -->
+
+<div class="product-section">
+  <h2 class="product-h2">Bset Seller</h2>
+
+  <div class="product-grid">
+    <!-- Product Card 1 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 2 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j1.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2020 Portugal Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 3 -->
+   <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Product Card 1 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 2 -->
+    <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j1.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2020 Portugal Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Product Card 3 -->
+   <div class="product-card">
+  <div class="product-top">
+    <span>CR7</span>
+  </div>
+  <div class="product-image-wrapper">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+  </div>
+  <div class="product-details">
+    <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+    <div class="product-category">Men Wear</div>
+    <div class="product-bottom">
+      <div class="product-price">$400</div>
+      <button class="order-button">Order Now</button>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<!-- best seller end -->
+
+<!-- category slider js -->
+<script>
+  const slides = [
+    {
+      team: 'Real Madrid',
+      club: 'Ronaldo',
+      description: 'The Real Madrid jersey is iconic with its all-white design, club crest, and sleek Adidas styling — symbolizing elegance and legacy.',
+      short: 'Iconic No. 7 with premium fit.<br>A must for every CR7 fan.',
+      img: "{% static 'img/rono/cr7-2.png' %}"
+    },
+    {
+      team: 'Juventus',
+      club: 'Ronaldo',
+      description: 'The Juventus black-and-white stripes blend legacy with modern flair, capturing Ronaldo\'s impact in Serie A.',
+      short: 'Iconic No. 7 with premium fit.<br>A must for every CR7 fan.',
+      img: "{% static 'img/rono/cr7-1.png' %}"
+    },
+    {
+      team: 'Manchester United',
+      club: 'Ronaldo',
+      description: 'Red Devils pride with Ronaldo’s second-coming energy — classic red shirt with sharp black trims.',
+      short: 'Iconic No. 7 with premium fit.<br>A must for every CR7 fan.',
+      img: "{% static 'img/rono/cr7-2.png' %}"
+    },
+    {
+      team: 'Al Nassr',
+      club: 'Ronaldo',
+      description: 'Golden ambitions in Saudi Arabia — the Al Nassr jersey represents a new era for Ronaldo’s legacy.',
+      short: 'Iconic No. 7 with premium fit.<br>A must for every CR7 fan.',
+      img: "{% static 'img/rono/cr7-1.png' %}"
+    }
+  ];
+
+  let currentSlide = 0;
+
+  function renderSlide(index) {
+    const wrapper = document.getElementById("slidesWrapper");
+    const infoBox = document.getElementById("infoBox");
+    const slide = slides[index];
+
+    wrapper.innerHTML = `
+      <div class="slider-categorytwo-text-content">
+        <p>${slide.description}</p>
+        <h1>${slide.team}</h1>
+      </div>
+      <img src="${slide.img}" alt="${slide.team}" class="slider-categorytwo-cr7-img">
+    `;
+
+    infoBox.innerHTML = `
+      <h2 style="font-size: 35px;font-weight: 600;  margin-bottom: 3px;">${slide.team}</h2>
+      <small style="font-size: 25px;display: block; margin-bottom: 25px;">${slide.club}</small>
+      <div style="color: gray;margin-bottom:0px;font-size:14px">Available Colors</div>
+      <div class="slider-categorytwo-colors" style="margin-top:0px;padding-top:5px">
+        <span class="slider-categorytwo-color-circle slider-categorytwo-blue-stripe"></span>
+        <span class="slider-categorytwo-color-circle slider-categorytwo-purple-stripe"></span>
+      </div>
+      <p style="font-size: 14px;">${slide.short}</p>
+    `;
+
+    document.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    renderSlide(currentSlide);
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    renderSlide(currentSlide);
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    renderSlide(currentSlide);
+  }
+
+  renderSlide(0);
+</script>
+
+
+<!-- product slider js -->
+  <script>
+    const productCarouselImages = [
+      "{% static 'img/rono/j3.png' %}",
+      "{% static 'img/rono/j1.png' %}",
+    ];
+
+    let productCarouselIndex = 0;
+    const productCarouselImg = document.getElementById("product-carousel-image");
+
+    setInterval(() => {
+      productCarouselIndex = (productCarouselIndex + 1) % productCarouselImages.length;
+      productCarouselImg.src = productCarouselImages[productCarouselIndex];
+    }, 2500);
+  </script>
+
+</body>
+</html>
+
