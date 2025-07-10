@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Wishlist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/wishlist2.css' %}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">RONALDO ⚽</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/shop/">Shop</a>
+      <a href="/wishlist/">Wishlist</a>
+      <a href="/cart/">Cart</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </div>
+
+  <!-- Wishlist Content -->
+  <div class="wishlist-container">
+    <h2>My Wishlist ✏️</h2>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Product Name</th>
+          <th>Unit Price</th>
+          <th>Stock Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="remove-btn">×</td>
+          <td>
+            <div class="product-info">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Product" class="product-img">
+              <span class="product-name">CR7 Red Jersey</span>
+            </div>
+          </td>
+          <td>
+            <span class="original-price">€100.00</span>
+            <span class="price">€70.00</span>
+          </td>
+          <td class="stock">In Stock</td>
+          <td><button class="add-to-cart-btn">Add to Cart</button></td>
+        </tr>
+
+        <tr>
+          <td class="remove-btn">×</td>
+          <td>
+            <div class="product-info">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Product" class="product-img">
+              <span class="product-name">CR7 Grid Edition</span>
+            </div>
+          </td>
+          <td><span class="price">€250.00</span></td>
+          <td class="stock">In Stock</td>
+          <td><button class="add-to-cart-btn">Add to Cart</button></td>
+        </tr>
+
+        <tr>
+          <td class="remove-btn">×</td>
+          <td>
+            <div class="product-info">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Product" class="product-img">
+              <span class="product-name">CR7 Sleeveless</span>
+            </div>
+          </td>
+          <td><span class="price">€135.00</span></td>
+          <td class="stock">In Stock</td>
+          <td><button class="add-to-cart-btn">Add to Cart</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Ronaldo Shop
+  </footer>
+
+</body>
+</html>

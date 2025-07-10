@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wishlist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/wishlist.css' %}">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">RONALDO ⚽</div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/shop/">Shop</a>
+    <a href="/wishlist/">Wishlist</a>
+    <a href="/cart/">Cart</a>
+    <a href="/contact/">Contact</a>
+  </div>
+</div>
+
+<!-- Wishlist Section -->
+<div class="content">
+  <h2>Wishlist</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Product name</th>
+        <th>Unit price</th>
+        <th>Stock status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="remove">×</td>
+        <td>
+          <div class="product-info">
+            <img src="{% static 'img/rono/j3.png' %}" alt="Jersey">
+            <span>Home Jersey 2025</span>
+          </div>
+        </td>
+        <td>$49.00</td>
+        <td class="stock">In Stock</td>
+        <td><button class="add-to-cart"><span class="cart-icon">👜</span> Add to cart</button></td>
+      </tr>
+
+      <tr>
+        <td class="remove">×</td>
+        <td>
+          <div class="product-info">
+            <img src="{% static 'img/rono/j3.png' %}" alt="Alt Jersey">
+            <span>Away Jersey - Limited</span>
+          </div>
+        </td>
+        <td>$59.00</td>
+        <td class="stock">In Stock</td>
+        <td><button class="add-to-cart"><span class="cart-icon">👜</span> Add to cart</button></td>
+      </tr>
+
+      <tr>
+        <td class="remove">×</td>
+        <td>
+          <div class="product-info">
+            <img src="{% static 'img/rono/j3.png' %}" alt="Training Tee">
+            <span>CR7 Training Tee</span>
+          </div>
+        </td>
+        <td>$39.00</td>
+        <td class="stock">In Stock</td>
+        <td><button class="add-to-cart"><span class="cart-icon">👜</span> Add to cart</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

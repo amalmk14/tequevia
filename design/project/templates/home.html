@@ -8,9 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
   <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet"> -->
-  <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  
+
 </head>
 <body>
+  <div class="web-view">
   <header>
     <nav class="navbar">
       <ul>
@@ -42,47 +45,118 @@
     </div>
   </div>
 </section>
+</div>
+<!-- Mobile View Layout -->
+<div class="mobile-hero">
+  <header class="mobile-hero-navbar">
+    <div class="top-icons">
+      <a href="#">🔍</a>
+      <a href="#">☰</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">New In</a></li>
+        <li><a href="#">Classic</a></li>
+        <li><a href="#">Clearance</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="mobile-hero-title">
+    <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
+  </div>
+
+ <div class="mobile-hero-image">
+  <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey" />
+</div>
+
+<div class="mobile-hero-description-under">
+  <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
+  <button>Check More</button>
+</div>
+
+  <div class="mobile-hero-cart">
+    <div class="circle">+</div>
+    <!-- <p>Add To Cart</p> -->
+  </div>
+</div>
+
+
+
+
 
 <!-- category -->
 
- <section class="category-wrapper">
-    <h2>Catogory</h2>
-    <div class="category-row-layout">
 
-      <div class="category-col category-col-4">
-        <div class="category-card category-tall" style="background-image: url('{% static 'img/rono/c-p.jpg' %}')">
-          <span style="font-size: 30px;">Portugal</span>
-        </div>
+  <section class="category-wrapper">
+  <h2>Category</h2>
+
+  <!--  Desktop Layout -->
+  <div class="category-row-layout category-desktop">
+    <div class="category-col category-col-4">
+      <div class="category-card category-tall" style="background-image: url('{% static 'img/rono/c-p.jpg' %}')">
+        <span style="font-size: 30px;">Portugal</span>
       </div>
+    </div>
 
-      <div class="category-col category-col-3">
-        <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-j.webp' %}')">
-          <span style="font-size: 30px;">Juventus</span>
-        </div>
-        <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-m.jpg' %}')">
-          <span style="left: 0; right: 0; text-align: center;font-size: 28px;">Manchester United</span>
-        </div>
+    <div class="category-col category-col-3">
+      <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-j.webp' %}')">
+        <span style="font-size: 30px;">Juventus</span>
       </div>
+      <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-m.jpg' %}')">
+        <span style="left: 0; right: 0; text-align: center; font-size: 28px;">Manchester United</span>
+      </div>
+    </div>
 
-      <div class="category-col category-col-5">
-        <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-r.jpg' %}');background-position: center top;">
-          <span style="right: 10px; bottom: 10px;">Real Madrid</span>
+    <div class="category-col category-col-5">
+      <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-r.jpg' %}'); background-position: center top;">
+        <span style="right: 10px; bottom: 10px;">Real Madrid</span>
+      </div>
+      <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-a.jpg' %}')">
+        <span style="top: 10px; left: 10px;">Al Nassr</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Layout -->
+  <div class="category-mobile">
+    <!-- Row 1 -->
+    <div class="mobile-row-1">
+      <div class="left-image" style="background-image: url('{% static 'img/rono/c-p.jpg' %}')">
+        <span>Portugal</span>
+      </div>
+      <div class="right-column">
+        <div class="small-image" style="background-image: url('{% static 'img/rono/c-j.webp' %}')">
+          <span>Juventus</span>
         </div>
-        <div class="category-card category-half" style="background-image: url('{% static 'img/rono/c-a.jpg' %}')">
-          <span style="top: 10px; left: 10px;">Al Nassr</span>
+        <div class="small-image" style="background-image: url('{% static 'img/rono/c-m.jpg' %}')">
+          <span>Manchester United</span>
         </div>
       </div>
     </div>
-  </section>
 
+    <!-- Row 2 -->
+    <div class="full-image" style="background-image: url('{% static 'img/rono/c-r.jpg' %}')">
+      <span>Real Madrid</span>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="full-image" style="background-image: url('{% static 'img/rono/c-a.jpg' %}')">
+      <span>Al Nassr</span>
+    </div>
+  </div>
+</section>
+  
 <!-- category end -->
 
-  <!-- slider category -->
+<!-- slider category -->
 
-  
+<!-- Desktop Web Slider -->
 <div class="slider-categorytwo-container">
-
-  <div class="slider-categorytwo-info-box" id="infoBox"></div>
+  <div class="slider-categorytwo-inner">
+    <div class="slider-categorytwo-main-content" id="slidesWrapper"></div>
+    <div class="slider-categorytwo-info-box" id="infoBox"></div>
+  </div>
 
   <div class="slider-categorytwo-slider-controls">
     <div class="dot" onclick="goToSlide(0)"></div>
@@ -92,11 +166,29 @@
     <div class="arrow" onclick="prevSlide()">&#8592;</div>
     <div class="arrow" onclick="nextSlide()">&#8594;</div>
   </div>
-
-  <div class="slider-categorytwo-main-content" id="slidesWrapper"></div>
 </div>
 
-<!-- slide category end -->
+<!-- Mobile Slider -->
+<div class="slider-categorytwo-mobile">
+  <div class="slider-categorytwo-mobile-text">
+    <h1 id="mobileTeam"></h1>
+    <p id="mobileDescription"></p>
+  </div>
+
+  <div class="slider-categorytwo-mobile-image">
+    <img id="mobileImage" src="" alt="CR7 Mobile Image">
+  </div>
+
+  <div class="slider-categorytwo-mobile-info" id="mobileInfoBox"></div>
+
+  <div class="slider-categorytwo-mobile-controls">
+    <span class="dot" onclick="goToSlideMobile(0)"></span>
+    <span class="dot" onclick="goToSlideMobile(1)"></span>
+    <span class="dot" onclick="goToSlideMobile(2)"></span>
+    <span class="dot" onclick="goToSlideMobile(3)"></span>
+  </div>
+</div>
+<!-- slider category end -->
 
  <!-- 3rd category -->
 
@@ -518,11 +610,11 @@
     <div class="product-carousel-text-container">
       <h2>Qualities of Wearing a Jersey:</h2>
       <ul>
-        <li><strong>Comfortable:</strong> Lightweight, breathable, and soft on the skin.</li>
-        <li><strong>Stylish:</strong> Shows off team spirit and looks great casually.</li>
-        <li><strong>Durable:</strong> Long-lasting prints and strong stitching.</li>
-        <li><strong>Versatile:</strong> Great for sports, casual wear, or fan events.</li>
-        <li><strong>Emotional:</strong> Connects you to your team and community.</li>
+        <li><strong>Comfortable: Lightweight, breathable, and soft on the skin.</strong></li>
+        <li><strong>Stylish: Shows off team spirit and looks great casually.</strong></li>
+        <li><strong>Durable: Long-lasting prints and strong stitching.</strong></li>
+        <li><strong>Versatile: Great for sports, casual wear, or fan events.</strong></li>
+        <li><strong>Emotional: Connects you to your team and community.</strong></li>
       </ul>
     </div>
   </div>
@@ -652,6 +744,7 @@
 <!-- best seller end -->
 
 <!-- category slider js -->
+
 <script>
   const slides = [
     {
@@ -684,8 +777,8 @@
     }
   ];
 
+  // Desktop
   let currentSlide = 0;
-
   function renderSlide(index) {
     const wrapper = document.getElementById("slidesWrapper");
     const infoBox = document.getElementById("infoBox");
@@ -700,17 +793,17 @@
     `;
 
     infoBox.innerHTML = `
-      <h2 style="font-size: 35px;font-weight: 600;  margin-bottom: 3px;">${slide.team}</h2>
-      <small style="font-size: 25px;display: block; margin-bottom: 25px;">${slide.club}</small>
-      <div style="color: gray;margin-bottom:0px;font-size:14px">Available Colors</div>
-      <div class="slider-categorytwo-colors" style="margin-top:0px;padding-top:5px">
+      <h2 style="font-size: 35px;font-weight: 600;">${slide.team}</h2>
+      <small style="font-size: 25px;display: block;">${slide.club}</small>
+      <div style="color: gray;font-size:14px">Available Colors</div>
+      <div class="slider-categorytwo-colors">
         <span class="slider-categorytwo-color-circle slider-categorytwo-blue-stripe"></span>
         <span class="slider-categorytwo-color-circle slider-categorytwo-purple-stripe"></span>
       </div>
       <p style="font-size: 14px;">${slide.short}</p>
     `;
 
-    document.querySelectorAll('.dot').forEach((dot, i) => {
+    document.querySelectorAll('.slider-categorytwo-slider-controls .dot').forEach((dot, i) => {
       dot.classList.toggle('active', i === index);
     });
   }
@@ -727,10 +820,43 @@
 
   function goToSlide(index) {
     currentSlide = index;
-    renderSlide(currentSlide);
+    renderSlide(index);
   }
 
   renderSlide(0);
+
+  // Mobile
+  let currentMobileSlide = 0;
+
+  function renderMobileSlide(index) {
+    const slide = slides[index];
+    document.getElementById('mobileTeam').textContent = slide.team;
+    document.getElementById('mobileDescription').textContent = slide.description;
+    document.getElementById('mobileImage').src = slide.img;
+    document.getElementById('mobileImage').alt = slide.team;
+
+    document.getElementById('mobileInfoBox').innerHTML = `
+      <h2 style="font-size: 20px; margin: 0;">${slide.team}</h2>
+      <small style="color: gray;">${slide.club}</small>
+      <div style="color: gray; margin-top: 10px;">Available Colors</div>
+      <div style="margin: 5px 0 10px;">
+        <span style="display:inline-block;width:20px;height:20px;border-radius:50%;background:repeating-linear-gradient(45deg, #001f54, #001f54 5px, white 5px, white 10px);margin-right:10px;"></span>
+        <span style="display:inline-block;width:20px;height:20px;border-radius:50%;background:repeating-linear-gradient(45deg, purple, purple 5px, white 5px, white 10px);"></span>
+      </div>
+      <p style="font-size: 14px; margin-top: 8px;">${slide.short}</p>
+    `;
+
+    document.querySelectorAll('.slider-categorytwo-mobile-controls .dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  function goToSlideMobile(index) {
+    currentMobileSlide = index;
+    renderMobileSlide(index);
+  }
+
+  renderMobileSlide(0);
 </script>
 
 

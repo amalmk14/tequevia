@@ -4,3 +4,30 @@ from django.shortcuts import render
 
 def Home(request):
     return render(request,"home.html")
+
+def Checkout(request):
+    return render(request,"checkout.html") 
+
+def Cart(request):
+    return render(request,"cart.html") 
+
+def Cart2(request):
+    return render(request,"cart2.html") 
+
+def Wishlist(request):
+    return render(request,"wishlist.html")
+
+def Wishlist2(request):
+    return render(request,"wishlist2.html")
+
+def Details(request):
+    return render(request,"product_details.html")
+
+def Details2(request):
+    return render(request,"product_details2.html")
+
+def List(request):
+    return render(request,"product_list.html")
+
+def List2(request):
+    return render(request,"product_list2.html")

@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="{% static 'css/product_details2.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">RONALDO ⚽</div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/shop/">Shop</a>
+    <a href="/wishlist/">Wishlist</a>
+    <a href="/cart/">Cart</a>
+    <a href="/contact/">Contact</a>
+  </div>
+</div>
+
+<!-- Product Section -->
+<div class="container">
+  <!-- Left: Product Images -->
+  <div class="left-side">
+    <img src="{% static 'img/rono/j3.png' %}" alt="Ronaldo Jersey">
+    <div class="thumbnail-row">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Front">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Back">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Side">
+    </div>
+  </div>
+
+  <!-- Right: Product Info -->
+  <div class="right-side">
+    <div class="product-title">Official Ronaldo CR7 Jersey 2025</div>
+    <div class="price">$40.00 <span class="old-price">$60.00</span></div>
+
+    <div class="sizes">
+      <span>Select Size:</span>
+      <div class="size-options">
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+        <button>XXL</button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="wishlist-btn">♡ Wishlist</button>
+      <button class="cart-btn">Add to Cart</button>
+    </div>
+
+    <div class="product-details">
+      <h4>Product Details</h4>
+      <p>This is the official CR7 pro-fit jersey for fans and athletes alike.</p>
+      <ul>
+        <li>100% premium breathable polyester</li>
+        <li>Moisture-wicking mesh fabric</li>
+        <li>Machine washable</li>
+      </ul>
+      <p>Ships from: <strong>Lisbon Store</strong></p>
+      <p>Delivery in 3-7 business days. 30-day return policy included.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Similar Products Section -->
+<div class="similar-section">
+  <h3>You Might Also Like</h3>
+  <div class="similar-products">
+    <div class="similar-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Alt 1">
+      <p>Home Edition Jersey</p>
+      <p class="price">$35</p>
+    </div>
+    <div class="similar-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Alt 2">
+      <p>Training CR7 Tee</p>
+      <p class="price">$30</p>
+    </div>
+    <div class="similar-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Alt 3">
+      <p>Limited Black Jersey</p>
+      <p class="price">$50</p>
+    </div>
+    <div class="similar-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Alt 4">
+      <p>Goalkeeper Jersey</p>
+      <p class="price">$42</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

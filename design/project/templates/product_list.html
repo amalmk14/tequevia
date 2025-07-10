@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="{% static 'css/product_list.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">RONALDO ⚽</div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/shop/">Shop</a>
+    <a href="/wishlist/">Wishlist</a>
+    <a href="/cart/">Cart</a>
+    <a href="/contact/">Contact</a>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-container">
+  <!-- Left Filters -->
+  <div class="filter-panel">
+    <h3>Filters</h3>
+
+    <div class="filter-group">
+      <label for="team">Team</label>
+      <select id="team">
+        <option>All</option>
+        <option>Sporting CP</option>
+        <option>Manchester United</option>
+        <option>Real Madrid</option>
+        <option>Juventus</option>
+        <option>Al Nassr</option>
+        <option>Portugal</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="price">Price</label>
+      <select id="price">
+        <option>All</option>
+        <option>Low to High</option>
+        <option>High to Low</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="sort">Sort By</label>
+      <select id="sort">
+        <option>All</option>
+        <option>Latest</option>
+        <option>Oldest</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Right Product Grid -->
+  <div class="product-listing">
+     <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Product 1">
+      <h4>Ronaldo Jersey - Real Madrid</h4>
+      <p>Classic White Home Edition</p>
+      <div class="price">€75.00</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

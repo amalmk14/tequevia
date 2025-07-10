@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Product</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/product_details.css' %}">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">RONALDO ⚽</div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/shop/">Shop</a>
+    <a href="/wishlist/">Wishlist</a>
+    <a href="/cart/">Cart</a>
+    <a href="/contact/">Contact</a>
+  </div>
+</div>
+
+<!-- Main Product Section -->
+<div class="container">
+
+  <!-- Left Gallery -->
+  <div class="gallery">
+    <div class="thumbnails">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Front">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Back">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Side">
+    </div>
+    <div class="main-image">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Main">
+    </div>
+  </div>
+
+  <!-- Product Details -->
+  <div class="product-details">
+    <div class="product-title">CR7 Pro Edition Jersey</div>
+    <div class="product-subtitle">Men's Football Jersey</div>
+    <div class="price">$129.00</div>
+
+    <div class="variant-colors">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Red">
+      <img src="{% static 'img/rono/j3.png' %}" alt="White">
+      <img src="{% static 'img/rono/j3.png' %}" alt="Black">
+    </div>
+
+    <div class="size-qty">
+      <select>
+        <option>Select Size</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+      </select>
+      <select>
+        <option>Qty</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </div>
+
+    <button class="add-cart-btn">Add to Cart</button>
+
+    <div class="links">
+      <a href="#">Size Chart</a>
+      <a href="#">Save to Wishlist</a>
+    </div>
+
+    <div class="info-box">
+      <div><strong>Live Chat</strong>: Our football experts are available 24/7 for fit, material, and delivery support.</div>
+      <div class="chat-btn">Live Chat</div>
+      <br><br>
+      <div><strong>Free Worldwide Shipping</strong> on orders above $100.</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
