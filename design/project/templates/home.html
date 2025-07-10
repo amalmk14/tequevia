@@ -6,11 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CR7 Jersey</title>
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet"> -->
   <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/home_menu.css' %}" />
   
-
 </head>
 <body>
   <div class="web-view">
@@ -20,74 +26,134 @@
         <li><a href="#">Best Selling</a></li>
         <li><a href="#">Shop</a></li>
         <li><a href="#">New Arrivals</a></li>
-        <li><a href="#">☰</a></li>
+        <li><a href="javascript:void(0);" onclick="toggleWebMenu()"><i class="fa-solid fa-bars"></i></a></li>
       </ul>
     </nav>
   </header>
   <section class="main-content">
-  <div class="title-text">
-    <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
+    <div class="title-text">
+      <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
+    </div>
+
+    <div class="content-row">
+      <div class="description">
+        <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
+        <button>Check More</button>
+      </div>
+
+      <div class="jersey-center">
+        <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey" />
+      </div>
+
+      <div class="add-to-cart">
+        <div class="circle">+</div>
+        <p>Add To Cart</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web Side Menu (Right Side) -->
+  <div class="web-side-menu" id="webSideMenu">
+    <a href="javascript:void(0);" class="close-web-menu" onclick="toggleWebMenu()">
+      <i class="fa-solid fa-circle-xmark"></i>
+    </a>
+    <ul>
+      <li class="active new-item"><a href="#" onclick="selectWebMainItem(this)">New In</a></li>
+      <li><a href="#" onclick="selectWebMainItem(this)">Recent Drops</a></li>
+      <li><a href="#" onclick="selectWebMainItem(this)">Classic</a></li>
+      <li><a href="#" onclick="showWebSubmenu('current-season', this)">Current Season</a></li>
+      <li><a href="#" onclick="showWebSubmenu('clearance', this)">Clearance</a></li>
+      <li><a href="#" onclick="showWebSubmenu('fifa-world-cup', this)">FIFA World Cup</a></li>
+      <li><a href="#" onclick="showWebSubmenu('premier-league', this)">Premier League</a></li>
+      <li><a href="#" onclick="showWebSubmenu('laiga', this)">La Liga</a></li>
+      <li><a href="#" onclick="showWebSubmenu('national', this)">National</a></li>
+      <li class="settings-item"><a href="#" onclick="selectWebMainItem(this)"><i class="fas fa-cog icon"></i> Settings</a></li>
+      <li><a href="#" onclick="selectWebMainItem(this)"><i class="fas fa-user icon"></i> Profile</a></li>
+    </ul>
   </div>
 
-  <div class="content-row">
-    <div class="description">
+  <!-- Web Submenu (Left of Web Menu) -->
+  <div class="web-submenu" id="webSubmenu">
+    <h3 id="webSubmenuTitle">Submenu</h3>
+    <ul id="webSubmenuItems"></ul>
+  </div>
+  </div>
+
+  <!-- Mobile View Layout -->
+
+  <header class="mobile-hero-navbar">
+      <div class="top-icons">
+        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">New In</a></li>
+          <li><a href="#">Classic</a></li>
+          <li><a href="#">Clearance</a></li>
+        </ul>
+      </nav>
+    </header>
+  <div class="mobile-hero">
+    
+
+    <div class="mobile-hero-title">
+      <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
+    </div>
+
+  <div class="mobile-hero-image">
+    <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey" />
+  </div>
+
+  
+  <div class="mobile-side-menu" id="mobileSideMenu">
+          <a href="#" class="close-menu" onclick="toggleMobileMenu()">
+              <i class="fa-solid fa-circle-xmark"></i>
+          </a>
+          <ul>
+              <li class="active new-item"><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-home icon"></i> New In</a></li>
+              <li><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-clock icon"></i> Recent Drops</a></li>
+              <li><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-trophy icon"></i> Classic</a></li>
+              <li><a href="#" onclick="showSubmenu('current-season', this)"><i class="fas fa-calendar-alt icon"></i> Current Season</a></li>
+              <li><a href="#" onclick="showSubmenu('clearance', this)"><i class="fas fa-bolt icon"></i> Clearance</a></li>
+              <li><a href="#" onclick="showSubmenu('fifa-world-cup', this)"><i class="fas fa-globe icon"></i> FIFA World Cup</a></li>
+              <li><a href="#" onclick="showSubmenu('premier-league', this)"><i class="fas fa-star icon"></i> Premier League</a></li>
+              <li><a href="#" onclick="showSubmenu('laiga', this)"><i class="fas fa-bullseye icon"></i> Laiga</a></li>
+              <li><a href="#" onclick="showSubmenu('national', this)"><i class="fas fa-flag icon"></i> National</a></li>
+              <li class="settings-item"><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-cog icon"></i> Settings</a></li>
+              <li><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-user icon"></i> Profile</a></li>
+          </ul>
+      </div>
+
+      <!-- Submenu -->
+      <div class="submenu" id="submenu">
+          <!-- <div class="back-button" onclick="hideSubmenu()">
+              <i class="fas fa-arrow-left"></i>
+              <span>Back</span>
+          </div> -->
+          <h3 id="submenuTitle">Current Season</h3>
+          <ul id="submenuItems">
+              <!-- Submenu items will be populated by JavaScript -->
+          </ul>
+      </div>
+
+      <!-- Click outside overlay -->
+      <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="toggleMobileMenu()"></div>
+
+
+    <div class="mobile-hero-description-under">
       <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
       <button>Check More</button>
     </div>
 
-    <div class="jersey-center">
-      <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey" />
-    </div>
-
-    <div class="add-to-cart">
+    <div class="mobile-hero-cart">
       <div class="circle">+</div>
-      <p>Add To Cart</p>
+      <!-- <p>Add To Cart</p> -->
     </div>
   </div>
-</section>
-</div>
-<!-- Mobile View Layout -->
-<div class="mobile-hero">
-  <header class="mobile-hero-navbar">
-    <div class="top-icons">
-      <a href="#">🔍</a>
-      <a href="#">☰</a>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">New In</a></li>
-        <li><a href="#">Classic</a></li>
-        <li><a href="#">Clearance</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="mobile-hero-title">
-    <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
-  </div>
-
- <div class="mobile-hero-image">
-  <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey" />
-</div>
-
-<div class="mobile-hero-description-under">
-  <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
-  <button>Check More</button>
-</div>
-
-  <div class="mobile-hero-cart">
-    <div class="circle">+</div>
-    <!-- <p>Add To Cart</p> -->
-  </div>
-</div>
-
-
-
 
 
 <!-- category -->
-
-
   <section class="category-wrapper">
   <h2>Category</h2>
 
@@ -179,7 +245,7 @@
     <img id="mobileImage" src="" alt="CR7 Mobile Image">
   </div>
 
-  <div class="slider-categorytwo-mobile-info" id="mobileInfoBox"></div>
+  
 
   <div class="slider-categorytwo-mobile-controls">
     <span class="dot" onclick="goToSlideMobile(0)"></span>
@@ -188,6 +254,7 @@
     <span class="dot" onclick="goToSlideMobile(3)"></span>
   </div>
 </div>
+<div class="slider-categorytwo-mobile-info" id="mobileInfoBox"></div>
 <!-- slider category end -->
 
  <!-- 3rd category -->
@@ -837,13 +904,8 @@
 
     document.getElementById('mobileInfoBox').innerHTML = `
       <h2 style="font-size: 20px; margin: 0;">${slide.team}</h2>
-      <small style="color: gray;">${slide.club}</small>
-      <div style="color: gray; margin-top: 10px;">Available Colors</div>
-      <div style="margin: 5px 0 10px;">
-        <span style="display:inline-block;width:20px;height:20px;border-radius:50%;background:repeating-linear-gradient(45deg, #001f54, #001f54 5px, white 5px, white 10px);margin-right:10px;"></span>
-        <span style="display:inline-block;width:20px;height:20px;border-radius:50%;background:repeating-linear-gradient(45deg, purple, purple 5px, white 5px, white 10px);"></span>
-      </div>
-      <p style="font-size: 14px; margin-top: 8px;">${slide.short}</p>
+      <small style="font-size: 14px;color: gray;">${slide.club}</small>
+      <p style="font-size: 8px;color: gray; margin-top: 4px;">${slide.short}</p>
     `;
 
     document.querySelectorAll('.slider-categorytwo-mobile-controls .dot').forEach((dot, i) => {
@@ -875,7 +937,7 @@
       productCarouselImg.src = productCarouselImages[productCarouselIndex];
     }, 2500);
   </script>
-
+  <script src="{% static 'js/home_menu.js' %}"></script>
 </body>
 </html>
 
