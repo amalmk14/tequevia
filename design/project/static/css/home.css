@@ -15,6 +15,9 @@ body {
     background: #fff;
   }
 }
+
+
+
 .navbar-desktop {
   background: #fff;
   padding: 2.5vh 5vw 0;         /* top padding similar to mobile */
@@ -230,7 +233,7 @@ body {
     color: black;
     text-decoration: none;
   }
-  
+
   /* ---------- MOBILE HEADER ---------- */
   .mobile-hero-navbar {
     background:#fff;
@@ -349,8 +352,8 @@ body {
 
   .mobile-hero-cart {
     position: absolute;
-    top: 50%;
-    right: 30px;
+    top: 30%;
+    right: 10%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
@@ -494,6 +497,7 @@ body {
     display: none;
   }
 }
+
 
 
 /* category */
@@ -1212,8 +1216,8 @@ body {
 
 .offer-banner {
   width: 100%;
-  max-height: 35vh;                 /* Responsive banner height */
-  object-fit: cover;
+  max-height: auto;                 /* Responsive banner height */
+  object-fit: contain;
   border-radius: 1vw;
   box-shadow: 0 0.15vw 0.45vw rgba(0, 0, 0, 0.08);
 }
