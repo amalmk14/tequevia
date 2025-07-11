@@ -235,6 +235,7 @@
 </div>
 
 <!-- Mobile Slider -->
+<!--  
 <div class="slider-categorytwo-mobile">
   <div class="slider-categorytwo-mobile-text">
     <h1 id="mobileTeam"></h1>
@@ -246,6 +247,30 @@
   </div>
 
   
+  <div class="arrow" onclick="prevSlide()">&#8592;</div>
+    <div class="arrow" onclick="nextSlide()">&#8594;</div>
+  <div class="slider-categorytwo-mobile-controls">
+    <span class="dot" onclick="goToSlideMobile(0)"></span>
+    <span class="dot" onclick="goToSlideMobile(1)"></span>
+    <span class="dot" onclick="goToSlideMobile(2)"></span>
+    <span class="dot" onclick="goToSlideMobile(3)"></span>
+  </div>
+</div>
+<div class="slider-categorytwo-mobile-info" id="mobileInfoBox"></div> -->
+
+<div class="slider-categorytwo-mobile">
+  <div class="slider-categorytwo-mobile-text">
+    <h1 id="mobileTeam"></h1>
+    <p id="mobileDescription"></p>
+  </div>
+
+  <div class="slider-categorytwo-mobile-image">
+    <img id="mobileImage" src="" alt="CR7 Mobile Image">
+
+    <!-- ⬅️ Arrows should be inside this container -->
+    <div class="arrow left" onclick="prevSlide()">&#8592;</div>
+    <div class="arrow right" onclick="nextSlide()">&#8594;</div>
+  </div>
 
   <div class="slider-categorytwo-mobile-controls">
     <span class="dot" onclick="goToSlideMobile(0)"></span>
@@ -255,6 +280,8 @@
   </div>
 </div>
 <div class="slider-categorytwo-mobile-info" id="mobileInfoBox"></div>
+
+
 <!-- slider category end -->
 
  <!-- 3rd category -->
@@ -918,7 +945,18 @@
     renderMobileSlide(index);
   }
 
+  function prevSlide() {
+    currentMobileSlide = (currentMobileSlide - 1 + slides.length) % slides.length;
+    renderMobileSlide(currentMobileSlide);
+  }
+
+  function nextSlide() {
+    currentMobileSlide = (currentMobileSlide + 1) % slides.length;
+    renderMobileSlide(currentMobileSlide);
+  }
+
   renderMobileSlide(0);
+
 </script>
 
 
