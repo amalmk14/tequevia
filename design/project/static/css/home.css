@@ -1670,14 +1670,11 @@ body {
     /* ----- TEXT (fixed 20 px inset) ----- */
     .product-carousel-text-container {
       margin: 0;
+      margin-left: 10vw;
       padding: 0;          /* reset */
     }
-    .product-carousel-text-inner {
-      padding-left: 20px;  /* fixed inset */
-      padding-right: 20px; /* fixed inset */
-    }
   
-    .product-carousel-text-inner h2 {
+    .product-carousel-text-container h2 {
       font-size: clamp(16px, 5vw, 22px);
       margin: 0 0 2vh 0;
       line-height: 1.25;
@@ -1685,7 +1682,7 @@ body {
       text-align: left;
     }
   
-    .product-carousel-text-inner ul {
+    .product-carousel-text-container ul {
       margin: 0;
       padding: 0;
       list-style: none;
@@ -1693,9 +1690,9 @@ body {
       text-align: left;
     }
   
-    .product-carousel-text-inner li {
+    .product-carousel-text-container li {
       font-size: clamp(12px, 4vw, 16px);
-      margin: 0 0 1vh 0;
+      margin: 0 0 1vh 2vw;
       line-height: 1.35;
     }
   
