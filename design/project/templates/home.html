@@ -20,16 +20,41 @@
 </head>
 <body>
   <div class="web-view">
-  <header>
-    <nav class="navbar">
-      <ul>
-        <li><a href="#">Best Selling</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">New Arrivals</a></li>
-        <li><a href="javascript:void(0);" onclick="toggleWebMenu()"><i class="fa-solid fa-bars"></i></a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="navbar-desktop">
+      <div class="nav-top-row">
+        <!-- optional brand / logo here -->
+        <div class="desktop-icons">
+          <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+          <a href="javascript:void(0);" onclick="toggleWebMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </a>
+        </div>
+      </div>
+    
+      <nav class="nav-bottom-row">
+        <ul id="rollingNav">
+          <li><a href="#">Best Selling</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Membership</a></li>
+          <li><a href="#">Lookbook</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Sale</a></li>
+          <li><a href="#">Outlet</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const ul = document.getElementById("rollingNav");
+          ul.innerHTML += ul.innerHTML; // clone items once
+        });
+        </script>      
+    </header>
+    
   <section class="main-content">
     <div class="title-text">
       <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
@@ -82,18 +107,30 @@
   <!-- Mobile View Layout -->
 
   <header class="mobile-hero-navbar">
-      <div class="top-icons">
-        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-        <a href="#" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#">New In</a></li>
-          <li><a href="#">Classic</a></li>
-          <li><a href="#">Clearance</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div class="top-icons">
+      <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></a>
+    </div>
+  
+    <!-- Scrolling nav section -->
+    <nav class="mobile-scroll-nav">
+      <ul id="mobileRollingNav">
+        <li><a href="#">Best Selling</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">Membership</a></li>
+        <li><a href="#">Lookbook</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="#">Outlet</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+      
   <div class="mobile-hero">
     
 
@@ -235,28 +272,6 @@
 </div>
 
 <!-- Mobile Slider -->
-<!--  
-<div class="slider-categorytwo-mobile">
-  <div class="slider-categorytwo-mobile-text">
-    <h1 id="mobileTeam"></h1>
-    <p id="mobileDescription"></p>
-  </div>
-
-  <div class="slider-categorytwo-mobile-image">
-    <img id="mobileImage" src="" alt="CR7 Mobile Image">
-  </div>
-
-  
-  <div class="arrow" onclick="prevSlide()">&#8592;</div>
-    <div class="arrow" onclick="nextSlide()">&#8594;</div>
-  <div class="slider-categorytwo-mobile-controls">
-    <span class="dot" onclick="goToSlideMobile(0)"></span>
-    <span class="dot" onclick="goToSlideMobile(1)"></span>
-    <span class="dot" onclick="goToSlideMobile(2)"></span>
-    <span class="dot" onclick="goToSlideMobile(3)"></span>
-  </div>
-</div>
-<div class="slider-categorytwo-mobile-info" id="mobileInfoBox"></div> -->
 
 <div class="slider-categorytwo-mobile">
   <div class="slider-categorytwo-mobile-text">
@@ -570,7 +585,11 @@
 <!-- product end -->
 
 <div class="banner2">
-  <img src="{% static 'img/rono/banner2.webp' %}" alt="banner">
+  <img src="{% static 'img/rono/banner2.webp' %}" alt="Main banner for desktop">
+</div>
+
+<div class="banner3">
+  <img src="{% static 'img/rono/banner3.jpeg' %}" alt="Main banner for mobile">
 </div>
 
 
@@ -703,11 +722,11 @@
     <div class="product-carousel-text-container">
       <h2>Qualities of Wearing a Jersey:</h2>
       <ul>
-        <li><strong>Comfortable: Lightweight, breathable, and soft on the skin.</strong></li>
-        <li><strong>Stylish: Shows off team spirit and looks great casually.</strong></li>
-        <li><strong>Durable: Long-lasting prints and strong stitching.</strong></li>
-        <li><strong>Versatile: Great for sports, casual wear, or fan events.</strong></li>
-        <li><strong>Emotional: Connects you to your team and community.</strong></li>
+        <li>Comfortable: Lightweight, breathable, and soft on the skin.</li>
+        <li>Stylish: Shows off team spirit and looks great casually.</li>
+        <li>Durable: Long-lasting prints and strong stitching.</li>
+        <li>Versatile: Great for sports, casual wear, or fan events.</li>
+        <li>Emotional: Connects you to your team and community.</li>
       </ul>
     </div>
   </div>
