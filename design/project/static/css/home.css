@@ -1021,7 +1021,7 @@ body {
 
 /* -----------------------  GLOBAL / DESKTOP  ----------------------- */
 .category3-body {
-  font-family: Arial, sans-serif;
+  font-family: 'Outfit', sans-serif;
   background: #fdfbfb;
   margin: 0;
   padding: clamp(2vh, 4vh, 6vh) clamp(4vw, 7vw, 9vw);
