@@ -8,7 +8,7 @@ body {
   background: #e0e0e0;
   font-family: 'Outfit', sans-serif;
   overflow-x: hidden;
-  padding-top:calc(2.5vh + 50px); 
+  /* padding-top:calc(2.5vh + 50px);  */
 }
 
 @media (max-width: 768px) {
@@ -115,7 +115,7 @@ body {
 /* MAIN CONTENT WRAPPER */
 .main-content {
   padding: 5vh 4vw;
-  margin-top: 6vh;
+  margin-top: 12vh;
   position: relative;
 }
 
@@ -174,12 +174,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  
 }
 .jersey-center img {
   height: clamp(380px, 42vh, 600px);
   max-width: 100%;
   object-fit: cover;
-  margin-top: 9vh;                      /* ≈ 130 px */
+                     /* ≈ 130 px */
 }
 
 /* ADD‑TO‑CART */
@@ -227,37 +228,33 @@ body {
     padding: 0 16px;
     background: #e0e0e0;
     padding-bottom: 20px;
+    margin-top: 8vh; 
   }
 
   /* --- NAVIGATION --- */
-  .mobile-hero-navbar {
+
+  /* .mobile-hero-navbar {
+    position: fixed;
     display: block;
     background: white;
-    padding-top: 20px;
-  }
-
-  .mobile-hero-navbar .top-icons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 16px;
-    padding: 0 8px;
-  }
-
-  .mobile-hero-navbar .top-icons a {
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
-  }
-
-  /* ---------- MOBILE HEADER ---------- */
-  .mobile-hero-navbar {
     background:#fff;
-    padding-top:2vh;          /* fluid top padding */
-    font-family:Arial, sans-serif;
+    padding-top:2vh;          
+    left: 0;
+    width: 100%;
+    z-index: 1000;          
+    box-shadow: 0 2px 6px rgba(0,0,0,.08)
+  } */
+  .mobile-hero-navbar{
+    position: fixed;
+    display: block;
+    padding-top: 4vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
   }
 
-  /* icon row */
   .mobile-hero-navbar .top-icons{
     display:flex;
     justify-content:flex-end;
@@ -413,8 +410,8 @@ body {
   /* MAIN CONTENT WRAPPER */
   .main-content {
     padding: 5vh 4vw;                       /* vertical & horizontal */
-    margin-top: 6vh;                        /* smoother than % */
     position: relative;
+    margin-top: calc(12vh + 4vh);
   }
 
   /* HERO TITLE */
