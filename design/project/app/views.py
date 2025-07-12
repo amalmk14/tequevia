@@ -17,9 +17,6 @@ def Cart2(request):
 def Wishlist(request):
     return render(request,"wishlist.html")
 
-def Wishlist2(request):
-    return render(request,"wishlist2.html")
-
 def Details(request):
     return render(request,"product_details.html")
 
@@ -31,8 +28,3 @@ def List(request):
 
 def List2(request):
     return render(request,"product_list2.html")
-
-
-
-def WishlistNew(request):
-    return render(request,"wishlist-new.html")

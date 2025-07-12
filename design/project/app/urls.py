@@ -9,10 +9,9 @@ urlpatterns = [
     path('cart/',views.Cart,name="cart"),
     path('cart2/',views.Cart2,name="cart2"),
     path('wishlist/',views.Wishlist,name="wishlist"),
-    path('wishlist2/',views.Wishlist2,name="wishlist2"),
     path('details/',views.Details,name="product_details"),
     path('details2/',views.Details2,name="product_details2"),
     path('list/',views.List,name="product_list"),
     path('list2/',views.List2,name="product_list2"),
-    path('wishlistn/',views.WishlistNew,name="wishlistn"),
+
 ]
