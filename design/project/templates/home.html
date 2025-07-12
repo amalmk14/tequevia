@@ -131,15 +131,15 @@
       <i class="fa-solid fa-circle-xmark"></i>
     </a>
     <ul>
-      <li class="active new-item"><a href="#" onclick="selectWebMainItem(this)">New In</a></li>
-      <li><a href="#" onclick="selectWebMainItem(this)">Recent Drops</a></li>
-      <li><a href="#" onclick="selectWebMainItem(this)">Classic</a></li>
-      <li><a href="#" onclick="showWebSubmenu('current-season', this)">Current Season</a></li>
-      <li><a href="#" onclick="showWebSubmenu('clearance', this)">Clearance</a></li>
-      <li><a href="#" onclick="showWebSubmenu('fifa-world-cup', this)">FIFA World Cup</a></li>
-      <li><a href="#" onclick="showWebSubmenu('premier-league', this)">Premier League</a></li>
-      <li><a href="#" onclick="showWebSubmenu('laiga', this)">La Liga</a></li>
-      <li><a href="#" onclick="showWebSubmenu('national', this)">National</a></li>
+      <li class="active new-item"><a href="#" onclick="selectWebMainItem(this)"><img src="{% static 'icons/new-in.svg' %}"> New In</a></li>
+      <li><a href="#" onclick="selectWebMainItem(this)"><img src="{% static 'icons/recent-drops.svg' %}"> Recent Drops</a></li>
+      <li><a href="#" onclick="selectWebMainItem(this)"><img src="{% static 'icons/classic.svg' %}"> Classic</a></li>
+      <li><a href="#" onclick="showWebSubmenu('current-season', this)"><img src="{% static 'icons/current-season.svg' %}"> Current Season</a></li>
+      <li><a href="#" onclick="showWebSubmenu('clearance', this)"><img src="{% static 'icons/clearence.svg' %}"> Clearance</a></li>
+      <li><a href="#" onclick="showWebSubmenu('fifa-world-cup', this)"><img src="{% static 'icons/worldcup.svg' %}"> FIFA World Cup</a></li>
+      <li><a href="#" onclick="showWebSubmenu('premier-league', this)"><img src="{% static 'icons/' %}"> Premier League</a></li>
+      <li><a href="#" onclick="showWebSubmenu('laiga', this)"><img src="{% static 'icons/laliga.svg' %}"> La Liga</a></li>
+      <li><a href="#" onclick="showWebSubmenu('national', this)"><img src="{% static 'icons/national.svg' %}"> National</a></li>
       <li class="settings-item"><a href="#" onclick="selectWebMainItem(this)"><i class="fas fa-cog icon"></i> Settings</a></li>
       <li><a href="#" onclick="selectWebMainItem(this)"><i class="fas fa-user icon"></i> Profile</a></li>
     </ul>
@@ -156,8 +156,8 @@
 
   <header class="mobile-hero-navbar">
     <div class="top-icons">
-      <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-      <a href="#" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></a>
+      <a href="#"><img src="{% static 'icons/search.svg' %}"> </a>
+      <a href="#" onclick="toggleMobileMenu()"><img src="{% static 'icons/menu.svg' %}"> </a>
     </div>
   
     <!-- Scrolling nav section -->
@@ -196,15 +196,15 @@
               <i class="fa-solid fa-circle-xmark"></i>
           </a>
           <ul>
-              <li class="active new-item"><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-home icon"></i> New In</a></li>
-              <li><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-clock icon"></i> Recent Drops</a></li>
-              <li><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-trophy icon"></i> Classic</a></li>
-              <li><a href="#" onclick="showSubmenu('current-season', this)"><i class="fas fa-calendar-alt icon"></i> Current Season</a></li>
-              <li><a href="#" onclick="showSubmenu('clearance', this)"><i class="fas fa-bolt icon"></i> Clearance</a></li>
-              <li><a href="#" onclick="showSubmenu('fifa-world-cup', this)"><i class="fas fa-globe icon"></i> FIFA World Cup</a></li>
-              <li><a href="#" onclick="showSubmenu('premier-league', this)"><i class="fas fa-star icon"></i> Premier League</a></li>
-              <li><a href="#" onclick="showSubmenu('laiga', this)"><i class="fas fa-bullseye icon"></i> Laiga</a></li>
-              <li><a href="#" onclick="showSubmenu('national', this)"><i class="fas fa-flag icon"></i> National</a></li>
+              <li class="active new-item"><a href="#" onclick="selectMainMenuItem(this)"><img src="{% static 'icons/new-in.svg' %}"> New In</a></li>
+              <li><a href="#" onclick="selectMainMenuItem(this)"><img src="{% static 'icons/recent-drops.svg' %}">Recent Drops</a></li>
+              <li><a href="#" onclick="selectMainMenuItem(this)"><img src="{% static 'icons/classic.svg' %}">  Classic</a></li>
+              <li><a href="#" onclick="showSubmenu('current-season', this)"><img src="{% static 'icons/current-season.svg' %}"> Current Season</a></li>
+              <li><a href="#" onclick="showSubmenu('clearance', this)"><img src="{% static 'icons/clearence.svg' %}">Clearance</a></li>
+              <li><a href="#" onclick="showSubmenu('fifa-world-cup', this)"><img src="{% static 'icons/worldcup.svg' %}">FIFA World Cup</a></li>
+              <li><a href="#" onclick="showSubmenu('premier-league', this)"><img src="{% static 'icons/' %}">Premier League</a></li>
+              <li><a href="#" onclick="showSubmenu('laiga', this)"><img src="{% static 'icons/laliga.svg' %}"> Laiga</a></li>
+              <li><a href="#" onclick="showSubmenu('national', this)"><img src="{% static 'icons/national.svg' %}"> National</a></li>
               <li class="settings-item"><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-cog icon"></i> Settings</a></li>
               <li><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-user icon"></i> Profile</a></li>
           </ul>
@@ -232,8 +232,8 @@
     </div>
 
     <div class="mobile-hero-cart">
-      <div class="circle">+</div>
-      <!-- <p>Add To Cart</p> -->
+      <div class="circle"><img src="{% static 'icons/cart.svg' %}"></div>
+      <p>Add To Cart</p>
     </div>
   </div>
 
@@ -423,7 +423,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -441,7 +441,7 @@
     <div class="product-title">2020 Portugal Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -459,7 +459,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -477,7 +477,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -495,7 +495,7 @@
     <div class="product-title">2020 Portugal Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -513,7 +513,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -531,7 +531,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -549,7 +549,7 @@
     <div class="product-title">2020 Portugal Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -567,7 +567,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -585,7 +585,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -603,7 +603,7 @@
     <div class="product-title">2020 Portugal Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -621,7 +621,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -659,7 +659,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -677,7 +677,7 @@
     <div class="product-title">2020 Portugal Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -695,7 +695,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -713,7 +713,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -731,7 +731,7 @@
     <div class="product-title">2020 Portugal Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -749,7 +749,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -802,7 +802,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -820,7 +820,7 @@
     <div class="product-title">2020 Portugal Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -838,7 +838,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -856,7 +856,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -874,7 +874,7 @@
     <div class="product-title">2020 Portugal Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
@@ -892,7 +892,7 @@
     <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
     <div class="product-category">Men Wear</div>
     <div class="product-bottom">
-      <div class="product-price">$400</div>
+      <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
       <button class="order-button">Order Now</button>
     </div>
   </div>
