@@ -1,89 +1,90 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My Wishlist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/wishlist2.css' %}">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Wishlist – Desktop & Tablet</title>
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo">RONALDO ⚽</div>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/shop/">Shop</a>
-      <a href="/wishlist/">Wishlist</a>
-      <a href="/cart/">Cart</a>
-      <a href="/contact/">Contact</a>
+    <!-- fonts & icons -->
+    <link rel="stylesheet" href="{% static 'css/wishlist22.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+    
+    </style>
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <nav class="nav">
+      <div class="nav__logo">Ronaldo</div>
+      <input type="text" placeholder="Search for products, brands and more" />
+      <div class="nav__icons">
+        <i class="fa-regular fa-user"></i>
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+    </nav>
+
+    <!-- Page Wrapper -->
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar__header">
+          <div class="avatar"></div>
+          <h2>Hello, username</h2>
+        </div>
+        <ul>
+          <li><i class="fa-solid fa-box"></i> My Orders</li>
+          <li><i class="fa-solid fa-user-gear"></i> Account Settings</li>
+          {% comment %} <li><i class="fa-solid fa-gift"></i> Payments</li> {% endcomment %}
+          <li><i class="fa-solid fa-cart-shopping"></i> Cart</li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main">
+        <h1>My Wishlist (6)</h1>
+
+        <!-- Item 1 -->
+        <div class="item">
+          <img class="item__img" src="{% static 'img/rono/j3.png' %}" alt="Product" />
+          <div class="item__info">
+            <h3>Ronaldo 2010-2014 premium Jersey</h3>
+            <div class="item__price">₹286 <span>₹999</span> <span class="item__discount">71% off</span></div>
+          </div>
+          <i class="fa-solid fa-trash item__delete"></i>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="item">
+          <img class="item__img" src="{% static 'img/rono/j1.png' %}" alt="Product" />
+          <div class="item__info">
+            <h3>Ronaldo 2010-2014 premium Jersey</h3>
+            <div class="item__price">₹430 <span>₹445</span> <span class="item__discount">3% off</span></div>
+          </div>
+          <i class="fa-solid fa-trash item__delete"></i>
+        </div>
+
+        <!-- Item 3 (example) -->
+        <div class="item">
+          <img class="item__img" src="{% static 'img/rono/j1.png' %}" alt="Product" />
+          <div class="item__info">
+            <h3>Ronaldo 2010-2014 premium Jersey</h3>
+            <div class="item__price">₹999 <span>₹2560</span> <span class="item__discount">61% off</span></div>
+          </div>
+          <i class="fa-solid fa-trash item__delete"></i>
+        </div>
+      </main>
     </div>
-  </div>
 
-  <!-- Wishlist Content -->
-  <div class="wishlist-container">
-    <h2>My Wishlist ✏️</h2>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Product Name</th>
-          <th>Unit Price</th>
-          <th>Stock Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="remove-btn">×</td>
-          <td>
-            <div class="product-info">
-              <img src="{% static 'img/rono/j3.png' %}" alt="Product" class="product-img">
-              <span class="product-name">CR7 Red Jersey</span>
-            </div>
-          </td>
-          <td>
-            <span class="original-price">€100.00</span>
-            <span class="price">€70.00</span>
-          </td>
-          <td class="stock">In Stock</td>
-          <td><button class="add-to-cart-btn">Add to Cart</button></td>
-        </tr>
-
-        <tr>
-          <td class="remove-btn">×</td>
-          <td>
-            <div class="product-info">
-              <img src="{% static 'img/rono/j3.png' %}" alt="Product" class="product-img">
-              <span class="product-name">CR7 Grid Edition</span>
-            </div>
-          </td>
-          <td><span class="price">€250.00</span></td>
-          <td class="stock">In Stock</td>
-          <td><button class="add-to-cart-btn">Add to Cart</button></td>
-        </tr>
-
-        <tr>
-          <td class="remove-btn">×</td>
-          <td>
-            <div class="product-info">
-              <img src="{% static 'img/rono/j3.png' %}" alt="Product" class="product-img">
-              <span class="product-name">CR7 Sleeveless</span>
-            </div>
-          </td>
-          <td><span class="price">€135.00</span></td>
-          <td class="stock">In Stock</td>
-          <td><button class="add-to-cart-btn">Add to Cart</button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Ronaldo Shop
-  </footer>
-
-</body>
+    <script>
+      // basic click handler for deleting (demo only)
+      document.querySelectorAll('.item__delete').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.currentTarget.closest('.item').remove();
+        });
+      });
+    </script>
+  </body>
 </html>

@@ -3,12 +3,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cart</title>
+  <link href="{% static 'css/new-cart.css' %}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link href="{% static 'css/cart.css' %}" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    
+  </style>
 </head>
 <body>
 
@@ -28,12 +32,14 @@
 <div class="cart-container">
   <!-- Left: Cart Items -->
   <div class="cart-left">
-    <h2>Shopping Cart <span class="cart-count">3 items</span></h2>
+    <h2>Shopping Cart <span class="cart-count">
+      {% comment %} 3 items {% endcomment %}
+    </span></h2>
 
     <!-- Item 1 -->
     <div class="cart-item">
       <div class="item-info">
-        <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey">
+        <img src="{% static 'img/rono/j1.png' %}" alt="CR7 Jersey">
         <div class="item-details">
           <span>CR7 Jersey</span>
           <span>Red Limited Edition</span>
@@ -41,17 +47,18 @@
       </div>
       <div class="item-qty">
         <span>-</span>
-        <input type="text" value="1">
+        {% comment %} <input type="text" value="1"> {% endcomment %}
+        <span>1</span>
         <span>+</span>
       </div>
       <div class="item-price">€ 44.00</div>
       <div class="remove-btn">&times;</div>
     </div>
 
-    <!-- Repeat Items -->
+    <!-- Item 2 -->
     <div class="cart-item">
       <div class="item-info">
-        <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey">
+        <img src="{% static 'img/rono/j1.png' %}" alt="CR7 Jersey">
         <div class="item-details">
           <span>CR7 Jersey</span>
           <span>Red Limited Edition</span>
@@ -59,16 +66,18 @@
       </div>
       <div class="item-qty">
         <span>-</span>
-        <input type="text" value="1">
+        {% comment %} <input type="text" value="1"> {% endcomment %}
+        <span>1</span>
         <span>+</span>
       </div>
       <div class="item-price">€ 44.00</div>
       <div class="remove-btn">&times;</div>
     </div>
 
+    <!-- Item 3 -->
     <div class="cart-item">
       <div class="item-info">
-        <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey">
+        <img src="{% static 'img/rono/j1.png' %}" alt="CR7 Jersey">
         <div class="item-details">
           <span>CR7 Jersey</span>
           <span>Red Limited Edition</span>
@@ -76,7 +85,8 @@
       </div>
       <div class="item-qty">
         <span>-</span>
-        <input type="text" value="1">
+        <span>1</span>
+        {% comment %} <input type="text" value="1"> {% endcomment %}
         <span>+</span>
       </div>
       <div class="item-price">€ 44.00</div>

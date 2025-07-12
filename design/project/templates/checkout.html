@@ -3,9 +3,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout Page</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="{% static 'css/checkout2.css' %}" rel="stylesheet">
 </head>
 <body>
 
@@ -23,6 +25,7 @@
 
 <!-- Checkout Container -->
 <div class="checkout-container">
+  
   <!-- Left: Form -->
   <div class="checkout-form">
     <h2>Contact Information</h2>
@@ -57,29 +60,29 @@
   <!-- Right: Summary -->
   <div class="checkout-summary">
     <div class="summary-item">
-      <img src="{% static 'img/rono/j3.png' %}" alt="Product">
+      <img src="{% static 'img/rono/j1.png' %}" alt="Product">
       <div class="summary-item-details">
         <h4>Extra Glazed</h4>
-        <p>Special: CART SPECIAL (−$4.00)</p>
+        <p>Special: CART SPECIAL (−<i class="fa-solid fa-indian-rupee-sign"></i>4.00)</p>
       </div>
-      <span>$8.00</span>
+      <span><i class="fa-solid fa-indian-rupee-sign"></i>8.00</span>
     </div>
 
     <div class="summary-item">
-      <img src="{% static 'img/rono/j3.png' %}" alt="Product">
+      <img src="{% static 'img/rono/j1.png' %}"alt="Product">
       <div class="summary-item-details">
         <h4>Hunny Pot</h4>
-        <p>Special: CART SPECIAL (−$1.00)</p>
+        <p>Special: CART SPECIAL (−<i class="fa-solid fa-indian-rupee-sign"></i>1.00)</p>
       </div>
-      <span>$15.00</span>
+      <span><i class="fa-solid fa-indian-rupee-sign"></i>15.00</span>
     </div>
 
     <div class="summary-item">
-      <img src="{% static 'img/rono/j3.png' %}" alt="Product">
+      <img src="{% static 'img/rono/j1.png' %}" alt="Product">
       <div class="summary-item-details">
         <h4>Major Mystery Bundle</h4>
       </div>
-      <span>$15.00</span>
+      <span><i class="fa-solid fa-indian-rupee-sign"></i>15.00</span>
     </div>
 
     <div class="discount-code">
@@ -88,10 +91,10 @@
     </div>
 
     <div class="summary-total">
-      <div class="line"><span>Subtotal</span><span>$38.00</span></div>
+      <div class="line"><span>Subtotal</span><span><i class="fa-solid fa-indian-rupee-sign"></i>38.00</span></div>
       <div class="line"><span>Shipping</span><span>FREE</span></div>
-      <div class="line"><span>Estimated Taxes</span><span>$3.14</span></div>
-      <div class="total">Total: <strong>USD $41.14</strong></div>
+      <div class="line"><span>Estimated Taxes</span><span><i class="fa-solid fa-indian-rupee-sign"></i>3.14</span></div>
+      <div class="total">Total: <strong>USD <i class="fa-solid fa-indian-rupee-sign"></i>41.14</strong></div>
     </div>
   </div>
 </div>

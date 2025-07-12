@@ -2,81 +2,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Wishlist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/wishlist.css' %}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishlist – Mobile & Desktop</title>
+
+  <!-- shared font & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- single merged stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/wishlist11.css' %}">
+  <style>
+  
+
+  </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<div class="navbar">
-  <div class="logo">RONALDO ⚽</div>
-  <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/shop/">Shop</a>
-    <a href="/wishlist/">Wishlist</a>
-    <a href="/cart/">Cart</a>
-    <a href="/contact/">Contact</a>
-  </div>
-</div>
+  <!-- ===================== MOBILE ===================== -->
+  <section class="m-container">
+    <header class="m-app-bar">
+      <i class="fa-solid fa-arrow-left"></i>
+      <div class="m-app-bar__title">Wishlist</div>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </header>
 
-<!-- Wishlist Section -->
-<div class="content">
-  <h2>Wishlist</h2>
+    <section class="m-heading">
+      <h1>My Wishlist</h1>
+      <div class="m-meta"><i class="fa-solid fa-lock"></i> Total • <span>2 items</span></div>
+    </section>
 
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Product name</th>
-        <th>Unit price</th>
-        <th>Stock status</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="remove">×</td>
-        <td>
-          <div class="product-info">
-            <img src="{% static 'img/rono/j3.png' %}" alt="Jersey">
-            <span>Home Jersey 2025</span>
+    <main class="m-grid">
+      <!-- repeat as needed -->
+      <div class="m-card" data-id="101">
+        <img src="{% static 'img/rono/j1.png' %}" class="m-card__image" alt="">
+        <div class="m-card__more" data-id="101"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+        <div class="m-card__info">
+          <div class="m-card__title">Ronaldo 2010‑2014 Premium Jersey</div>
+          <div class="m-card__pricing"><span class="m-card__discount">↓71%</span><span class="m-card__orig">₹999</span><span class="m-card__final">₹286</span></div>
+          <div class="m-card__rating"><i class="fa-solid fa-star"></i> …</div>
+          <button class="m-card__cta" onclick="addToCart(101)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="m-card" data-id="102">
+        <img src="{% static 'img/rono/j3.png' %}" class="m-card__image" alt="">
+        <div class="m-card__more" data-id="101"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+        <div class="m-card__info">
+          <div class="m-card__title">Ronaldo 2010‑2014 Premium Jersey</div>
+          <div class="m-card__pricing"><span class="m-card__discount">↓71%</span><span class="m-card__orig">₹999</span><span class="m-card__final">₹286</span></div>
+          <div class="m-card__rating"><i class="fa-solid fa-star"></i> …</div>
+          <button class="m-card__cta" onclick="addToCart(101)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="m-card" data-id="103">
+        <img src="{% static 'img/rono/j3.png' %}" class="m-card__image" alt="">
+        <div class="m-card__more" data-id="101"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+        <div class="m-card__info">
+          <div class="m-card__title">Ronaldo 2010‑2014 Premium Jersey</div>
+          <div class="m-card__pricing"><span class="m-card__discount">↓71%</span><span class="m-card__orig">₹999</span><span class="m-card__final">₹286</span></div>
+          <div class="m-card__rating"><i class="fa-solid fa-star"></i> …</div>
+          <button class="m-card__cta" onclick="addToCart(101)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="m-card" data-id="104">
+        <img src="{% static 'img/rono/j1.png' %}" class="m-card__image" alt="">
+        <div class="m-card__more" data-id="101"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+        <div class="m-card__info">
+          <div class="m-card__title">Ronaldo 2010‑2014 Premium Jersey</div>
+          <div class="m-card__pricing"><span class="m-card__discount">↓71%</span><span class="m-card__orig">₹999</span><span class="m-card__final">₹286</span></div>
+          <div class="m-card__rating"><i class="fa-solid fa-star"></i> …</div>
+          <button class="m-card__cta" onclick="addToCart(101)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="m-card" data-id="105">
+        <img src="{% static 'img/rono/j1.png' %}" class="m-card__image" alt="">
+        <div class="m-card__more" data-id="101"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+        <div class="m-card__info">
+          <div class="m-card__title">Ronaldo 2010‑2014 Premium Jersey</div>
+          <div class="m-card__pricing"><span class="m-card__discount">↓71%</span><span class="m-card__orig">₹999</span><span class="m-card__final">₹286</span></div>
+          <div class="m-card__rating"><i class="fa-solid fa-star"></i> …</div>
+          <button class="m-card__cta" onclick="addToCart(101)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="m-card" data-id="106">
+        <img src="{% static 'img/rono/j1.png' %}" class="m-card__image" alt="">
+        <div class="m-card__more" data-id="101"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+        <div class="m-card__info">
+          <div class="m-card__title">Ronaldo 2010‑2014 Premium Jersey</div>
+          <div class="m-card__pricing"><span class="m-card__discount">↓71%</span><span class="m-card__orig">₹999</span><span class="m-card__final">₹286</span></div>
+          <div class="m-card__rating"><i class="fa-solid fa-star"></i> …</div>
+          <button class="m-card__cta" onclick="addToCart(101)">Add to Cart</button>
+        </div>
+      </div>
+    </main>
+
+    <div class="m-overlay" id="mOverlay"></div>
+    <div class="m-sheet"   id="mSheet">
+      <div class="m-sheet__opt" id="mRemove"><i class="fa-solid fa-trash"></i> Remove from collection</div>
+    </div>
+  </section>
+
+  <!-- ===================== DESKTOP / TABLET ===================== -->
+  <section class="d-container">
+    <nav class="d-nav">
+      <div class="d-nav__logo">Ronaldo</div>
+      <input type="text" placeholder="Search for products, brands and more" />
+      <div class="d-nav__icons"><i class="fa-regular fa-user"></i><i class="fa-solid fa-cart-shopping"></i></div>
+    </nav>
+
+    <div class="d-wrapper">
+      <aside class="d-sidebar">
+        <div class="d-sidebar__header"><div class="d-avatar"></div><h2>Hello, username</h2></div>
+        <ul>
+          <li><i class="fa-solid fa-box"></i> My Orders</li>
+          <li><i class="fa-solid fa-user-gear"></i> Account Settings</li>
+          <li><i class="fa-solid fa-cart-shopping"></i> Cart</li>
+        </ul>
+      </aside>
+
+      <main class="d-main">
+        <h1>My Wishlist (3)</h1>
+        <div class="d-item" data-id="301">
+          <img src="{% static 'img/rono/j3.png' %}" class="d-item__img" alt="">
+          <div class="d-item__info">
+            <h3>Ronaldo Premium Jersey 2010–2014</h3>
+            <div class="d-item__price">₹286 <span>₹999</span> <span class="d-item__disc">71% off</span></div>
           </div>
-        </td>
-        <td>$49.00</td>
-        <td class="stock">In Stock</td>
-        <td><button class="add-to-cart"><span class="cart-icon">👜</span> Add to cart</button></td>
-      </tr>
-
-      <tr>
-        <td class="remove">×</td>
-        <td>
-          <div class="product-info">
-            <img src="{% static 'img/rono/j3.png' %}" alt="Alt Jersey">
-            <span>Away Jersey - Limited</span>
+          <i class="fa-solid fa-trash d-item__del"></i>
+        </div>
+        <div class="d-item" data-id="301">
+          <img src="{% static 'img/rono/j1.png' %}" class="d-item__img" alt="">
+          <div class="d-item__info">
+            <h3>Ronaldo Premium Jersey 2010–2014</h3>
+            <div class="d-item__price">₹286 <span>₹999</span> <span class="d-item__disc">71% off</span></div>
           </div>
-        </td>
-        <td>$59.00</td>
-        <td class="stock">In Stock</td>
-        <td><button class="add-to-cart"><span class="cart-icon">👜</span> Add to cart</button></td>
-      </tr>
-
-      <tr>
-        <td class="remove">×</td>
-        <td>
-          <div class="product-info">
-            <img src="{% static 'img/rono/j3.png' %}" alt="Training Tee">
-            <span>CR7 Training Tee</span>
+          <i class="fa-solid fa-trash d-item__del"></i>
+        </div>
+        <div class="d-item" data-id="301">
+          <img src="{% static 'img/rono/j3.png' %}" class="d-item__img" alt="">
+          <div class="d-item__info">
+            <h3>Ronaldo Premium Jersey 2010–2014</h3>
+            <div class="d-item__price">₹286 <span>₹999</span> <span class="d-item__disc">71% off</span></div>
           </div>
-        </td>
-        <td>$39.00</td>
-        <td class="stock">In Stock</td>
-        <td><button class="add-to-cart"><span class="cart-icon">👜</span> Add to cart</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          <i class="fa-solid fa-trash d-item__del"></i>
+        </div>
+        <div class="d-item" data-id="301">
+          <img src="{% static 'img/rono/j3.png' %}" class="d-item__img" alt="">
+          <div class="d-item__info">
+            <h3>Ronaldo Premium Jersey 2010–2014</h3>
+            <div class="d-item__price">₹286 <span>₹999</span> <span class="d-item__disc">71% off</span></div>
+          </div>
+          <i class="fa-solid fa-trash d-item__del"></i>
+        </div>
+        <div class="d-item" data-id="301">
+          <img src="{% static 'img/rono/j3.png' %}" class="d-item__img" alt="">
+          <div class="d-item__info">
+            <h3>Ronaldo Premium Jersey 2010–2014</h3>
+            <div class="d-item__price">₹286 <span>₹999</span> <span class="d-item__disc">71% off</span></div>
+          </div>
+          <i class="fa-solid fa-trash d-item__del"></i>
+        </div>
+        <!-- repeat items -->
+      </main>
+    </div>
+  </section>
 
+  <script src="{% static 'js/wishlist.js' %}"></script>
 </body>
 </html>

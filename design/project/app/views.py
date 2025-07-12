@@ -31,3 +31,8 @@ def List(request):
 
 def List2(request):
     return render(request,"product_list2.html")
+
+
+
+def WishlistNew(request):
+    return render(request,"wishlist-new.html")
