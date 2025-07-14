@@ -5,8 +5,6 @@ from django.shortcuts import render
 def Home(request):
     return render(request,"home.html")
 
-def Checkout(request):
-    return render(request,"checkout-new.html") 
 
 def Cart(request):
     return render(request,"cart.html") 
@@ -16,6 +14,12 @@ def Cart2(request):
 
 def Wishlist(request):
     return render(request,"wishlist.html")
+
+def Checkout(request):
+    return render(request,"checkout-new.html")
+
+def OrderSummary(request):
+    return render(request,"order-summary.html")
 
 def Details(request):
     return render(request,"product_details.html")
