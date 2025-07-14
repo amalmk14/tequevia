@@ -39,7 +39,7 @@ body {
 .section h3 { 
     font-size: 16px; 
     margin-bottom: 8px; 
-    color: #2874f0; 
+    color: #000000; 
 }
 .section-header { 
     display: flex; 
@@ -143,6 +143,12 @@ body {
     background: #fff; 
     cursor: pointer; 
     font-weight: 500; 
+}
+.remove-btn{
+    color: #000000;
+    margin-left:16px;
+    background:transparent;
+    border: none;
 }
 
 .price-box { 
