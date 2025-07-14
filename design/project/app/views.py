@@ -6,7 +6,7 @@ def Home(request):
     return render(request,"home.html")
 
 def Checkout(request):
-    return render(request,"checkout.html") 
+    return render(request,"checkout-new.html") 
 
 def Cart(request):
     return render(request,"cart.html") 

@@ -13,5 +13,4 @@ urlpatterns = [
     path('details2/',views.Details2,name="product_details2"),
     path('list/',views.List,name="product_list"),
     path('list2/',views.List2,name="product_list2"),
-
 ]
