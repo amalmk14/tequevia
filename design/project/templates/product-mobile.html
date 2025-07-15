@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mobile Product View</title>
+
+<style>
+/* ——— Base ——— */
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:#000;
+}
+
+/* ——— Wrapper ——— */
+.mobile-product{padding:16px;}
+
+/* ——— Image slider ——— */
+.m-slider{text-align:center;}
+.m-slider img{
+  width:100%;
+  height:72vw;           /* ≈270 px on 375 px screen */
+  object-fit:contain;
+}
+.dot-track{
+  display:flex;justify-content:center;gap:4px;margin-top:8px;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:#ccc;}
+.dot.active{background:#666;}
+
+/* ——— Options ——— */
+.m-option{
+  padding:16px 0;
+  border-bottom:1px solid #eee;
+  font-size:14px;
+}
+.m-option strong{font-weight:700;}
+
+/* ——— Price / EMI ——— */
+.m-price-box{padding:12px 0;font-size:14px;}
+.m-price-box .title{font-weight:600;margin-bottom:4px;}
+.m-price-box .month{font-weight:600;font-size:16px;}
+.m-price-box .emi-note{font-size:12px;color:#555;}
+
+.m-discount{font-size:14px;padding:8px 0;}
+.m-discount .old{text-decoration:line-through;color:#888;}
+.m-discount .new{font-weight:600;color:#000;}
+.m-discount .tag{color:green;font-weight:600;margin-right:6px;}
+
+/* ——— Sticky footer buttons ——— */
+.m-footer-btns{
+  display:flex;
+  position:fixed;
+  bottom:0;left:0;right:0;
+  border-top:1px solid #eee;
+  background:#fff;
+  z-index:100;
+}
+.m-footer-btns button{
+  flex:1;
+  padding:14px 0;
+  font-size:14px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+}
+.m-footer-btns .emi{
+  background:#fff;
+  color:#000;
+  border-right:1px solid #ddd;
+}
+.m-footer-btns .buy{
+  background:#fdd835;
+  color:#000;
+}
+</style>
+</head>
+<body>
+
+<!-- Mobile product layout -->
+<div class="mobile-product">
+
+  <!-- Image slider (static) -->
+  <div class="m-slider">
+    <img src="https://via.placeholder.com/400x600?text=Product+Image" alt="Product">
+    <div class="dot-track">
+      <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- Color -->
+  <div class="m-option">Color: <strong>Icy Purple</strong></div>
+
+  <!-- Storage -->
+  <div class="m-option">Storage: <strong>256 GB</strong></div>
+
+  <!-- EMI / title -->
+  <div class="m-price-box">
+    <div class="title">OPPO K13 5G • 7000 mAh • 80 W Charger</div>
+    <div class="month">₹6,667/month</div>
+    <div class="emi-note">3 mo no‑cost EMI with FLIPKART AXIS BANK card</div>
+  </div>
+
+  <!-- Price -->
+  <div class="m-discount">
+    <div><span class="tag">20 % OFF</span><span class="old">₹24,999</span><span class="new"> ₹19,999</span></div>
+    <div style="font-size:13px;margin-top:5px;">Or pay ₹19,899 + ⚡ 100</div>
+  </div>
+
+</div>
+
+<!-- Sticky footer -->
+<div class="m-footer-btns">
+  <button class="emi">Pay with EMI<br><span style="font-size:12px;font-weight:400;">From ₹6,667/m</span></button>
+  <button class="buy">Buy now</button>
+</div>
+
+</body>
+</html>

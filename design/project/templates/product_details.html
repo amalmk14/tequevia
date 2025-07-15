@@ -2,147 +2,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Product</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    /* ─── base & navbar ─────────────────────────────────────────── */
-    *{box-sizing:border-box;}
-    body{margin:0;font-family:'Inter',sans-serif;background:#f9f9f9;color:#333;}
-    .navbar{background:#000;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:16px 40px;}
-    .navbar .logo{font-size:22px;font-weight:600;}
-    .navbar .nav-links{display:flex;gap:24px;}
-    .navbar .nav-links a{color:#fff;text-decoration:none;font-weight:500;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Responsive Product Page</title>
 
-    /* ─── layout ───────────────────────────────────────────────── */
-    .container{max-width:1200px;margin:40px auto;padding:0 20px;display:flex;gap:60px;flex-wrap:wrap;}
-    .gallery{flex:1;display:flex;min-width:0;}
-
-    /* ─── main hero image (fixed aspect) ──────────────────────── */
-    .main-image{flex:1;padding-left:30px;display:flex;justify-content:center;align-items:center;}
-    .image-frame{width:100%;aspect-ratio:4/5;background:#fff;border-radius:10px;overflow:hidden;display:flex;justify-content:center;align-items:center;}
-    .image-frame img{max-width:100%;max-height:100%;object-fit:contain;}
-
-    /* ─── thumbnails (square, fixed) ──────────────────────────── */
-    .thumbnails{width:80px;display:flex;flex-direction:column;gap:10px;}
-    .thumb-frame{width:100%;aspect-ratio:1/1;background:#fff;border-radius:6px;overflow:hidden;border:2px solid transparent;}
-    .thumb-frame img{width:100%;height:100%;object-fit:contain;cursor:pointer;transition:transform .3s;}
-    .thumb-frame img:hover{transform:scale(1.05);}
-    .thumb-frame img.active{border-color:#e7330f;}
-
-    /* ─── right‑side details ─────────────────────────────────── */
-    .product-details-wrapper{flex:1.2;min-width:300px;}
-    .product-title{font-size:28px;font-weight:700;margin-bottom:6px;}
-    .product-subtitle{color:#777;margin-bottom:18px;}
-    .price{font-size:24px;font-weight:600;color:#222;margin-bottom:22px;}
-
-    .size-qty{display:flex;gap:12px;margin-bottom:24px;}
-    select{padding:10px;font-size:16px;border:1px solid #ccc;border-radius:4px;background:#fff;}
-
-    .actions{display:flex;gap:12px;margin-bottom:28px;}
-    .wishlist-btn,.cart-btn{padding:12px 24px;border:none;font-weight:600;border-radius:5px;cursor:pointer;font-size:15px;}
-    .wishlist-btn{background:#fff;border:2px solid #aaa;color:#333;}
-    .cart-btn{background:#e7330f;color:#fff;}
-    .cart-btn:hover{background:#b4280c;}
-
-    .product-details{font-size:15px;line-height:1.6;}
-    .product-details h4{margin:0 0 10px;font-size:18px;}
-    .product-details ul{margin:8px 0 16px 20px;padding:0;}
-    .product-details li{margin-bottom:6px;}
-
-    /* ─── mobile tweak: thumbnails row ───────────────────────────*/
-    @media (max-width:768px){
-      .container{flex-direction:column;gap:30px;}
-      .gallery{align-items:center;flex-direction:column;}
-      .main-image{padding-left:0;width:100%;}
-      .thumbnails{flex-direction:row;justify-content:center;width:100%;margin-top:12px;}
-      .thumb-frame{width:60px;}
-    }
-  </style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="{% static 'css/product-details.css' %}" rel="stylesheet">
 </head>
 <body>
 
-<!-- Navbar -->
-<div class="navbar">
+<!-- ▸▸ Desktop / Tablet ◂◂ -->
+<nav class="d-nav">
   <div class="logo">RONALDO ⚽</div>
-  <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/shop/">Shop</a>
-    <a href="/wishlist/">Wishlist</a>
-    <a href="/cart/">Cart</a>
-    <a href="/contact/">Contact</a>
+  <div>
+    <a href="/">Home</a><a href="/shop/">Shop</a><a href="/wishlist/">Wishlist</a>
+    <a href="/cart/">Cart</a><a href="/contact/">Contact</a>
+  </div>
+</nav>
+
+<div class="d-container">
+  <div class="d-gallery">
+    <div class="d-thumbs">
+      <div class="d-thumb"><img src="{% static 'img/rono/j1.png' %}" onclick="swapDesk(this)"></div>
+      <div class="d-thumb"><img src="{% static 'img/rono/j3.png' %}" onclick="swapDesk(this)"></div>
+      <div class="d-thumb"><img src="{% static 'img/rono/j2.png' %}" onclick="swapDesk(this)"></div>
+    </div>
+    <div class="d-main"><div class="d-frame"><img id="dMainImg" src="{% static 'img/rono/j3.png' %}"></div></div>
+  </div>
+
+  <div class="d-details">
+    <div class="d-title">CR7 Pro Edition Jersey</div>
+    <div class="d-sub">Men's Football Jersey</div>
+    <div class="d-price">$129.00</div>
+
+    <div class="d-selects">
+      <select><option>Size</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+      <select><option>Qty</option><option>1</option><option>2</option><option>3</option></select>
+    </div>
+
+    <div class="d-actions">
+      <button class="d-btn d-wish">♡ Wishlist</button>
+      <button class="d-btn d-cart">Add to Cart</button>
+    </div>
+
+    <div class="d-desc">
+      <h4>Product Details</h4>
+      <p>Official CR7 pro‑fit jersey for fans and athletes alike.</p>
+      <ul><li>100% premium breathable polyester</li><li>Moisture‑wicking mesh fabric</li><li>Machine washable</li></ul>
+      <p>Ships from: <strong>Lisbon Store</strong> • Delivery 3‑7 days • 30‑day returns</p>
+    </div>
   </div>
 </div>
 
-<!-- Main Product Section -->
-<div class="container">
+<!-- ▸▸ Mobile ◂◂ -->
+<div class="m-wrapper">
 
-  <!-- Image Gallery -->
-  <div class="gallery">
-    <!-- Thumbnails -->
-    <div class="thumbnails">
-      <div class="thumb-frame">
-        <img src="{% static 'img/rono/j1.png' %}" onclick="swapImage(this)">
-      </div>
-      <div class="thumb-frame">
-        <img src="{% static 'img/rono/j3.png' %}" onclick="swapImage(this)">
-      </div>
-      <div class="thumb-frame">
-        <img src="{% static 'img/rono/j3.png' %}" onclick="swapImage(this)">
-      </div>
-    </div>
-
-    <!-- Main hero image -->
-    <div class="main-image">
-      <div class="image-frame">
-        <img id="currentImage" src="{% static 'img/rono/j3.png' %}">
-      </div>
-    </div>
+  <div class="m-slider">
+    <img id="mSlideImg" src="{% static 'img/rono/j3.png' %}">
+    <div class="m-dots"><span class="m-dot active"></span><span class="m-dot"></span><span class="m-dot"></span></div>
   </div>
 
-  <!-- Product Info -->
-  <div class="product-details-wrapper">
-    <div class="product-title">CR7 Pro Edition Jersey</div>
-    <div class="product-subtitle">Men's Football Jersey</div>
-    <div class="price">$129.00</div>
+  <div class="m-opt">Color <span>Icy Purple</span></div>
+  <div class="m-opt">Storage <span>256 GB</span></div>
 
-    <!-- Size & Qty -->
-    <div class="size-qty">
-      <select>
-        <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option>
-      </select>
-      <select>
-        <option>Qty</option><option>1</option><option>2</option><option>3</option>
-      </select>
-    </div>
-
-    <!-- Action buttons -->
-    <div class="actions">
-      <button class="wishlist-btn">♡ Wishlist</button>
-      <button class="cart-btn">Add to Cart</button>
-    </div>
-
-    <!-- Detailed description -->
-    <div class="product-details">
-      <h4>Product Details</h4>
-      <p>This is the official CR7 pro‑fit jersey for fans and athletes alike.</p>
-      <ul>
-        <li>100% premium breathable polyester</li>
-        <li>Moisture‑wicking mesh fabric</li>
-        <li>Machine washable</li>
-      </ul>
-      <p>Ships from: <strong>Lisbon Store</strong></p>
-      <p>Delivery in 3‑7 business days. 30‑day return policy included.</p>
-    </div>
+  <div class="m-pricebox">
+    <div class="title">OPPO K13 5G • 7000 mAh • 80 W Charger</div>
+    <div class="month">₹6,667&nbsp;/ month</div>
+    <div class="note">3 mo No‑cost EMI with FLIPKART AXIS BANK card</div>
   </div>
+
+  <div class="m-discount">
+    <div><span class="tag">20 % OFF</span><span class="old">₹24,999</span> <span class="new">₹19,999</span></div>
+    <div style="font-size:var(--fs-100);margin-top:1vw">Or pay ₹19,899 + ⚡ 100</div>
+  </div>
+
+</div>
+
+<div class="m-footer">
+  <button class="m-emi">Pay with EMI<br><span style="font-weight:400;font-size:var(--fs-100)">From ₹6,667/m</span></button>
+  <button class="m-buy">Buy now</button>
 </div>
 
 <script>
-  function swapImage(el){
-    document.getElementById('currentImage').src = el.src;
-    document.querySelectorAll('.thumb-frame img').forEach(img=>img.classList.remove('active'));
-    el.classList.add('active');
-  }
+/* desktop swap */
+function swapDesk(el){
+  document.getElementById('dMainImg').src = el.src;
+  document.querySelectorAll('.d-thumb').forEach(t=>t.classList.remove('active'));
+  el.parentElement.classList.add('active');
+}
+
+/* mobile basic slider */
+const mImgs=[
+  "{% static 'img/rono/j3.png' %}",
+  "{% static 'img/rono/j1.png' %}",
+  "{% static 'img/rono/j1.png' %}"
+];
+let idx=0;
+setInterval(()=>{
+  idx=(idx+1)%mImgs.length;
+  document.getElementById('mSlideImg').src=mImgs[idx];
+  document.querySelectorAll('.m-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+},2500);
 </script>
 </body>
 </html>
