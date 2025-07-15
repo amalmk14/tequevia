@@ -4,98 +4,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>order-summary</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    {% comment %} <link href="{% static 'css/signin.css' %}" rel="stylesheet"> {% endcomment %}
-    <!-- Materialize CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
-
+  <title>Auth + OTP Verification</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link href="{% static 'css/signin.css' %}" rel="stylesheet">
   <style>
-    body {
-      background: #212121;
+    .user-modal-container{
+      top:200px;
     }
-
-    h2 {
-      font-family: 'Segoe UI', sans-serif;
-      font-weight: 900;
-      font-size: 6em;
-      text-transform: uppercase;
-      text-align: center;
-      -webkit-font-smoothing: antialiased;
-      color: #ffffff;
-    }
-
-    button {
-      font-family: 'Segoe UI', sans-serif;
-      font-weight: 600;
-      color: #212121;
-    }
-
-    input {
-      color: #bdbdbd;
-    }
-
-    input[type=password].valid,
-    input[type=text].valid,
-    input[type=email].invalid,
-    input[type=email].valid {
-      color: #bdbdbd !important;
-    }
-
-    .input-field input[type=text]:focus + label {
-      color: #fff;
-    }
-
-    #footer {
-      margin-top: 50px;
-      color: #bdbdbd;
+    .user-modal{
+      z-index:20;
     }
   </style>
 </head>
 <body>
+{% comment %} <nav class="main-nav">
+  <ul>
+    <li><a class="signin" href="#0">Sign in</a></li>
+    <li><a class="signup" href="#0">Sign up</a></li>
+  </ul>
+</nav> {% endcomment %}
 
-    <div class="container">
-        <h2>Signup</h2>
-        <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s6">
-                <input id="first_name" type="text" class="validate">
-                <label for="first_name">First Name</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate">
-                <label for="last_name">Last Name</label>
-              </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                  <input id="mobile" type="number" class="validate" >
-                  <label for="mobile" data-error="wrong" data-success="right">Mobile</label>
-                </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" type="email" class="validate" >
-                <label for="email" data-error="wrong" data-success="right">Email</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
-              </div>
-            </div>
-            <button class="btn btn-flat btn-large waves-effect waves-dark white grey-text text-darken-3" type="submit" name="action">Signup
-        </button>
-          </form>
-        </div>
-      </div>
-      {% comment %} <footer id="footer">
-        <div class="container center">
-          <p>Made with <i class="material-icons red-text text-lighten-3 tiny">favorite</i> By <a href="https://www.thinkmilkdesign.co.uk" class="green-text text-lighten-2" target="_blank">Shane Geach</a></p>
-        </div>
-      </footer> {% endcomment %}
+<div class="user-modal">
+  <div class="user-modal-container">
+    {% comment %} <ul class="switcher">
+      <li>Signin to continue</li>
+      <li><a href="#0" class="selected">Signin to continue</a></li>
+    </ul> {% endcomment %}
+
+    <!-- SIGNIN (email / phone only) -->
+    <div id="login" class="is-selected">
+      <ul class="switcher">
+        <li>Signin to continue</li>
+      </ul>
+      <form class="form" id="loginForm">
+        <p class="fieldset">
+          {% comment %} <label class="image-replace email" for="login-contact">E‑mail / Mobile</label> {% endcomment %}
+          <input id="login-contact" type="text" placeholder="E‑mail address or mobile number">
+          <span class="error-message">Email or Mobile Number</span>
+        </p>
+        <p class="fieldset">
+          <input type="submit" value="Login">
+        </p>
+      </form>
+    </div>
+     <!-- OTP FOR LOGIN -->
+     <div id="otp-login">
+      <p class="form-message">Enter the verification code sent to <span id="otp-dest-login"></span>.</p>
+      <form class="form" id="otpLoginForm">
+        <p class="fieldset"><input id="otp-code-login" type="text" placeholder="Enter OTP"><span class="error-message">Invalid code</span></p>
+        <p class="fieldset"><input type="submit" value="Verify & Log in"></p>
+      </form>
+      {% comment %} <p class="form-bottom-message"><a href="#0" id="otpLoginBack">Back to login</a></p> {% endcomment %}
+    </div>
+
+    <!-- SIGNUP (name + contact) -->
+    <div id="signup">
+      <form class="form" id="signupForm">
+        <p class="fieldset">
+          <label class="image-replace username" for="signup-name">Name</label>
+          <input id="signup-name" type="text" placeholder="Your name">
+          <span class="error-message">Letters and numbers only</span>
+        </p>
+        <p class="fieldset">
+          <label class="image-replace email" for="signup-contact">E‑mail / Mobile</label>
+          <input id="signup-contact" type="text" placeholder="E‑mail address or mobile number">
+          <span class="error-message">Enter a valid e‑mail or mobile</span>
+        </p>
+        <p class="fieldset">
+          <input type="submit" value="Create account">
+        </p>
+      </form>
+    </div>
+
+    <!-- OTP FOR SIGNUP -->
+    <div id="otp-signup">
+      <p class="form-message">We’ve sent a 6‑digit OTP to <span id="otp-dest-signup"></span>.<br>Enter it below to verify your account.</p>
+      <form class="form" id="otpSignupForm">
+        <p class="fieldset"><input id="otp-code-signup" type="text" placeholder="Enter OTP"><span class="error-message">Invalid code</span></p>
+        <p class="fieldset"><input type="submit" value="Verify"></p>
+      </form>
+      <p class="form-bottom-message"><a href="#0" id="otpSignupBack">Back to sign‑up</a></p>
+    </div>
+
+    <a href="#0" class="close-form">Close</a>
+  </div>
+</div>
+
+<script src="{% static 'js/signin.js' %}"></script>
 </body>
 </html>

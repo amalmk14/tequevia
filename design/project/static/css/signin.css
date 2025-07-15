@@ -1,154 +1,228 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+:root {
+  /* neutrals */
+  --clr-black:          #000;
+  --clr-white:          #fff;
+  --clr-grey-050:       #fdfbfb;
+  --clr-grey-100:       #f5f2f2;
+  --clr-grey-150:       #f2f2f2;
+  --clr-grey-200:       #ebe9e9;
+  --clr-grey-300:       #f0f0f0;
+  --clr-grey-400:       #e0e0e0;
+  --clr-grey-500:       #ccc;
+  --clr-grey-700:       #777;
+  --clr-grey-800:       #555;
+  --clr-grey-900:       #333;
+  --clr-grey-950:       #111;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  /* transparencies */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,.06);
+  --shadow-md: 0 0.3vw 0.9vw rgba(0,0,0,.15);
+  --shadow-lg: 0 0.4vw 1vw  rgba(0,0,0,.10);
+
+  --label-bg:   rgba(236,235,235,.90);
 }
 
-body {
-  display: flex;
-  min-height: 100vh;
-  background-color: #f5f5f5;
-}
 
-.container {
-  display: flex;
+*,*:before,*:after{
+  box-sizing:border-box
+}
+ul,li{
+  margin:0;
+  padding:0
+}
+body{
+  font-family:'Inter',sans-serif;
+  background:#f3f3f3;
+}
+/* NAV */
+.main-nav{
+  width:90%;
+  max-width:240px;
+  margin:0 auto;
+  cursor:pointer
+}
+.main-nav ul{
+  position:absolute;
+  width:100%;
+  top:40%
+}
+.main-nav li{
+  list-style:none;
+  float:left
+}
+.main-nav a{
+  display:block;
+  height:50px;
+  margin:10px;
+  padding:2px 25px;
+  text-decoration:none;
+  border-radius:30px;
+  line-height:45px;
+  color:#fff;
+  transition:.3s
+}
+.main-nav li:nth-child(1) a{
+  background:#d83d3d;
+  border:2px solid #fff
+}
+.main-nav li:nth-child(1) a:hover{
+  background:#fff;
+  color:#d83d3d
+}
+.main-nav li:nth-child(2) a{
+  background:#9e2c2c;
+  border:2px solid #9e2c2c
+}
+.main-nav li:nth-child(2) a:hover{
+  background:#b13131;
+  border-color:#b13131
+}
+/* MODAL */
+.user-modal{
+  position:fixed;
+  top: 100%;
+  inset:0;
+  background:rgba(94, 92, 92, 0.9);
+  z-index:3;
+  overflow-y:auto;
+  cursor:pointer;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s,visibility 0 .3s
+}
+.user-modal.is-visible{
+  opacity:1;
+  visibility:visible;
+  transition:opacity .3s
+}
+.user-modal-container{
+  position:relative;
+  width:90%;
+  max-width:600px;
+  background:#fff;
+  margin:3em auto 4em;
+  border-radius:.25em;
+  cursor:auto;
+  transform:translateY(-30px);
+  transition:transform .3s
+}
+.user-modal.is-visible .user-modal-container{
+  transform:translateY(0)
+}
+.switcher:after{
+  content:"";
+  display:table;
+  clear:both
+}
+.switcher li{
   width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  background: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.image-section {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-}
-
-.image-section img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.login-section {
-  flex: 1;
-  padding: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.login-header {
-  margin-bottom: 40px;
-}
-
-.login-header h1 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-}
-
-.form-group {
-  margin-bottom: 25px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  background: #f8f8f8;
-  font-size: 1rem;
-  margin-top: 8px;
-}
-
-.form-group label {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.forgot-password {
-  text-align: right;
-  margin-bottom: 25px;
-}
-
-.forgot-password a {
-  color: #4444ff;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.submit-btn {
-  background: #dd9966;
-  color: white;
-  border: none;
-  padding: 15px;
-  width: 100%;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.submit-btn:hover {
-  background: #cc8855;
-}
-
-.alternative-login {
-  margin-top: 30px;
+  list-style: none;
   text-align: center;
+  color: #000;
+  padding-top: 1em;
+  padding-bottom: 0;
+  font-size: 20px;
+  font-weight: bold;
 }
-
-.alternative-login p {
-  color: #666;
-  margin-bottom: 15px;
+/* .switcher li{
+  width:100%;
+  float:left;
+  list-style:none;
+  text-align:center
 }
-
-.social-login {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.switcher a{
+  display:block;
+  width:100%;
+  height:50px;
+  line-height:50px;
+  background:#d2d8d8;
+  color:#424242;
+  text-decoration:none
 }
+.switcher a.selected{
+  background:#fff;
+  color:#424242;
+} */
 
-.social-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f8f8f8;
-  cursor: pointer;
-  transition: background 0.3s ease;
+/* Forms */
+.form{
+  padding:1.4em
 }
-
-.social-btn:hover {
-  background: #eeeeee;
+.fieldset{
+  position:relative;
+  margin:1.4em 0
 }
-
-.social-btn img {
-  width: 20px;
-  height: 20px;
+.form input{
+  width:100%;
+  padding:12px 20px 12px 50px;
+  border:1px solid #d2d8d8;
+  border-radius:.25em
 }
-
-.create-account {
-  text-align: center;
-  margin-top: 20px;
+.form input[type=submit]{
+  padding:16px 0;
+  cursor:pointer;
+  background:#111;
+  color:#fff;
+  font-weight:600;
+  border:none;
+  transition:.3s
 }
-
-.create-account a {
-  color: #4444ff;
-  text-decoration: none;
+.form input[type=submit]:hover{
+  background:#302f2f
 }
-
-@media (max-width: 768px) {
-  .image-section {
-    display: none;
-  }
-
-  .login-section {
-    padding: 30px;
-  }
+.error-message{
+  position:absolute;
+  left:-5px;
+  bottom:-35px;
+  background:rgba(215,102,102,.9);
+  padding:.8em;
+  border-radius:.25em;
+  font-size:13px;
+  color:#fff;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .2s
+}
+.error-message.is-visible{
+  opacity:1;
+  visibility:visible
+}
+.form-message{
+  padding:1.4em 1.4em 0;
+  font-size:14px;
+  line-height:1.4;
+  text-align:center
+}
+.form-bottom-message{
+  position:absolute;
+  left:0;
+  width:100%;
+  bottom:-40px;
+  text-align:center;
+  font-size:14px
+}
+.form-bottom-message a{
+  color:#fff;
+  text-decoration:none;
+  transition:.3s;
+  border-bottom:1px solid rgba(255,255,255,0)
+}
+.form-bottom-message a:hover{
+  border-bottom-color:#fff
+}
+.close-form{
+  position:absolute;
+  top:-40px;
+  right:0;
+  width:40px;
+  height:40px;
+  background:url("https://codyhouse.co/demo/login-signup-modal-window/img/icon-close.svg") no-repeat center;
+  text-indent:100%;
+  overflow:hidden}
+/* Panels hidden */
+#login,#signup,#otp-signup,#otp-login{
+  display:none
+}
+#login.is-selected,#signup.is-selected,#otp-signup.is-selected,#otp-login.is-selected{
+  display:block
 }

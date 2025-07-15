@@ -30,6 +30,8 @@
   
 </head>
 <body>
+  {% include "signin.html" %}
+
   <div class="web-view">
     <header class="navbar-desktop">
       <div class="nav-top-row">
@@ -98,7 +100,15 @@
       <li><a href="#" onclick="showWebSubmenu('laiga', this)"><img src="{% static 'icons/laliga.svg' %}"> La Liga</a></li>
       <li><a href="#" onclick="showWebSubmenu('national', this)"><img src="{% static 'icons/national.svg' %}"> National</a></li>
       <li class="settings-item"><a href="#" onclick="selectWebMainItem(this)"><i class="fas fa-cog icon"></i> Settings</a></li>
+      {% if user.is_authenticated %}
       <li><a href="#" onclick="selectWebMainItem(this)"><i class="fas fa-user icon"></i> Profile</a></li>
+      {% else %}
+      <li>
+        <a href="#" onclick="toggleWebMenu(); openSigninModal('login'); return false;">
+          <i class="fas fa-user icon"></i> Signin
+        </a>
+      </li>
+      {% endif %}
     </ul>
   </div>
 
@@ -167,7 +177,15 @@
               <li><a href="#" onclick="showSubmenu('laiga', this)"><img src="{% static 'icons/laliga.svg' %}"> Laiga</a></li>
               <li><a href="#" onclick="showSubmenu('national', this)"><img src="{% static 'icons/national.svg' %}"> National</a></li>
               <li class="settings-item"><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-cog icon"></i> Settings</a></li>
+              {% if user.is_authenticated %}
               <li><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-user icon"></i> Profile</a></li>
+              {% else %}
+              <li>
+                <a href="#" onclick="toggleMobileMenu(); openSigninModal('login'); return false; ">
+                  <i class="fas fa-user icon"></i> Signin
+                </a>
+              </li>
+              {% endif %}
           </ul>
       </div>
 
