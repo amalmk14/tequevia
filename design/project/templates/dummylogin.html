@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Registration & Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #f7f7f7;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .reg-wrap {
+      display: flex;
+      width: 1000px;
+      max-width: 100%;
+      height: 600px;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .reg-form {
+      flex: 1;
+      padding: 60px;
+      transition: all 0.3s ease;
+    }
+    .reg-form h1 {
+      margin-bottom: 40px;
+      font-size: 2rem;
+      font-weight: 500;
+      color: #333;
+    }
+    .name-row {
+      display: flex;
+      gap: 20px;
+    }
+    .reg-form input[type="text"],
+    .reg-form input[type="email"],
+    .reg-form input[type="number"],
+    .reg-form input[type="password"] {
+      width: 100%;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 50px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color .3s;
+    }
+    .reg-form input:focus {
+      border-color: #e74c3c;
+    }
+    .checkbox-row {
+      display: none;
+    }
+    .reg-form button {
+      display: block;
+      width: 220px;
+      padding: 15px;
+      background: #e74c3c;
+      color: #fff;
+      font-size: 1rem;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: background .3s, box-shadow .3s;
+    }
+    .reg-form button:hover {
+      background: #c0392b;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+    .toggle-text {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #333;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .reg-image {
+      flex: 1;
+      background: url('{% static "img/rono/c-p.jpg" %}') center/cover no-repeat;
+    }
+    @media (max-width: 900px) {
+      .reg-wrap {
+        flex-direction: column-reverse;
+        height: auto;
+      }
+      .reg-image {
+        height: 300px;
+      }
+      .reg-form {
+        padding: 40px 20px;
+      }
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="reg-wrap">
+
+    <!-- Registration Form -->
+    <form class="reg-form" id="registerForm" method="POST">
+      <h1>Signup </h1>
+      <div class="name-row">
+        <input type="text" name="first_name" placeholder="First Name" required />
+        <input type="text" name="last_name" placeholder="Last Name" required />
+      </div>
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="number" name="mobile" placeholder="Mobile" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+      <div class="checkbox-row">
+        <input type="checkbox" id="terms" />
+        <label for="terms">I accept the Terms of Use &amp; Privacy Policy.</label>
+      </div>
+      <button type="submit">Register Now</button>
+      <div class="toggle-text" onclick="toggleForm()">Already have an account? Sign in</div>
+    </form>
+
+    <!-- Login Form -->
+    <form class="reg-form hidden" id="loginForm" method="POST">
+      <h1>Signin</h1>
+      <input type="email" name="login_email" placeholder="Email" required />
+      <input type="password" name="login_password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <div class="toggle-text" onclick="toggleForm()">Don't have an account? Register</div>
+    </form>
+
+    <!-- Image Column -->
+    <div class="reg-image"></div>
+  </div>
+
+  <script>
+    function toggleForm() {
+      document.getElementById('registerForm').classList.toggle('hidden');
+      document.getElementById('loginForm').classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>

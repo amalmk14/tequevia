@@ -3,9 +3,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> Product</title>
+  <title>Product</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/product_details.css' %}">
+  <style>
+    /* ─── base & navbar ─────────────────────────────────────────── */
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'Inter',sans-serif;background:#f9f9f9;color:#333;}
+    .navbar{background:#000;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:16px 40px;}
+    .navbar .logo{font-size:22px;font-weight:600;}
+    .navbar .nav-links{display:flex;gap:24px;}
+    .navbar .nav-links a{color:#fff;text-decoration:none;font-weight:500;}
+
+    /* ─── layout ───────────────────────────────────────────────── */
+    .container{max-width:1200px;margin:40px auto;padding:0 20px;display:flex;gap:60px;flex-wrap:wrap;}
+    .gallery{flex:1;display:flex;min-width:0;}
+
+    /* ─── main hero image (fixed aspect) ──────────────────────── */
+    .main-image{flex:1;padding-left:30px;display:flex;justify-content:center;align-items:center;}
+    .image-frame{width:100%;aspect-ratio:4/5;background:#fff;border-radius:10px;overflow:hidden;display:flex;justify-content:center;align-items:center;}
+    .image-frame img{max-width:100%;max-height:100%;object-fit:contain;}
+
+    /* ─── thumbnails (square, fixed) ──────────────────────────── */
+    .thumbnails{width:80px;display:flex;flex-direction:column;gap:10px;}
+    .thumb-frame{width:100%;aspect-ratio:1/1;background:#fff;border-radius:6px;overflow:hidden;border:2px solid transparent;}
+    .thumb-frame img{width:100%;height:100%;object-fit:contain;cursor:pointer;transition:transform .3s;}
+    .thumb-frame img:hover{transform:scale(1.05);}
+    .thumb-frame img.active{border-color:#e7330f;}
+
+    /* ─── right‑side details ─────────────────────────────────── */
+    .product-details-wrapper{flex:1.2;min-width:300px;}
+    .product-title{font-size:28px;font-weight:700;margin-bottom:6px;}
+    .product-subtitle{color:#777;margin-bottom:18px;}
+    .price{font-size:24px;font-weight:600;color:#222;margin-bottom:22px;}
+
+    .size-qty{display:flex;gap:12px;margin-bottom:24px;}
+    select{padding:10px;font-size:16px;border:1px solid #ccc;border-radius:4px;background:#fff;}
+
+    .actions{display:flex;gap:12px;margin-bottom:28px;}
+    .wishlist-btn,.cart-btn{padding:12px 24px;border:none;font-weight:600;border-radius:5px;cursor:pointer;font-size:15px;}
+    .wishlist-btn{background:#fff;border:2px solid #aaa;color:#333;}
+    .cart-btn{background:#e7330f;color:#fff;}
+    .cart-btn:hover{background:#b4280c;}
+
+    .product-details{font-size:15px;line-height:1.6;}
+    .product-details h4{margin:0 0 10px;font-size:18px;}
+    .product-details ul{margin:8px 0 16px 20px;padding:0;}
+    .product-details li{margin-bottom:6px;}
+
+    /* ─── mobile tweak: thumbnails row ───────────────────────────*/
+    @media (max-width:768px){
+      .container{flex-direction:column;gap:30px;}
+      .gallery{align-items:center;flex-direction:column;}
+      .main-image{padding-left:0;width:100%;}
+      .thumbnails{flex-direction:row;justify-content:center;width:100%;margin-top:12px;}
+      .thumb-frame{width:60px;}
+    }
+  </style>
 </head>
 <body>
 
@@ -24,62 +77,72 @@
 <!-- Main Product Section -->
 <div class="container">
 
-  <!-- Left Gallery -->
+  <!-- Image Gallery -->
   <div class="gallery">
+    <!-- Thumbnails -->
     <div class="thumbnails">
-      <img src="{% static 'img/rono/j3.png' %}" alt="Front">
-      <img src="{% static 'img/rono/j3.png' %}" alt="Back">
-      <img src="{% static 'img/rono/j3.png' %}" alt="Side">
+      <div class="thumb-frame">
+        <img src="{% static 'img/rono/j1.png' %}" onclick="swapImage(this)">
+      </div>
+      <div class="thumb-frame">
+        <img src="{% static 'img/rono/j3.png' %}" onclick="swapImage(this)">
+      </div>
+      <div class="thumb-frame">
+        <img src="{% static 'img/rono/j3.png' %}" onclick="swapImage(this)">
+      </div>
     </div>
+
+    <!-- Main hero image -->
     <div class="main-image">
-      <img src="{% static 'img/rono/j3.png' %}" alt="Main">
+      <div class="image-frame">
+        <img id="currentImage" src="{% static 'img/rono/j3.png' %}">
+      </div>
     </div>
   </div>
 
-  <!-- Product Details -->
-  <div class="product-details">
+  <!-- Product Info -->
+  <div class="product-details-wrapper">
     <div class="product-title">CR7 Pro Edition Jersey</div>
     <div class="product-subtitle">Men's Football Jersey</div>
     <div class="price">$129.00</div>
 
-    <div class="variant-colors">
-      <img src="{% static 'img/rono/j3.png' %}" alt="Red">
-      <img src="{% static 'img/rono/j3.png' %}" alt="White">
-      <img src="{% static 'img/rono/j3.png' %}" alt="Black">
-    </div>
-
+    <!-- Size & Qty -->
     <div class="size-qty">
       <select>
-        <option>Select Size</option>
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
+        <option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option>
       </select>
       <select>
-        <option>Qty</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
+        <option>Qty</option><option>1</option><option>2</option><option>3</option>
       </select>
     </div>
 
-    <button class="add-cart-btn">Add to Cart</button>
-
-    <div class="links">
-      <a href="#">Size Chart</a>
-      <a href="#">Save to Wishlist</a>
+    <!-- Action buttons -->
+    <div class="actions">
+      <button class="wishlist-btn">♡ Wishlist</button>
+      <button class="cart-btn">Add to Cart</button>
     </div>
 
-    <div class="info-box">
-      <div><strong>Live Chat</strong>: Our football experts are available 24/7 for fit, material, and delivery support.</div>
-      <div class="chat-btn">Live Chat</div>
-      <br><br>
-      <div><strong>Free Worldwide Shipping</strong> on orders above $100.</div>
+    <!-- Detailed description -->
+    <div class="product-details">
+      <h4>Product Details</h4>
+      <p>This is the official CR7 pro‑fit jersey for fans and athletes alike.</p>
+      <ul>
+        <li>100% premium breathable polyester</li>
+        <li>Moisture‑wicking mesh fabric</li>
+        <li>Machine washable</li>
+      </ul>
+      <p>Ships from: <strong>Lisbon Store</strong></p>
+      <p>Delivery in 3‑7 business days. 30‑day return policy included.</p>
     </div>
   </div>
-
 </div>
 
+<script>
+  function swapImage(el){
+    document.getElementById('currentImage').src = el.src;
+    document.querySelectorAll('.thumb-frame img').forEach(img=>img.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
 </body>
 </html>

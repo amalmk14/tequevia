@@ -2,9 +2,11 @@ from django.shortcuts import render
 
 # Create your views here.
 
+def Signin(request):
+    return render(request,"dummylogin.html")
+
 def Home(request):
     return render(request,"home.html")
-
 
 def Cart(request):
     return render(request,"cart.html") 
@@ -23,9 +25,6 @@ def OrderSummary(request):
 
 def Details(request):
     return render(request,"product_details.html")
-
-def Details2(request):
-    return render(request,"product_details2.html")
 
 def List(request):
     return render(request,"product_list.html")
