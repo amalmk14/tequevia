@@ -7,7 +7,7 @@
 <title>Responsive Product Page</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link href="{% static 'css/product-details.css' %}" rel="stylesheet">
+<link href="{% static 'css/product-new.css' %}" rel="stylesheet">
 </head>
 <body>
 
@@ -48,11 +48,19 @@
     <div class="d-desc">
       <h4>Product Details</h4>
       <p>Official CR7 pro‑fit jersey for fans and athletes alike.</p>
-      <ul><li>100% premium breathable polyester</li><li>Moisture‑wicking mesh fabric</li><li>Machine washable</li></ul>
-      <p>Ships from: <strong>Lisbon Store</strong> • Delivery 3‑7 days • 30‑day returns</p>
+      <ul>
+        <li>100% premium breathable polyester</li>
+        <li>Moisture‑wicking mesh fabric</li>
+        <li>Machine washable</li>
+        <li>Machine washable</li>
+        <li>Machine washable</li>
+      </ul>
+      {% comment %} <p>Ships from: <strong>Lisbon Store</strong> • Delivery 3‑7 days • 30‑day returns</p> {% endcomment %}
     </div>
   </div>
 </div>
+
+
 
 <!-- ▸▸ Mobile ◂◂ -->
 <div class="m-wrapper">
@@ -76,16 +84,6 @@
     <div style="font-size:var(--fs-100);margin-top:1vw">Or pay ₹19,899 + ⚡ 100</div>
   </div>
 
-  <style>
-    .size-button{
-      border-radius:50%;
-      background:none;
-      width:40px;
-      height:40px;
-      font-size:12px;
-      text-weight:bold;
-    }
-  </style>
   <div class="m-pricebox">
     <div class="title">Size</div>
     <div class="note">
@@ -105,6 +103,175 @@
     {% comment %} <span style="font-weight:400;font-size:var(--fs-100)">From ₹6,667/m</span> {% endcomment %}
   </button>
   <button class="m-buy">Buy now</button>
+</div>
+
+
+{% comment %} related projects {% endcomment %}
+<div class="product-section">
+  <h2 class="product-h2">Related Product</h2>
+  <div class="container">
+    <div class="row">
+      <div class="relatedproduct-carousel">
+      <div class="product-grid holder">
+        
+        <!-- Product Card 1 -->
+        <div class="product-card">
+          <div class="product-top">
+            <span>CR7</span>
+          </div>
+          <a href="">
+            <div class="product-image-wrapper">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+            </div>
+            <div class="product-details">
+              <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+              <div class="product-category">Men Wear</div>
+              <div class="product-bottom">
+                <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
+                  {% comment %} <button class="order-button">Order Now</button> {% endcomment %}
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-top">
+            <span>CR7</span>
+          </div>
+          <a href="#">
+            <div class="product-image-wrapper">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+            </div>
+            <div class="product-details">
+              <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+              <div class="product-category">Men Wear</div>
+                <div class="product-bottom">
+                <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
+                {% comment %} <button class="order-button">Order Now</button> {% endcomment %}
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-top">
+            <span>CR7</span>
+          </div>
+          <a href="#">
+            <div class="product-image-wrapper">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+            </div>
+            <div class="product-details">
+              <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+              <div class="product-category">Men Wear</div>
+                <div class="product-bottom">
+                <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
+                {% comment %} <button class="order-button">Order Now</button> {% endcomment %}
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-top">
+            <span>CR7</span>
+          </div>
+          <a href="#">
+            <div class="product-image-wrapper">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+            </div>
+            <div class="product-details">
+              <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+              <div class="product-category">Men Wear</div>
+                <div class="product-bottom">
+                <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
+                {% comment %} <button class="order-button">Order Now</button> {% endcomment %}
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-top">
+            <span>CR7</span>
+          </div>
+          <a href="#">
+            <div class="product-image-wrapper">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+            </div>
+            <div class="product-details">
+              <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+              <div class="product-category">Men Wear</div>
+                <div class="product-bottom">
+                <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
+                {% comment %} <button class="order-button">Order Now</button> {% endcomment %}
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-top">
+            <span>CR7</span>
+          </div>
+          <a href="#">
+            <div class="product-image-wrapper">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+            </div>
+            <div class="product-details">
+              <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+              <div class="product-category">Men Wear</div>
+                <div class="product-bottom">
+                <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
+                {% comment %} <button class="order-button">Order Now</button> {% endcomment %}
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-top">
+            <span>CR7</span>
+          </div>
+          <a href="#">
+            <div class="product-image-wrapper">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+            </div>
+            <div class="product-details">
+              <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+              <div class="product-category">Men Wear</div>
+                <div class="product-bottom">
+                <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
+                {% comment %} <button class="order-button">Order Now</button> {% endcomment %}
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-top">
+            <span>CR7</span>
+          </div>
+          <a href="#">
+            <div class="product-image-wrapper">
+              <img src="{% static 'img/rono/j3.png' %}" alt="Real Madrid Jersey" class="product-image">
+            </div>
+            <div class="product-details">
+              <div class="product-title">2018 Real Madrid Jersey And Shorts</div>
+              <div class="product-category">Men Wear</div>
+                <div class="product-bottom">
+                <div class="product-price"><i class="fa-solid fa-indian-rupee-sign"></i>400</div>
+                {% comment %} <button class="order-button">Order Now</button> {% endcomment %}
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+  </div>
 </div>
 
 <script>
