@@ -11,10 +11,60 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+</style>
+.filter-options input,
+.filter-options option{
+    padding:10px;
+    height:50px;
+    width:200px;
+}
+
 </head>
 
 <body>
 {% include "navbar.html" %}
+
+<div class="container" style="margin-top:200px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="filter">
+                <div class="filter-options">
+                    <input type="search" placeholder="Search Products">
+                    <select>
+                        <option>Price</option>
+                        <option>Low to High</option>
+                        <option>Hight to Low</option>
+                    </select>
+                    <select>
+                        <option>Neck</option>
+                        <option>V Neck</option>
+                        <option>Round Neck</option>
+                        <option>Collar</option>
+                        <option>Collar with Zip</option>
+                    </select>
+                    <select>
+                        <option>Sleeve</option>
+                        <option>Five Sleeve</option>
+                        <option>Half sleeve</option>
+                        <option>Full sleeve</option>
+                    </select>
+                    <select>
+                        <option>Badge</option>
+                        <option>Embroidery</option>
+                        <option>Sublimation</option>
+                    </select>
+                    <select>
+                        <option>Material</option>
+                        <option>Dotknit</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
