@@ -31,3 +31,6 @@ def List(request):
 
 def List2(request):
     return render(request,"product_list2.html")
+
+def Lists(request):
+    return render(request,"lists.html")
