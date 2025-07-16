@@ -13,19 +13,31 @@
   <!-- single merged stylesheet -->
   <link rel="stylesheet" href="{% static 'css/wishlist11.css' %}">
   <style>
+    .m-container{
+      display:block;
+      padding-bottom:80px;
+      margin-top:14vh;
+    }
   
+    @media(min-width:992px){
+      .m-container{
+        display:none;
+      }
+      .d-container{
+        display:block;
+        margin-top:15vh;
+      }
+    }
 
   </style>
 </head>
 <body>
 
+  {% include "navbar.html" %}
+
+
   <!-- ===================== MOBILE ===================== -->
   <section class="m-container">
-    <header class="m-app-bar">
-      <i class="fa-solid fa-arrow-left"></i>
-      <div class="m-app-bar__title">Wishlist</div>
-      <i class="fa-solid fa-cart-shopping"></i>
-    </header>
 
     <section class="m-heading">
       <h1>My Wishlist</h1>
@@ -104,11 +116,6 @@
 
   <!-- ===================== DESKTOP / TABLET ===================== -->
   <section class="d-container">
-    <nav class="d-nav">
-      <div class="d-nav__logo">Ronaldo</div>
-      <input type="text" placeholder="Search for products, brands and more" />
-      <div class="d-nav__icons"><i class="fa-regular fa-user"></i><i class="fa-solid fa-cart-shopping"></i></div>
-    </nav>
 
     <div class="d-wrapper">
       <aside class="d-sidebar">

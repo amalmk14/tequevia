@@ -12,6 +12,8 @@
   
   /* ---------------- WRAPPER ---------------- */
   .cart-container{
+    /* margin-top: 500px; */
+    margin-top: 15vh;
     max-width:1200px;
     width:90%;
     margin:clamp(20px,5vw,40px) auto;
@@ -188,8 +190,14 @@
   
   /* ---------------- MOBILE OVERRIDE ------------*/
   @media(max-width:768px){
-    .cart-container{flex-direction:column; gap:0;}
-    .cart-left{padding:5vw; order:1;}
+    .cart-container{
+      flex-direction:
+      column; gap:0;
+    }
+    .cart-left{
+      padding:5vw; 
+      order:1;
+    }
     .cart-right{
       padding:5vw;
       order:2;

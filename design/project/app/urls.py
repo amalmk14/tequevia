@@ -5,9 +5,9 @@ app_name = "app"
 
 urlpatterns = [
     path('',views.Home,name="home"),
+    path('nav',views.Nav,name="navbar"),
     path('signin/',views.Signin,name="signin"),
     path('cart/',views.Cart,name="cart"),
-    path('cart2/',views.Cart2,name="cart2"),
     path('wishlist/',views.Wishlist,name="wishlist"),
     path('checkout/',views.Checkout,name="checkout"),
     path('order-summary',views.OrderSummary,name="oder-summary"),

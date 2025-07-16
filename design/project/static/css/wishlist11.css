@@ -22,20 +22,10 @@
   /* ================  MOBILE (≤991px)  ================ */
   .m-container{
     display:block;
-    padding-bottom:80px
+    padding-bottom:80px;
+    margin-top:10vh;
   }
-  .m-app-bar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:12px 16px;
-    background:var(--brand-blue);
-    color:#fff
-  }
-  .m-app-bar__title{
-    font-size:1.1rem;
-    font-weight:600
-  }
+  
   .m-heading{
     padding:20px 16px 8px
   }
@@ -182,37 +172,13 @@
   }
   @media(min-width:992px){
     .m-container{
-      display:none
+      display:none;
     }
     .d-container{
-      display:block
+      display:block;
     }
   }
-  
-  .d-nav{
-    display:flex;
-    align-items:center;
-    padding:12px 24px;
-    background:var(--brand-blue);
-    color:#fff
-  }
-  .d-nav__logo{
-    font-size:1.4rem;
-    font-weight:700;
-    margin-right:40px
-  }
-  .d-nav input{
-    flex:1;
-    max-width:600px;
-    padding:8px 12px;
-    border:none;
-    border-radius:4px
-  }
-  .d-nav__icons{
-    display:flex;
-    gap:24px;
-    margin-left:40px
-  }
+
   
   .d-wrapper{
     display:flex;

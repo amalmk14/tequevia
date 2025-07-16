@@ -12,6 +12,7 @@ body {
   padding: 3.6vw 4.2vw 18.8vh; /* 16px, 20px, 90px approx */
   background: #fff;
   padding-bottom: 10vh;
+  margin-top: 10vh;
 }
 
 .mobile-stepper {

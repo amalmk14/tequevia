@@ -11,5 +11,158 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/home_menu.css' %}" />
 
 </head>
+<body>
+
+    {% include "signin.html" %}
+
+    <div class="web-view">
+      <header class="navbar-desktop">
+        <div class="nav-top-row">
+          <!-- optional brand / logo here -->
+          <div class="desktop-icons">
+            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="javascript:void(0);" onclick="toggleWebMenu()">
+              <i class="fa-solid fa-bars"></i>
+            </a>
+          </div>
+        </div>
+      
+        <nav class="nav-bottom-row">
+          <ul id="rollingNav">
+            <li><a href="#">Best Selling</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Membership</a></li>
+            <li><a href="#">Lookbook</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Sale</a></li>
+            <li><a href="#">Outlet</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      
+    <!-- Web Side Menu (Right Side) -->
+    <div class="web-side-menu" id="webSideMenu">
+      <a href="javascript:void(0);" class="close-web-menu" onclick="toggleWebMenu()">
+        <i class="fa-solid fa-circle-xmark"></i>
+      </a>
+      <ul>
+        <li class="active new-item"><a href="#" onclick="selectWebMainItem(this)"><img src="{% static 'icons/new-in.svg' %}"> New In</a></li>
+        <li><a href="#" onclick="selectWebMainItem(this)"><img src="{% static 'icons/recent-drops.svg' %}"> Recent Drops</a></li>
+        <li><a href="#" onclick="selectWebMainItem(this)"><img src="{% static 'icons/classic.svg' %}"> Classic</a></li>
+        <li><a href="#" onclick="showWebSubmenu('current-season', this)"><img src="{% static 'icons/current-season.svg' %}"> Current Season</a></li>
+        <li><a href="#" onclick="showWebSubmenu('clearance', this)"><img src="{% static 'icons/clearence.svg' %}"> Clearance</a></li>
+        <li><a href="#" onclick="showWebSubmenu('fifa-world-cup', this)"><img src="{% static 'icons/worldcup.svg' %}"> FIFA World Cup</a></li>
+        <li><a href="#" onclick="showWebSubmenu('premier-league', this)"><img src="{% static 'icons/' %}"> Premier League</a></li>
+        <li><a href="#" onclick="showWebSubmenu('laiga', this)"><img src="{% static 'icons/laliga.svg' %}"> La Liga</a></li>
+        <li><a href="#" onclick="showWebSubmenu('national', this)"><img src="{% static 'icons/national.svg' %}"> National</a></li>
+        <li class="settings-item"><a href="#" onclick="selectWebMainItem(this)"><i class="fas fa-cog icon"></i> Settings</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="#" onclick="selectWebMainItem(this)"><i class="fas fa-user icon"></i> Profile</a></li>
+        {% else %}
+        <li>
+          <a href="#" onclick="toggleWebMenu(); openSigninModal('login'); return false;">
+            <i class="fas fa-user icon"></i> Signin
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  
+    <!-- Web Submenu (Left of Web Menu) -->
+    <div class="web-submenu" id="webSubmenu">
+      <h3 id="webSubmenuTitle">Submenu</h3>
+      <ul id="webSubmenuItems"></ul>
+    </div>
+    </div>
+  
+    <!-- Mobile View Layout -->
+  
+    <header class="mobile-hero-navbar">
+      <div class="top-icons">
+        <a href="#"><img src="{% static 'icons/search.svg' %}"> </a>
+        <a href="#" onclick="toggleMobileMenu()"><img src="{% static 'icons/menu.svg' %}"> </a>
+      </div>
+    
+      <!-- Scrolling nav section -->
+      <nav class="mobile-scroll-nav">
+        <ul id="mobileRollingNav">
+          <li><a href="#">Best Selling</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Membership</a></li>
+          <li><a href="#">Lookbook</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Sale</a></li>
+          <li><a href="#">Outlet</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+        
+  <style>
+    .mobile-side-menu ul li.settings-item {
+      margin-top: 50px;
+  }
+  </style>
+    
+    <div class="mobile-side-menu" id="mobileSideMenu">
+            <a href="#" class="close-menu" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </a>
+            <ul>
+                <li class="active new-item"><a href="#" onclick="selectMainMenuItem(this)"><img src="{% static 'icons/new-in.svg' %}"> New In</a></li>
+                <li><a href="#" onclick="selectMainMenuItem(this)"><img src="{% static 'icons/recent-drops.svg' %}">Recent Drops</a></li>
+                <li><a href="#" onclick="selectMainMenuItem(this)"><img src="{% static 'icons/classic.svg' %}">  Classic</a></li>
+                <li><a href="#" onclick="showSubmenu('current-season', this)"><img src="{% static 'icons/current-season.svg' %}"> Current Season</a></li>
+                <li><a href="#" onclick="showSubmenu('clearance', this)"><img src="{% static 'icons/clearence.svg' %}">Clearance</a></li>
+                <li><a href="#" onclick="showSubmenu('fifa-world-cup', this)"><img src="{% static 'icons/worldcup.svg' %}">FIFA World Cup</a></li>
+                <li><a href="#" onclick="showSubmenu('premier-league', this)"><img src="{% static 'icons/' %}">Premier League</a></li>
+                <li><a href="#" onclick="showSubmenu('laiga', this)"><img src="{% static 'icons/laliga.svg' %}"> Laiga</a></li>
+                <li><a href="#" onclick="showSubmenu('national', this)"><img src="{% static 'icons/national.svg' %}"> National</a></li>
+                <li class="settings-item"><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-cog icon"></i> Settings</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-user icon"></i> Profile</a></li>
+                {% else %}
+                <li>
+                  <a href="#" onclick="toggleMobileMenu(); openSigninModal('login'); return false; ">
+                    <i class="fas fa-user icon"></i> Signin
+                  </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+  
+        <!-- Submenu -->
+        <div class="submenu" id="submenu">
+            <!-- <div class="back-button" onclick="hideSubmenu()">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
+            </div> -->
+            <h3 id="submenuTitle">Current Season</h3>
+            <ul id="submenuItems">
+                <!-- Submenu items will be populated by JavaScript -->
+            </ul>
+        </div>
+  
+        <!-- Click outside overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="toggleMobileMenu()"></div>
+  
+  
+  
+
+    <script src="{% static 'js/home_menu.js' %}"></script>
+</body>
+</html>

@@ -2,17 +2,17 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def Signin(request):
-    return render(request,"signin.html")
-
 def Home(request):
     return render(request,"home.html")
 
+def Nav(request):
+    return render(request,"navbar.html")
+
+def Signin(request):
+    return render(request,"signin.html")
+
 def Cart(request):
     return render(request,"cart.html") 
-
-def Cart2(request):
-    return render(request,"cart2.html") 
 
 def Wishlist(request):
     return render(request,"wishlist.html")

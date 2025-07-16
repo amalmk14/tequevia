@@ -41,32 +41,14 @@ body{
 ================================================================================================ */
 @media (min-width:769px){
 /* ----- NAVBAR ----- */
-    .d-nav{
-        background:#000;
-        color:#fff;
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:2vh 4vw;
-    }
-    .d-nav .logo{
-        font-size:clamp(16px,1.5vw,22px);
-        font-weight:600
-    }
-    .d-nav a{
-        color:#fff;
-        text-decoration:none;
-        font-weight:500;
-        font-size:clamp(12px,1.1vw,16px);
-        margin-left:2vw
-    }
+    
     /* ----- LAYOUT ----- */
     .d-container{
         max-width:1200px;
         margin:4vh auto;
         padding:0 2vw;
         display:flex;
-        gap:4vw
+        gap:4vw;
     }
     /* ----- GALLERY ----- */
     .d-gallery{
@@ -94,7 +76,7 @@ body{
         object-fit:contain
     }
     .d-thumb.active{
-        border-color:#e7330f
+        border-color:#202020
     }
     .d-main{
         flex:1;
@@ -163,17 +145,19 @@ body{
         border-radius:0.4vw;
         cursor:pointer
     }
-    .d-wish{
-        background:#fff;
-        border:0.2vw solid #aaa;
-        color:#333
-    }
     .d-cart{
         background:#2b2a2a;
         color:#fff
     }
     .d-cart:hover{
-        background:#4e4e4e
+        background:#4e4e4e;
+    }
+    .d-buy-now{
+      background:#2b2a2a;
+      color:#fff;
+    }
+    .d-buy-now:hover{
+      background:#4e4e4e;
     }
     .d-desc{
         font-size:var(--fs-200);
