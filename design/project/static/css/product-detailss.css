@@ -352,19 +352,19 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 90px;
+        width: 120px;
         height: 36px;
-        border: 1px solid #ccc;
+        /* border: 1px solid #ccc; */
         border-radius: 6px;
-        background-color: #f8f8f8;
+        /* background-color: #f8f8f8; */
         margin-top: 2vw;
       }
       
       .m-qty-btn {
-        width: 30px;
+        width: 40px;
         height: 100%;
         border: none;
-        background-color: #e0e0e0;
+        /* background-color: #e0e0e0; */
         font-size: 18px;
         font-weight: bold;
         cursor: pointer;
