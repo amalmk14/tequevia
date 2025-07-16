@@ -5,16 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cart</title>
-  <link href="{% static 'css/new-cart.css' %}" rel="stylesheet">
+  <link href="{% static 'css/cartss.css' %}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
   <style>
-    .cart-container{
-      /* margin-top: 500px; */
-      margin-top: 15vh;
-    }
+ .cart-container{
+  margin-top:20vh;
+ }
+ @media(max-width:768px){
+  .cart-container{
+    margin-top:15vh;
+  }
+ }
   </style>
 </head>
 <body>

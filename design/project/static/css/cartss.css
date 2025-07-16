@@ -13,7 +13,7 @@
   /* ---------------- WRAPPER ---------------- */
   .cart-container{
     /* margin-top: 500px; */
-    margin-top: 20vh;
+    margin-top: 30vh;
     max-width:1200px;
     width:90%;
     margin:clamp(20px,5vw,40px) auto;
@@ -193,6 +193,7 @@
     .cart-container{
       flex-direction:
       column; gap:0;
+      margin-top: 15vh;
     }
     .cart-left{
       padding:5vw; 
