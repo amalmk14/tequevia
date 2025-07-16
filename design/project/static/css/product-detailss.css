@@ -121,6 +121,9 @@ body{
         font-weight:700;
         margin-bottom:3vh
     }
+    .d-price del{
+      color: var(--clr-grey-700);
+    }
     .d-selects{
         display:flex;
         gap:1vw;
@@ -299,6 +302,9 @@ body{
     .m-pricebox .note{
         font-size:var(--fs-100);
         color:#555
+    }
+    .m-pricebox span del{
+      color: var(--clr-grey-700);
     }
 
     .m-discount{
