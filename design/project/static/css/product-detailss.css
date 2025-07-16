@@ -135,7 +135,15 @@ body{
     .d-actions{
         display:flex;
         gap:1vw;
-        margin-bottom:4vh
+        margin-bottom:4vh;
+        align-items: flex-end;
+    }
+    .d-actions a{
+        text-decoration: none;
+        font-size: 12px;
+        padding-bottom: 0.4vh;
+        color: #777;
+        border-bottom: 1px solid #777;
     }
     .d-btn{
         flex:1;
@@ -241,7 +249,7 @@ body{
     /* IMAGE */
     .m-slider img{
         width:100%;
-        height:72vw;
+        height:90vw;
         object-fit:contain
     }
     .m-dots{
