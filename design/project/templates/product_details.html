@@ -7,37 +7,12 @@
 <title>Responsive Product Page</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link href="{% static 'css/product-new.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="{% static 'css/product-detailss.css' %}" rel="stylesheet">
 <style>
-  .d-container{
-    margin-top:20vh;
-  }
-  .m-wrapper{
-    margin-top:17vh;
-  }
 
-  .d-desc-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-    margin-top: 1vh;
-    font-size:15px;
-  }
   
-  .d-desc-item {
-    display: flex;
-    justify-content: space-between;
-    max-width: 300px; /* adjust if needed */
-  }
-  
-  .d-desc-label {
-    {% comment %} font-weight: 600; {% endcomment %}
-    flex: 1;
-  }
-  
-  .d-desc-value {
-    flex: 1;
-  }
+
   
 </style>
 </head>
@@ -60,49 +35,95 @@
     <div class="d-title">CR7 Pro Edition Jersey</div>
     <div class="d-sub">Men's Football Jersey</div>
     <div class="d-price">$129.00</div>
+    <style>
+      
+    </style>
 
     <div class="d-selects">
       <select><option>Size</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
       {% comment %} <select><option>Qty</option><option>1</option><option>2</option><option>3</option></select> {% endcomment %}
+      <div class="qty-wrapper">
+        <button type="button" class="qty-btn minus">−</button>
+        <span class="qty-value">1</span>
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
     </div>
 
     <div class="d-actions">
       <button class="d-btn d-cart">Add to Cart</button>
       <button class="d-btn d-buy-now">Buy Now</button>
+      <a href="#" data-toggle="modal" data-target="#exampleModal">View sizechart</a>
     </div>
+
+<style>
+
+</style>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="position:absolute;align:center;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Size Chart</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <table class="size-table">
+                <thead>
+                  <tr>
+                    <th>Size</th>
+                    <th>Chest (in)</th>
+                    <th>Waist (in)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Pass</td><td>37 - 39</td><td>37 - 39</td></tr>
+                  <tr><td>S</td><td>39 - 41</td><td>39 - 41</td></tr>
+                  <tr><td>M</td><td>41 - 43</td><td>41 - 43</td></tr>
+                  <tr><td>L</td><td>43 - 45</td><td>43 - 45</td></tr>
+                  <tr><td>XL</td><td>45 - 47</td><td>45 - 47</td></tr>
+                  <tr><td>2XL</td><td>47 - 49</td><td>47 - 49</td></tr>
+                  <tr><td>3XL</td><td>49 - 51</td><td>49 - 51</td></tr>
+                  <tr><td>4XL</td><td>51 - 53</td><td>49 - 51</td></tr>
+                  <tr><td>5XL</td><td>53- 55</td><td>53- 55</td></tr>
+                </tbody>
+              </table>
+            </div>            
+          </div>
+        </div>
+      </div>
 
     <div class="d-desc">
-  <h4>Product Properties</h4>
-  <p>Official CR7 pro‑fit jersey for fans and athletes alike.</p>
+      <h4>Product Properties</h4>
+      <p>Official CR7 pro‑fit jersey for fans and athletes alike.</p>
 
-  <div class="d-desc-details">
-    <div class="d-desc-item">
-      <span class="d-desc-label">Season Type:</span>
-      <span class="d-desc-value">Retro</span>
+      <div class="d-desc-details">
+        <div class="d-desc-item">
+          <span class="d-desc-label">Season Type:</span>
+          <span class="d-desc-value">Retro</span>
+        </div>
+        <div class="d-desc-item">
+          <span class="d-desc-label">Material Type:</span>
+          <span class="d-desc-value">Dotknit</span>
+        </div>
+        <div class="d-desc-item">
+          <span class="d-desc-label">Neck Type:</span>
+          <span class="d-desc-value">Round Neck</span>
+        </div>
+        <div class="d-desc-item">
+          <span class="d-desc-label">Sleeve Type:</span>
+          <span class="d-desc-value">Half Sleeve</span>
+        </div>
+        <div class="d-desc-item">
+          <span class="d-desc-label">Badge Type:</span>
+          <span class="d-desc-value">Embroidery</span>
+        </div>
+      </div>
     </div>
-    <div class="d-desc-item">
-      <span class="d-desc-label">Material Type:</span>
-      <span class="d-desc-value">Dotknit</span>
-    </div>
-    <div class="d-desc-item">
-      <span class="d-desc-label">Neck Type:</span>
-      <span class="d-desc-value">Round Neck</span>
-    </div>
-    <div class="d-desc-item">
-      <span class="d-desc-label">Sleeve Type:</span>
-      <span class="d-desc-value">Half Sleeve</span>
-    </div>
-    <div class="d-desc-item">
-      <span class="d-desc-label">Badge Type:</span>
-      <span class="d-desc-value">Embroidery</span>
-    </div>
+
   </div>
 </div>
-
-  </div>
-</div>
-
-
 
 <!-- ▸▸ Mobile ◂◂ -->
 <div class="m-wrapper">
@@ -112,8 +133,11 @@
     <div class="m-dots"><span class="m-dot active"></span><span class="m-dot"></span><span class="m-dot"></span></div>
   </div>
 
-  <div class="m-opt">Color <span>Icy Purple</span></div>
-  <div class="m-opt">Size <span>L   </span></div>
+  <div class="m-opt">Out of stock <span></span></div>
+  {% comment %} <div class="m-opt">Size <span>L</span>Quantity <span>3</span></div> {% endcomment %}
+  <div class="m-opt">
+    Size <span class="m-opt-size">L</span> &nbsp; Quantity <span class="m-opt-qty">1</span>
+  </div>
 
   <div class="m-pricebox">
     <div class="title">Official CR7 pro‑fit jersey for fans and athletes alike.</div>
@@ -121,13 +145,52 @@
     <div class="note">100% premium breathable polyester</div>
   </div>
 
-  <div class="m-discount">
+  {% comment %} <div class="m-discount">
     <div><span class="tag">20 % OFF</span><span class="old">₹24,999</span> <span class="new">₹19,999</span></div>
     <div style="font-size:var(--fs-100);margin-top:1vw">Or pay ₹19,899 + ⚡ 100</div>
+  </div> {% endcomment %}
+
+  <div class="m-discount">
+    <div><span class="tag"></span><span class="old"></span> <span class="new">Prodect</span></div>
+    <div style="font-size:var(--fs-100);margin-top:1vw">
+      <div class="m-desc-details">
+        <div class="m-desc-item">
+          <span class="m-desc-label">Season Type:</span>
+          <span class="m-desc-value">Retro</span>
+        </div>
+        <div class="m-desc-item">
+          <span class="m-desc-label">Material Type:</span>
+          <span class="m-desc-value">Dotknit</span>
+        </div>
+        <div class="m-desc-item">
+          <span class="m-desc-label">Neck Type:</span>
+          <span class="m-desc-value">Round Neck</span>
+        </div>
+        <div class="m-desc-item">
+          <span class="m-desc-label">Sleeve Type:</span>
+          <span class="m-desc-value">Half Sleeve</span>
+        </div>
+        <div class="m-desc-item">
+          <span class="m-desc-label">Badge Type:</span>
+          <span class="m-desc-value">Embroidery</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-pricebox m-pricebox-qty">
+    <div class="title">Quantity</div>
+    <div class="note">
+      <div class="m-qty-wrapper">
+        <button type="button" class="m-qty-btn m-minus">−</button>
+        <span class="m-qty-value">1</span>
+        <button type="button" class="m-qty-btn m-plus">+</button>
+      </div>
+    </div>
   </div>
 
   <div class="m-pricebox">
-    <div class="title">Size</div>
+    <div class="m-title">Size</div>
     <div class="note">
       <button type="button" class="size-button">S</button>
       <button type="button" class="size-button">M</button>
@@ -137,7 +200,56 @@
     </div>
   </div>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const qtyWrapper = document.querySelector('.m-qty-wrapper');
+      const minusBtn = qtyWrapper.querySelector('.m-minus');
+      const plusBtn = qtyWrapper.querySelector('.m-plus');
+      const qtyDisplay = qtyWrapper.querySelector('.m-qty-value');
+      const optQty = document.querySelector('.m-opt-qty'); // for showing updated quantity
+  
+      let quantity = 1;
+  
+      function updateQuantityDisplay() {
+        qtyDisplay.textContent = quantity;
+        optQty.textContent = quantity;
+      }
+  
+      minusBtn.addEventListener('click', () => {
+        if (quantity > 1) {
+          quantity--;
+          updateQuantityDisplay();
+        }
+      });
+  
+      plusBtn.addEventListener('click', () => {
+        quantity++;
+        updateQuantityDisplay();
+      });
+    });
+  </script>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const sizeButtons = document.querySelectorAll('.size-button');
+      const optSize = document.querySelector('.m-opt-size');
+  
+      sizeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          sizeButtons.forEach(btn => btn.classList.remove('active'));
+  
+          // Add active class to the clicked button
+          button.classList.add('active');
+  
+          // Update the selected size in the span
+          optSize.textContent = button.textContent;
+        });
+      });
+    });
+  </script>
+  
+  
 </div>
 
 <div class="m-footer">
@@ -317,477 +429,6 @@
 </div>
 
 
-<style>
-  #modal-container {
-    position:fixed;
-    display:table;
-    height:100%;
-    width:100%;
-    top:0;
-    left:0;
-    transform:scale(0);
-    z-index:1;
-    &.two {
-      transform:scale(1);
-      .modal-background {
-        background:rgba(0,0,0,.0);
-        animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-        .modal {
-          opacity:0;
-          animation: scaleUp .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-        }
-      }
-      + .content {
-        animation: scaleBack .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-      }
-      &.out {
-        animation: quickScaleDown 0s .5s linear forwards;
-        .modal-background {
-          animation: fadeOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-          .modal {
-             animation: scaleDown .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-          }
-        }
-        + .content {
-          animation: scaleForward .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-        }
-      }
-    }
-    .modal-background {
-      display:table-cell;
-      background:rgba(0,0,0,.8);
-      text-align:center;
-      vertical-align:middle;
-      .modal {
-        background:white;
-        padding:50px;
-        display:inline-block;
-        border-radius:3px;
-        font-weight:300;
-        position:relative;
-        h2 {
-          font-size:25px;
-          line-height:25px;
-          margin-bottom:15px;
-        }
-        p {
-          font-size:18px;
-          line-height:22px;
-        }
-        .modal-svg {
-          position:absolute;
-          top:0;
-          left:0;
-          height:100%;
-          width:100%;
-          border-radius:3px;
-          rect {
-            stroke: #fff;
-            stroke-width: 2px;
-            stroke-dasharray: 778;
-            stroke-dashoffset: 778;
-          }
-        }
-      }
-    }
-  }
-
-.content {
-  min-height:100%;
-  height:100%;
-  background:white;
-  position:relative;
-  z-index:0;
-  h1 {
-    padding:75px 0 30px 0;
-    text-align:center;
-    font-size:30px;
-    line-height:30px;
-  }
-  .buttons {
-    max-width:800px;
-    margin:0 auto;
-    padding:0;
-    text-align:center;
-    .button {
-      display:inline-block;
-      text-align:center;
-      padding:10px 15px;
-      margin:10px;
-      background:red;
-      font-size:18px;
-      background-color:#efefef;
-      border-radius:3px;
-      box-shadow:0 1px 2px rgba(0,0,0,.3);
-      cursor:pointer;
-      &:hover {
-        color:white;
-        background:#009bd5;
-      }
-    }
-  } 
-}
-
-@keyframes unfoldIn {
-  0% {
-    transform:scaleY(.005) scaleX(0);
-  }
-  50% {
-    transform:scaleY(.005) scaleX(1);
-  }
-  100% {
-    transform:scaleY(1) scaleX(1);
-  }
-}
-
-@keyframes unfoldOut {
-  0% {
-    transform:scaleY(1) scaleX(1);
-  }
-  50% {
-    transform:scaleY(.005) scaleX(1);
-  }
-  100% {
-    transform:scaleY(.005) scaleX(0);
-  }
-}
-
-@keyframes zoomIn {
-  0% {
-    transform:scale(0);
-  }
-  100% {
-    transform:scale(1);
-  }
-}
-
-@keyframes zoomOut {
-  0% {
-    transform:scale(1);
-  }
-  100% {
-    transform:scale(0);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    background:rgba(0,0,0,.0);
-  }
-  100% {
-    background:rgba(0,0,0,.7);
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    background:rgba(0,0,0,.7);
-  }
-  100% {
-    background:rgba(0,0,0,.0);
-  }
-}
-
-@keyframes scaleUp {
-  0% {
-    transform:scale(.8) translateY(1000px);
-    opacity:0;
-  }
-  100% {
-    transform:scale(1) translateY(0px);
-    opacity:1;
-  }
-}
-
-@keyframes scaleDown {
-  0% {
-    transform:scale(1) translateY(0px);
-    opacity:1;
-  }
-  100% {
-    transform:scale(.8) translateY(1000px);
-    opacity:0;
-  }
-}
-
-@keyframes scaleBack {
-  0% {
-    transform:scale(1);
-  }
-  100% {
-    transform:scale(.85);
-  }
-}
-
-@keyframes scaleForward {
-  0% {
-    transform:scale(.85);
-  }
-  100% {
-    transform:scale(1);
-  }
-}
-
-@keyframes quickScaleDown {
-  0% {
-    transform:scale(1);
-  }
-  99.9% {
-    transform:scale(1);
-  }
-  100% {
-    transform:scale(0);
-  }
-}
-
-@keyframes slideUpLarge {
-  0% {
-    transform:translateY(0%);
-  }
-  100% {
-    transform:translateY(-100%);
-  }
-}
-
-@keyframes slideDownLarge {
-  0% {
-    transform:translateY(-100%);
-  }
-  100% {
-    transform:translateY(0%);
-  }
-}
-
-@keyframes moveUp {
-  0% {
-    transform:translateY(150px);
-  }
-  100% {
-    transform:translateY(0);
-  }
-}
-
-@keyframes moveDown {
-  0% {
-    transform:translateY(0px);
-  }
-  100% {
-    transform:translateY(150px);
-  }
-}
-
-@keyframes blowUpContent {
-  0% {
-    transform:scale(1);
-    opacity:1;
-  }
-  99.9% {
-    transform:scale(2);
-    opacity:0;
-  }
-  100% {
-    transform:scale(0);
-  }
-}
-
-@keyframes blowUpContentTwo {
-  0% {
-    transform:scale(2);
-    opacity:0;
-  }
-  100% {
-    transform:scale(1);
-    opacity:1;
-  }
-}
-
-@keyframes blowUpModal {
-  0% {
-    transform:scale(0);
-  }
-  100% {
-    transform:scale(1);
-  }
-}
-
-@keyframes blowUpModalTwo {
-  0% {
-    transform:scale(1);
-    opacity:1;
-  }
-  100% {
-    transform:scale(0);
-    opacity:0;
-  }
-}
-
-@keyframes roadRunnerIn {
-  0% {
-    transform:translateX(-1500px) skewX(30deg) scaleX(1.3);
-  }
-  70% {
-    transform:translateX(30px) skewX(0deg) scaleX(.9);
-  }
-  100% {
-    transform:translateX(0px) skewX(0deg) scaleX(1);
-  }
-}
-
-@keyframes roadRunnerOut {
-  0% {
-    transform:translateX(0px) skewX(0deg) scaleX(1);
-  }
-  30% {
-    transform:translateX(-30px) skewX(-5deg) scaleX(.9);
-  }
-  100% {
-    transform:translateX(1500px) skewX(30deg) scaleX(1.3);
-  }
-}
-
-@keyframes sketchIn {
-	0% {
-		stroke-dashoffset: 778;
-	}
-	100% {
-		stroke-dashoffset: 0;
-	}
-}
-
-@keyframes sketchOut {
-	0% {
-		stroke-dashoffset: 0;
-	}
-	100% {
-		stroke-dashoffset: 778;
-	}
-}
-
-@keyframes modalFadeIn {
-  0% {
-    background-color:transparent;
-  }
-  100% {
-    background-color:white;
-  }
-}
-
-@keyframes modalFadeOut {
-  0% {
-    background-color:white;
-  }
-  100% {
-    background-color:transparent;
-  }
-}
-
-@keyframes modalContentFadeIn {
-  0% {
-    opacity:0;
-    top:-20px;
-  }
-  100% {
-    opacity:1;
-    top:0;
-  }
-}
-
-@keyframes modalContentFadeOut {
-  0% {
-    opacity:1;
-    top:0px;
-  }
-  100% {
-    opacity:0;
-    top:-20px;
-  }
-}
-
-@keyframes bondJamesBond {
-  0% {
-    transform:translateX(1000px);
-  }
-  80% {
-    transform:translateX(0px);
-    border-radius:75px;
-    height:75px;
-    width:75px;
-  }
-  90% {
-    border-radius:3px;
-    height:182px;
-    width:247px;
-  }
-  100% {
-    border-radius:3px;
-    height:162px;
-    width:227px;
-  }
-}
-
-@keyframes killShot {
-  0% {
-    transform:translateY(0) rotate(0deg);
-    opacity:1;
-  }
-  100% {
-    transform:translateY(300px) rotate(45deg);
-    opacity:0;
-  }
-}
-
-@keyframes fadeToRed {
-  0% {
-    background-color:rgba(black,.6);
-  }
-  100% {
-    background-color:rgba(red,.8);
-  }
-}
-
-@keyframes slowFade {
-  0% {
-    opacity:1;
-  }
-  99.9% {
-    opacity:0;
-    transform:scale(1);
-  }
-  100% {
-    transform:scale(0);
-  }
-}
-  
-</style>
-<div id="modal-container">
-  <div class="modal-background">
-    <div class="modal">
-      <h2>I'm a Modal</h2>
-      <p>Hear me roar.</p>
-      <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
-								<rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
-							</svg>
-    </div>
-  </div>
-</div>
-<div class="content">
-  <div class="buttons">
-    <div id="two" class="button">Revealing</div>
-  </div>
-</div>
-
-<script>
-  $('.button').click(function(){
-    var buttonId = $(this).attr('id');
-    $('#modal-container').removeAttr('class').addClass(buttonId);
-    $('body').addClass('modal-active');
-  })
-  
-  $('#modal-container').click(function(){
-    $(this).addClass('out');
-    $('body').removeClass('modal-active');
-  });
-</script>
 
 <script>
 /* desktop swap */
@@ -810,5 +451,9 @@ setInterval(()=>{
   document.querySelectorAll('.m-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
 },2500);
 </script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
