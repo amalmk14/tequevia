@@ -24,7 +24,7 @@
     box-sizing:border-box;
     margin:0;padding:0}
 body{
-    font-family:'Inter',sans-serif;
+    font-family: 'Outfit', sans-serif;
     background:var(--clr-bg);
     color:var(--clr-txt)
 }
