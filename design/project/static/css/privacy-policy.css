@@ -25,6 +25,10 @@
     --label-bg:   rgba(236,235,235,.90);
 }
 
+*{
+    font-family: 'Outfit', sans-serif;
+}
+
 .head {
     text-align: center;
 }
@@ -35,6 +39,18 @@
 
 span{
     font-weight: bold;
+}
+
+li a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+}
+
+p a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
 }
 
 @media(max-width:768px){

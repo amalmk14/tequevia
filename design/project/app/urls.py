@@ -15,4 +15,7 @@ urlpatterns = [
     path('lists/',views.Lists,name="product_lists"),
     path('footer/',views.Footer,name="footer"),
     path('privacy-policy',views.PrivacyPolicy,name="privacy-policy"),
+    path('terms-conditions',views.TermsConditions,name="terms-conditions"),
+    path("return-policy",views.ReturnPolicy,name="return-policy"),
+    path("shipping-delivery",views.ShippingDelivery,name="shipping-delivery"),
 ]

@@ -34,3 +34,12 @@ def Footer(request):
 
 def PrivacyPolicy(request):
     return render(request,"privacy-policy.html")
+
+def TermsConditions(request):
+    return render(request,"terms-conditions.html")
+
+def ReturnPolicy(request):
+    return render(request,"return-policy.html")
+
+def ShippingDelivery(request):
+    return render(request,"shipping-delivery.html")
