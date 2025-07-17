@@ -30,4 +30,4 @@ def Lists(request):
     return render(request,"lists.html")
 
 def Footer(request):
-    return render(request,"footer2.html")
+    return render(request,"footer.html")

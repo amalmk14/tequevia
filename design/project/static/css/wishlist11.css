@@ -22,7 +22,7 @@
   /* ================  MOBILE (≤991px)  ================ */
   .m-container{
     display:block;
-    padding-bottom:80px;
+    padding-bottom:0px;
     margin-top:10vh;
   }
   
