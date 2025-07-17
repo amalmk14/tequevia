@@ -536,6 +536,12 @@ body{
   align-items: center;
 }
 
+.product-bottom-box {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+}
+
 .product-price {
   font-size: clamp(8px, 1vw, 12px);
   font-weight: 700;
@@ -594,6 +600,7 @@ body{
         padding: 3vh 5vw;
         padding-top: 0;
         margin-top: -1.5vh;
+        padding-bottom: 10vh;
     }
 
     .holder{
@@ -617,7 +624,7 @@ body{
 
   .product-card {
     width: calc(50% - 2.5vw);
-    height: clamp(160px, 28vw, 220px);
+    height: clamp(180px, 28vw, 220px);
     margin-top: 1vh;
     margin-bottom: 1vh;
   }
@@ -640,7 +647,7 @@ body{
 
   .product-image {
     max-width: 100%;
-    height: clamp(80px, 15vw, 120px);
+    height: clamp(120px, 15vw, 120px);
     object-fit: cover;
   }
 
@@ -665,7 +672,12 @@ body{
     align-items: center;
     gap: 0;
   }
-
+  .product-bottom-box {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+  }
+  
   .product-price {
     font-size: clamp(8px, 2.3vw, 12px);
   }
@@ -695,3 +707,8 @@ body{
 .size-table th {
     font-weight: bold;
 }
+
+
+
+
+

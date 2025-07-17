@@ -12,7 +12,5 @@ urlpatterns = [
     path('checkout/',views.Checkout,name="checkout"),
     path('order-summary',views.OrderSummary,name="oder-summary"),
     path('details/',views.Details,name="product_details"),
-    path('list/',views.List,name="product_list"),
-    path('list2/',views.List2,name="product_list2"),
     path('lists/',views.Lists,name="product_lists"),
 ]

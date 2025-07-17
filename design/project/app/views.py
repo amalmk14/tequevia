@@ -26,11 +26,5 @@ def OrderSummary(request):
 def Details(request):
     return render(request,"product_details.html")
 
-def List(request):
-    return render(request,"product_list.html")
-
-def List2(request):
-    return render(request,"product_list2.html")
-
 def Lists(request):
     return render(request,"lists.html")
