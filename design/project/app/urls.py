@@ -13,4 +13,5 @@ urlpatterns = [
     path('order-summary',views.OrderSummary,name="oder-summary"),
     path('details/',views.Details,name="product_details"),
     path('lists/',views.Lists,name="product_lists"),
+    path('footer/',views.Footer,name="footer"),
 ]

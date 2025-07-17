@@ -1426,7 +1426,7 @@ body {
 
   .product-card {
     width: calc(50% - 2.5vw);
-    height: clamp(160px, 28vw, 220px);
+    height: clamp(180px, 28vw, 220px);
     margin-top: 1vh;
     margin-bottom: 1vh;
   }
@@ -1449,7 +1449,7 @@ body {
 
   .product-image {
     max-width: 100%;
-    height: clamp(80px, 15vw, 120px);
+    height: clamp(120px, 15vw, 120px);
     object-fit: cover;
   }
 
