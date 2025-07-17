@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Order Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+    .header {
+      background: #fff;
+      padding: 15px;
+      font-weight: 600;
+      font-size: 18px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    .filter-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 15px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+    .filter-bar button {
+      background: none;
+      border: none;
+      font-size: 14px;
+      color: #007bff;
+      cursor: pointer;
+    }
+    .filter-box {
+      display: none;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 15px;
+    }
+    .filter-option {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .filter-tag {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #f0f0f0;
+    }
+    .filter-tag.selected {
+      background: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+    .filter-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+    .filter-actions button {
+      flex: 1;
+      padding: 10px;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+    }
+    .filter-actions .cancel {
+      background: #f5f5f5;
+      color: #333;
+    }
+    .filter-actions .apply {
+      background: #007bff;
+      color: white;
+    }
+    .order-list {
+      padding: 10px;
+    }
+    .order-item {
+      background: #fff;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .order-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+    .order-status {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">My Orders</div>
+
+  <div class="filter-bar">
+    <div>Filter By</div>
+    <button id="toggleFilter">Filter</button>
+  </div>
+
+  <div class="filter-box" id="filterBox">
+    <div class="filter-option" id="filterOptions">
+      <div class="filter-tag">Pending</div>
+      <div class="filter-tag">Shipped</div>
+      <div class="filter-tag">Delivered</div>
+      <div class="filter-tag">Cancelled</div>
+    </div>
+    <div class="filter-actions">
+      <button class="cancel" id="cancelFilter">Cancel</button>
+      <button class="apply" id="applyFilter">Apply</button>
+    </div>
+    <button style="margin-top: 10px; background:none; border:none; color:red; font-size:14px;" id="clearFilter">Clear All</button>
+  </div>
+
+  <div class="order-list" id="orderList">
+    <div class="order-item" data-status="Pending">
+      <div class="order-title">Order #1001</div>
+      <div class="order-status">Pending</div>
+    </div>
+    <div class="order-item" data-status="Shipped">
+      <div class="order-title">Order #1002</div>
+      <div class="order-status">Shipped</div>
+    </div>
+    <div class="order-item" data-status="Delivered">
+      <div class="order-title">Order #1003</div>
+      <div class="order-status">Delivered</div>
+    </div>
+    <div class="order-item" data-status="Cancelled">
+      <div class="order-title">Order #1004</div>
+      <div class="order-status">Cancelled</div>
+    </div>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleFilter');
+    const filterBox = document.getElementById('filterBox');
+    const cancelBtn = document.getElementById('cancelFilter');
+    const applyBtn = document.getElementById('applyFilter');
+    const clearBtn = document.getElementById('clearFilter');
+    const filterTags = document.querySelectorAll('.filter-tag');
+    const orderItems = document.querySelectorAll('.order-item');
+
+    toggleBtn.onclick = () => filterBox.style.display = 'block';
+    cancelBtn.onclick = () => filterBox.style.display = 'none';
+
+    filterTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        tag.classList.toggle('selected');
+      });
+    });
+
+    clearBtn.onclick = () => {
+      filterTags.forEach(tag => tag.classList.remove('selected'));
+    }
+
+    applyBtn.onclick = () => {
+      const selected = Array.from(document.querySelectorAll('.filter-tag.selected'));
+      const filters = selected.map(tag => tag.textContent);
+
+      orderItems.forEach(item => {
+        const status = item.dataset.status;
+        if (filters.length === 0 || filters.includes(status)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      filterBox.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

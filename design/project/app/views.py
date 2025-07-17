@@ -43,3 +43,9 @@ def ReturnPolicy(request):
 
 def ShippingDelivery(request):
     return render(request,"shipping-delivery.html")
+
+def MyAccount(request):
+    return render(request,"my-account.html")
+
+def MyOrders(request):
+    return render(request,"my-orders.html")

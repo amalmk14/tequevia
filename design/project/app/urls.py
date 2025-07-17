@@ -18,4 +18,6 @@ urlpatterns = [
     path('terms-conditions',views.TermsConditions,name="terms-conditions"),
     path("return-policy",views.ReturnPolicy,name="return-policy"),
     path("shipping-delivery",views.ShippingDelivery,name="shipping-delivery"),
+    path("account/",views.MyAccount,name="my-account"),
+    path('my-orders/',views.MyOrders,name="my-orders"),
 ]
