@@ -31,3 +31,6 @@ def Lists(request):
 
 def Footer(request):
     return render(request,"footer.html")
+
+def PrivacyPolicy(request):
+    return render(request,"privacy-policy.html")

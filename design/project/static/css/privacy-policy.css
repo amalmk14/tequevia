@@ -1,0 +1,44 @@
+
+
+
+:root {
+    /* neutrals */
+    --clr-black:          #000;
+    --clr-white:          #fff;
+    --clr-grey-050:       #fdfbfb;
+    --clr-grey-100:       #f5f2f2;
+    --clr-grey-150:       #f2f2f2;
+    --clr-grey-200:       #ebe9e9;
+    --clr-grey-300:       #f0f0f0;
+    --clr-grey-400:       #e0e0e0;
+    --clr-grey-500:       #ccc;
+    --clr-grey-700:       #777;
+    --clr-grey-800:       #555;
+    --clr-grey-900:       #333;
+    --clr-grey-950:       #111;
+  
+    /* transparencies */
+    --shadow-sm: 0 2px 6px rgba(0,0,0,.06);
+    --shadow-md: 0 0.3vw 0.9vw rgba(0,0,0,.15);
+    --shadow-lg: 0 0.4vw 1vw  rgba(0,0,0,.10);
+  
+    --label-bg:   rgba(236,235,235,.90);
+}
+
+.head {
+    text-align: center;
+}
+
+.container{
+    padding:5vh 10vw;
+}
+
+span{
+    font-weight: bold;
+}
+
+@media(max-width:768px){
+    .container{
+        padding: 3vh 3vw;
+    }
+}
