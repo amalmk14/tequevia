@@ -1,0 +1,187 @@
+  /* General */
+body {
+  background-color: #f1f3f6;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  margin-top: 20vh;
+}
+
+/* Sidebar */
+.sidebar-box {
+  background: #fff;
+  padding: 20px 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.sidebar-header .avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+}
+
+.sidebar-header .user-info small {
+  font-size: 13px;
+  color: #888;
+  display: block;
+}
+
+.sidebar-header .user-info strong {
+  font-size: 15px;
+  font-weight: 600;
+  color: #212121;
+}
+
+.sidebar-section-title {
+  font-size: 13px;
+  color: #878787;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #212121;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: #f1f1f1;
+}
+
+.sidebar-item i {
+  color: #000;
+  margin-right: 12px;
+  width: 18px;
+  text-align: center;
+}
+
+/* Edit Card */
+.edit-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.edit-card h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.btn-save {
+  background-color: #2b2b2c;
+  color: #fff;
+  font-weight: 500;
+  padding: 6px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  display: inline-block;
+}
+
+.toggle-edit {
+  font-weight: 500;
+  font-size: 13px;
+  color: #1d1e1e;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.toggle-edit:hover {
+  text-decoration: underline;
+}
+
+.align-items-start{
+    padding: 10px;
+}
+/* Input Handling */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  height:40px;
+}
+.input-wrapper input{
+    padding: 13px;
+}
+
+input[readonly] {
+  cursor: not-allowed;
+  background-color: #f8f9fa;
+  pointer-events: auto !important;
+}
+
+input[readonly]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  top: -30px;
+  left: 0;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Label styling */
+.form-label span {
+  font-size: 20px;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .flex-md-row {
+    flex-direction: column !important;
+  }
+
+  .sidebar-box {
+    margin-bottom: 20px;
+  }
+
+  .edit-card form .mb-3 {
+    flex-direction: column;
+  }
+
+  .edit-card .w-50,
+  .edit-card .pe-3,
+  .edit-card .mt-4 {
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+
+  .btn-save {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .form-label {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+}
