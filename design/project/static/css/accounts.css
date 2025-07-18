@@ -75,19 +75,19 @@ body {
 }
 
 /* Edit Card */
-.edit-card {
+.pi-edit-card {
   background: #fff;
   padding: 24px;
   border-radius: 8px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.edit-card h4 {
+.pi-edit-card h4 {
   font-weight: 600;
   margin-bottom: 20px;
 }
 
-.form-control {
+.pi-form-control {
   border-radius: 6px;
   font-size: 14px;
 }
@@ -102,7 +102,7 @@ body {
   display: inline-block;
 }
 
-.toggle-edit {
+.pi-toggle-edit {
   font-weight: 500;
   font-size: 13px;
   color: #1d1e1e;
@@ -112,20 +112,20 @@ body {
   cursor: pointer;
 }
 
-.toggle-edit:hover {
+.pi-toggle-edit:hover {
   text-decoration: underline;
 }
 
-.align-items-start{
+.api-lign-items-start{
     padding: 10px;
 }
 /* Input Handling */
-.input-wrapper {
+.pi-input-wrapper {
   position: relative;
   width: 100%;
   height:40px;
 }
-.input-wrapper input{
+.pi-input-wrapper input{
     padding: 13px;
 }
 
@@ -150,7 +150,7 @@ input[readonly]:hover::after {
 }
 
 /* Label styling */
-.form-label span {
+.pi-form-label span {
   font-size: 20px;
 }
 
@@ -164,13 +164,13 @@ input[readonly]:hover::after {
     margin-bottom: 20px;
   }
 
-  .edit-card form .mb-3 {
+  .pi-edit-card form .mb-3 {
     flex-direction: column;
   }
 
-  .edit-card .w-50,
-  .edit-card .pe-3,
-  .edit-card .mt-4 {
+  .pi-edit-card .w-50,
+  .pi-edit-card .pe-3,
+  .pi-edit-card .mt-4 {
     width: 100% !important;
     padding-right: 0 !important;
   }
@@ -180,7 +180,7 @@ input[readonly]:hover::after {
     margin-top: 10px;
   }
 
-  .form-label {
+  .pi-form-label {
     flex-direction: column;
     align-items: flex-start !important;
   }

@@ -41,15 +41,15 @@
     </div>
 
     <!-- Edit Profile Card -->
-    <div class="edit-card flex-grow-1">
+    <div class="pi-edit-card flex-grow-1">
       <h4>Edit Profile</h4>
       <form>
         <!-- Full Name -->
         <div class="mb-3 d-flex align-items-start justify-content-between flex-wrap">
           <div class="w-50 pe-3">
-            <label for="name" class="form-label d-flex justify-content-between align-items-center">
+            <label for="name" class="form-label pi-form-label d-flex justify-content-between align-items-center">
               <span>Full Name</span>
-              <button type="button" class="btn toggle-edit" data-target="#name">Edit</button>
+              <button type="button" class="btn pi-toggle-edit" data-target="#name">Edit</button>
             </label>
             <div class="input-wrapper">
             <input type="text" class="form-control" id="name" value="Amal Mk" readonly />
@@ -63,9 +63,9 @@
         <!-- Email -->
         <div class="mb-3 d-flex align-items-start justify-content-between flex-wrap">
           <div class="w-50 pe-3">
-            <label for="email" class="form-label d-flex justify-content-between align-items-center">
+            <label for="email" class="form-label pi-form-label d-flex justify-content-between align-items-center">
               <span>Email Address</span>
-              <button type="button" class="btn toggle-edit" data-target="#email">Edit</button>
+              <button type="button" class="btn pi-toggle-edit" data-target="#email">Edit</button>
             </label>
             <div class="input-wrapper">
             <input type="email" class="form-control" id="email" value="amal@example.com" readonly />
@@ -79,12 +79,12 @@
         <!-- Phone -->
         <div class="mb-3 d-flex align-items-start justify-content-between flex-wrap">
           <div class="w-50 pe-3">
-            <label for="phone" class="form-label d-flex justify-content-between align-items-center">
+            <label for="phone" class="form-label pi-form-label d-flex justify-content-between align-items-center">
               <span>Phone Number</span>
-              <button type="button" class="btn toggle-edit" data-target="#phone">Edit</button>
+              <button type="button" class="btn pi-toggle-edit" data-target="#phone">Edit</button>
             </label>
             <div class="input-wrapper">
-            <input type="tel" class="form-control" id="phone" value="+91 9876543210" readonly />
+            <input type="tel" class="form-control pi-form-control" id="phone" value="+91 9876543210" readonly />
             </div>
           </div>
           <div class="mt-4">
@@ -101,7 +101,7 @@
 <script>
   const originalValues = {};
 
-  document.querySelectorAll('.toggle-edit').forEach(btn => {
+  document.querySelectorAll('.pi-toggle-edit').forEach(btn => {
     btn.addEventListener('click', function () {
       const inputId = this.dataset.target;
       const input = document.querySelector(inputId);
@@ -111,7 +111,7 @@
       // If switching to edit mode
       if (isEditMode) {
         // Cancel all others first
-        document.querySelectorAll('.toggle-edit').forEach(b => {
+        document.querySelectorAll('.pi-toggle-edit').forEach(b => {
           const otherInputId = b.dataset.target;
           const otherInput = document.querySelector(otherInputId);
           const otherSaveBtn = document.querySelector('.save-btn[data-target="' + otherInputId + '"]');
@@ -146,7 +146,7 @@
     btn.addEventListener('click', function () {
       const inputId = this.dataset.target;
       const input = document.querySelector(inputId);
-      const toggleBtn = document.querySelector('.toggle-edit[data-target="' + inputId + '"]');
+      const toggleBtn = document.querySelector('.pi-toggle-edit[data-target="' + inputId + '"]');
 
       // Save value
       originalValues[inputId] = input.value;
