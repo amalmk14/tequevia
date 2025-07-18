@@ -48,4 +48,4 @@ def MyAccount(request):
     return render(request,"my-account.html")
 
 def MyOrders(request):
-    return render(request,"my-orders.html")
+    return render(request,"orders.html")
