@@ -20,4 +20,5 @@ urlpatterns = [
     path("shipping-delivery",views.ShippingDelivery,name="shipping-delivery"),
     path("account/",views.MyAccount,name="my-account"),
     path('my-orders/',views.MyOrders,name="my-orders"),
+    path('checkouts/',views.CheckoutSummary,name="checkouts"),
 ]

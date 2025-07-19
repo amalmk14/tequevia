@@ -119,6 +119,10 @@
     display: none;
   }
   
+  .mobile-hero-navbar {
+    display: none;
+  }
+  
   
   @media (max-width: 768px) {
     .web-view-nav {

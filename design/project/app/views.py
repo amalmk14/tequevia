@@ -49,3 +49,7 @@ def MyAccount(request):
 
 def MyOrders(request):
     return render(request,"my-orders.html")
+
+
+def CheckoutSummary(request):
+    return render(request,"checkot-summary.html")

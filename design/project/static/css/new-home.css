@@ -208,7 +208,7 @@ body {
 
   .mobile-hero-cart{
     position:absolute;
-    top:40%;
+    top:60%;
     right:12%;
     transform:translateY(-50%);
     display:flex;

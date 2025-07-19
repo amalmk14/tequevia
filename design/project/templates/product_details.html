@@ -18,6 +18,63 @@
 
   
 
+.wishlist-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.wishlist-icon i {
+  font-size: 18px;
+  color: #666;
+}
+
+.wishlist-icon.active i {
+  color: #e53935;
+}
+
+.wishlist-icon.active {
+  background-color: #ffeaea;
+}
+
+.m-slider-wrapper {
+  position: relative;
+}
+
+.m-wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 15;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 7px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.m-wishlist-icon i {
+  font-size: 16px;
+  color: #666;
+}
+
+.m-wishlist-icon.active i {
+  color: #e53935;
+}
+
+.m-wishlist-icon.active {
+  background-color: #ffeaea;
+}
+
+
   
 </style>
 </head>
@@ -33,7 +90,15 @@
       <div class="d-thumb"><img src="{% static 'img/rono/j3.png' %}" onclick="swapDesk(this)"></div>
       <div class="d-thumb"><img src="{% static 'img/rono/j2.png' %}" onclick="swapDesk(this)"></div>
     </div>
-    <div class="d-main"><div class="d-frame"><img id="dMainImg" src="{% static 'img/rono/j3.png' %}"></div></div>
+    <div class="d-main position-relative">
+      <div class="wishlist-icon" onclick="toggleWishlist(this)">
+        <i class="fa-regular fa-heart"></i>
+      </div>
+      <div class="d-frame">
+        <img id="dMainImg" src="{% static 'img/rono/j3.png' %}">
+      </div>
+    </div>
+    {% comment %} <div class="d-main"><div class="d-frame"><img id="dMainImg" src="{% static 'img/rono/j3.png' %}"></div></div> {% endcomment %}
   </div>
 
   <div class="d-details">
@@ -133,19 +198,33 @@
 <!-- ▸▸ Mobile ◂◂ -->
 <div class="m-wrapper">
 
-  {% comment %} <div class="m-slider">
-    <img id="mSlideImg" src="{% static 'img/rono/j3.png' %}">
-    <div class="m-dots"><span class="m-dot active"></span><span class="m-dot"></span><span class="m-dot"></span></div>
-  </div> {% endcomment %}
 
-  <div class="m-slider" id="myCarousel">
+  {% comment %} <div class="m-slider" id="myCarousel">
     <div class="m-slides">
       <img class="m-slide active" src="{% static 'img/rono/j3.png' %}">
       <img class="m-slide" src="{% static 'img/rono/j1.png' %}">
       <img class="m-slide" src="{% static 'img/rono/j1.png' %}">
     </div>
     <div class="m-dots"></div>
-  </div>
+  </div> {% endcomment %}
+
+    <div class="m-slider-wrapper position-relative">
+      <!-- Mobile Wishlist Icon -->
+      <div class="m-wishlist-icon" onclick="toggleWishlist(this)">
+        <i class="fa-regular fa-heart"></i>
+      </div>
+
+      <!-- Mobile Slider -->
+      <div class="m-slider" id="myCarousel">
+        <div class="m-slides">
+          <img class="m-slide active" src="{% static 'img/rono/j3.png' %}">
+          <img class="m-slide" src="{% static 'img/rono/j1.png' %}">
+          <img class="m-slide" src="{% static 'img/rono/j1.png' %}">
+        </div>
+        <div class="m-dots"></div>
+      </div>
+    </div>
+
   
 
   <div class="m-opt">Out of stock <span></span></div>
@@ -424,6 +503,14 @@
 </div>
 
 {% include "footer.html" %}
+
+<script>
+function toggleWishlist(el) {
+  el.classList.toggle('active');
+  // Later: send to backend using fetch or AJAX
+}
+</script>
+
 
 <script src="{% static 'js/product-details.js' %}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

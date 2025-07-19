@@ -1,0 +1,439 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Checkout</title>
+
+  <!-- Google Font & Bootstrap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{% static 'css/checkout-new.css' %}" rel="stylesheet">
+  <link href="{% static 'css/order-summary.css' %}" rel="stylesheet">
+  
+  <style>
+    .mobile-checkout {
+      margin-top: 12vh;
+    }
+    .web-checkout .checkout-section {
+      margin-top: 15vh;
+    }
+    .web-checkout .price-box {
+      margin-top: 15vh;
+    }
+  </style>
+</head>
+<body>
+  {% include "navbar.html" %}
+
+  <!-- ======================= MOBILE CHECKOUT ======================= -->
+  {% comment %} <div class="mobile-checkout">
+    <h2 class="mobile-stepper">
+      <span class="active"><i>1</i>Address</span>
+      <span><i>2</i>Summary</span>
+      <span><i>3</i>Payment</span>
+    </h2>
+
+    <form>
+      <section><label>Full Name *</label><input type="text" required></section>
+      <section><label>Phone Number *</label><input type="tel" required></section>
+      <section class="mobile-location">
+        <div style="flex:1"><label>Pincode *</label><input type="text" required></div>
+        <button class="btn btn-sm" type="button">Use my location</button>
+      </section>
+      <section><label>State *</label><input type="text" required></section>
+      <section><label>City *</label><input type="text" required></section>
+      <section><label>House No. / Building *</label><input type="text" required></section>
+      <section><label>Area / Colony *</label><input type="text" required></section>
+      <button class="mobile-btn-save">Save Address</button>
+    </form>
+
+  </div>
+
+  <div class="section">
+        <div class="section-header">
+          <span>2. DELIVERY ADDRESS</span>
+          <button>CHANGE</button>
+        </div>
+        <p class="section-p"><strong>name</strong> 123, Street, Kozhikode, Kerala - 000000</p>
+      </div>
+
+   <div class="order-head">
+        <h3 class="">3. ORDER SUMMARY</h3>
+      </div>
+
+      <div class="section">
+        <div class="product">
+          <img src="{% static 'img/rono/j1.png' %}" alt="Product Image">
+          <div class="product-info">
+            <h4>Portugal jersey ffffffffffffffffffffffffffffffffff sdddddddd hellllllo</h4>
+            <div class="price">
+              <span class="strike">₹900</span>
+              <span>₹548</span>
+              <span class="discount">39% Off</span>
+            </div>
+            <div class="qty-control">
+              <button>-</button><span>2</span><button>+</button>
+              <button class="remove-btn" style="border:none;">REMOVE</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product">
+          <img src="{% static 'img/rono/j1.png' %}" alt="Product Image">
+          <div class="product-info">
+            <h4>Portugal jersey</h4>
+            <div class="price">
+              <span class="strike">₹999</span>
+              <span>₹286</span>
+              <span class="discount">71% Off</span>
+            </div>
+            <div class="qty-control">
+              <button>-</button><span>1</span><button>+</button>
+              <button class="remove-btn" style="border:none;">REMOVE</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="section">
+        <p class="section-p">GST Invoice not available <a href="#" style="color:#2874f0">Details</a></p>
+      </div>
+      <div class="section">
+        <div class="email-row">
+          <p class="section-p">Order confirmation email will be sent to&nbsp;</p>
+          <input type="email" placeholder="Enter your email ID">
+          <button class="continue-btn">CONTINUE</button>
+        </div>
+      </div> {% endcomment %}
+
+      <!-- ======================= MOBILE CHECKOUT ======================= -->
+<div class="mobile-checkout">
+  <h2 class="mobile-stepper">
+    <span class="active"><i>1</i>Address</span>
+    <span><i>2</i>Summary</span>
+    <span><i>3</i>Payment</span>
+  </h2>
+
+  <form id="mobileAddressForm">
+    <section><label>Full Name *</label><input id="mName" type="text" required></section>
+    <section><label>Phone Number *</label><input type="tel" required></section>
+    <section class="mobile-location">
+      <div style="flex:1"><label>Pincode *</label><input id="mPincode" type="text" required></div>
+      <button class="btn btn-sm" type="button">Use my location</button>
+    </section>
+    <section><label>State *</label><input id="mState" type="text" required></section>
+    <section><label>City *</label><input id="mCity" type="text" required></section>
+    <section><label>House No. / Building *</label><input id="mHouse" type="text" required></section>
+    <section><label>Area / Colony *</label><input id="mArea" type="text" required></section>
+    <button type="submit" class="mobile-btn-save">Save Address</button>
+  </form>
+</div>
+
+<!-- DELIVERY ADDRESS SECTION (initially hidden) -->
+<div id="deliverySection" class="section d-none">
+  <div class="section-header">
+    <span>2. DELIVERY ADDRESS</span>
+    <button id="changeMobileAddressBtn">CHANGE</button>
+  </div>
+  <p class="section-p">
+    <strong id="mobileSummaryName">John Doe</strong>
+    <span id="mobileSummaryAddress">123, Street, Kozhikode, Kerala - 000000</span>
+  </p>
+</div>
+
+<!-- ORDER SUMMARY SECTION (initially hidden) -->
+<div id="orderSummarySection" class="d-none">
+  <div class="order-head">
+    <h3 class="">3. ORDER SUMMARY</h3>
+  </div>
+
+  <div class="section">
+    <div class="product">
+      <img src="{% static 'img/rono/j1.png' %}" alt="Product Image">
+      <div class="product-info">
+        <h4>Portugal jersey ffffffffffffffffffffffffffffffffff sdddddddd hellllllo</h4>
+        <div class="price">
+          <span class="strike">₹900</span>
+          <span>₹548</span>
+          <span class="discount">39% Off</span>
+        </div>
+        <div class="qty-control">
+          <button>-</button><span>2</span><button>+</button>
+          <button class="remove-btn" style="border:none;">REMOVE</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="{% static 'img/rono/j1.png' %}" alt="Product Image">
+      <div class="product-info">
+        <h4>Portugal jersey</h4>
+        <div class="price">
+          <span class="strike">₹999</span>
+          <span>₹286</span>
+          <span class="discount">71% Off</span>
+        </div>
+        <div class="qty-control">
+          <button>-</button><span>1</span><button>+</button>
+          <button class="remove-btn" style="border:none;">REMOVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-p">GST Invoice not available <a href="#" style="color:#2874f0">Details</a></p>
+  </div>
+  <div class="section">
+    <div class="email-row">
+      <p class="section-p">Order confirmation email will be sent to&nbsp;</p>
+      <input type="email" placeholder="Enter your email ID">
+      <button class="continue-btn">CONTINUE</button>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-4 d-block d-lg-none">
+  <div class="price-box mobile">
+    <h4>PRICE DETAILS</h4>
+    <div class="price-row"><span>Price (3 items)</span><span>₹20,833</span></div>
+    <div class="price-row"><span>Protect Promise Fee</span><span>₹69</span></div>
+    <div class="price-row total-pay"><span>Total Payable</span><span>₹20,902</span></div>
+    <div class="savings">Your Total Savings on this order ₹5,996</div>
+  </div>
+  <div class="footer-msg">
+    <span>✔</span>
+    <span>Safe and Secure Payments. Easy returns. 100% Authentic products.</span>
+  </div>
+</div>
+
+
+<!-- ======================= SCRIPT ======================= -->
+<script>
+  const mobileForm = document.getElementById('mobileAddressForm');
+  const mName = document.getElementById('mName');
+  const mPincode = document.getElementById('mPincode');
+  const mState = document.getElementById('mState');
+  const mCity = document.getElementById('mCity');
+  const mHouse = document.getElementById('mHouse');
+  const mArea = document.getElementById('mArea');
+
+  mobileForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Build address string
+    const address = `${mHouse.value}, ${mArea.value}, ${mCity.value}, ${mState.value} - ${mPincode.value}`;
+    const name = mName.value;
+
+    // Update summary
+    document.getElementById('mobileSummaryName').innerText = name;
+    document.getElementById('mobileSummaryAddress').innerText = address;
+
+    // Toggle visibility
+    document.querySelector('.mobile-checkout').classList.add('d-none');
+    document.getElementById('deliverySection').classList.remove('d-none');
+    document.getElementById('orderSummarySection').classList.remove('d-none');
+  });
+
+  document.getElementById('changeMobileAddressBtn').addEventListener('click', () => {
+    document.querySelector('.mobile-checkout').classList.remove('d-none');
+    document.getElementById('deliverySection').classList.add('d-none');
+    document.getElementById('orderSummarySection').classList.add('d-none');
+  });
+</script>
+
+
+  <!-- ======================= WEB / TAB CHECKOUT ======================= -->
+  <div class="container web-checkout my-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 mb-4">
+        <div class="checkout-section">
+
+          <!-- LOGIN -->
+          <div class="section-title">1. LOGIN ✔️</div>
+          <p class="section-p"><strong>User name</strong> &nbsp; +91 1234567890</p>
+          <hr>
+
+          <!-- DELIVERY ADDRESS SECTION -->
+          <div class="section-title d-flex justify-content-between align-items-center">
+            <span>2. DELIVERY ADDRESS</span>
+            <button id="changeAddressBtn" class="btn btn-link btn-sm d-none">CHANGE</button>
+          </div>
+
+          <!-- FORM BLOCK -->
+          <div id="webAddressForm">
+            <button class="btn btn-dark mb-3 mt-1">Use my current location</button>
+            <form>
+              <div class="row g-2">
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="Name"></div>
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="10-digit mobile number"></div>
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="Pincode"></div>
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="Locality"></div>
+                <div class="col-12"><input type="text" class="form-control" placeholder="Address (Area and Street)"></div>
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="City/District/Town"></div>
+                <div class="col-md-6">
+                  <select class="form-select">
+                    <option selected disabled>--Select State--</option>
+                    <option>Kerala</option>
+                    <option>Tamil Nadu</option>
+                  </select>
+                </div>
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="Landmark (Optional)"></div>
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="Alternate Phone (Optional)"></div>
+              </div>
+
+              <div class="mt-3">
+                <label><input type="radio" name="type" checked> Home (All day delivery)</label>
+                <label class="ms-3"><input type="radio" name="type"> Work (10AM - 5PM)</label>
+              </div>
+
+              <div class="mt-3 web-save">
+                <button type="button" id="saveWebAddress" class="btn btn-save">SAVE AND DELIVER HERE</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- SUMMARY BLOCK (Hidden initially) -->
+          <div id="webAddressSavedSummary" class="d-none">
+            <p class="section-p">
+              <strong id="summaryName">John Doe</strong>,
+              <span id="summaryAddress">123, MG Road, Kozhikode, Kerala - 673001</span>
+            </p>
+          </div>
+
+          <hr>
+
+          <div class="section-title">3. ORDER SUMMARY</div>
+          <p class="section-p">Item details will be shown here after address confirmation.</p>
+            <div id="orderSummaryBlock" class="d-none mt-4">
+           
+
+            <div class="section">
+                <div class="product">
+                <img src="{% static 'img/rono/j1.png' %}" alt="Product Image">
+                <div class="product-info">
+                    <h4>Portugal jersey ffffffffffffffffffffffffffffffffff sdddddddd hellllllo</h4>
+                    <div class="price">
+                    <span class="strike">₹900</span>
+                    <span>₹548</span>
+                    <span class="discount">39% Off</span>
+                    </div>
+                    <div class="qty-control">
+                    <button>-</button><span>2</span><button>+</button>
+                    <button class="remove-btn" style="border:none;">REMOVE</button>
+                    </div>
+                </div>
+                </div>
+
+                <div class="product">
+                <img src="{% static 'img/rono/j1.png' %}" alt="Product Image">
+                <div class="product-info">
+                    <h4>Portugal jersey</h4>
+                    <div class="price">
+                    <span class="strike">₹999</span>
+                    <span>₹286</span>
+                    <span class="discount">71% Off</span>
+                    </div>
+                    <div class="qty-control">
+                    <button>-</button><span>1</span><button>+</button>
+                    <button class="remove-btn" style="border:none;">REMOVE</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <p class="section-p">GST Invoice not available <a href="#" style="color:#2874f0">Details</a></p>
+            </div>
+
+            <div class="section">
+                <div class="email-row">
+                <p class="section-p">Order confirmation email will be sent to&nbsp;</p>
+                <input type="email" placeholder="Enter your email ID">
+                <button class="continue-btn">CONTINUE</button>
+                </div>
+            </div>
+            </div>
+
+
+          <!-- Final Saved Delivery Summary -->
+          <div id="finalSavedAddress" class="d-none mt-2" style="display:none !important;">
+            <p><strong>Deliver To:</strong></p>
+            <p><strong id="finalName">John Doe</strong>, <span id="finalAddress">123, MG Road, Kozhikode, Kerala - 673001</span></p>
+          </div>
+
+          <hr>
+          <div class="section-title">4. PAYMENT OPTIONS</div>
+          <p class="section-p">Select payment method after delivery address confirmation.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="price-box">
+          <h4>PRICE DETAILS</h4>
+          <div class="price-row"><span>Price (3 items)</span><span>₹20,833</span></div>
+          <div class="price-row"><span>Protect Promise Fee</span><span>₹69</span></div>
+          <div class="price-row total-pay"><span>Total Payable</span><span>₹20,902</span></div>
+          <div class="savings">Your Total Savings on this order ₹5,996</div>
+        </div>
+        <div class="footer-msg">
+          <span>✔</span>
+          <span>Safe and Secure Payments. Easy returns. 100% Authentic products.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include "footer.html" %}
+
+<script>
+  document.getElementById('saveWebAddress').addEventListener('click', function () {
+    const name = document.querySelector('input[placeholder="Name"]').value;
+    const city = document.querySelector('input[placeholder="City/District/Town"]').value;
+    const locality = document.querySelector('input[placeholder="Locality"]').value;
+    const state = document.querySelector('select.form-select').value;
+    const pincode = document.querySelector('input[placeholder="Pincode"]').value;
+
+    const fullAddress = `${locality}, ${city}, ${state} - ${pincode}`;
+
+    // Set summary at top
+    document.getElementById('summaryName').textContent = name;
+    document.getElementById('summaryAddress').textContent = fullAddress;
+
+    // Set final saved address at bottom
+    document.getElementById('finalName').textContent = name;
+    document.getElementById('finalAddress').textContent = fullAddress;
+    document.getElementById('finalSavedAddress').classList.remove('d-none');
+
+    // Hide address form and show summary
+    document.getElementById('webAddressForm').classList.add('d-none');
+    document.getElementById('webAddressSavedSummary').classList.remove('d-none');
+    document.getElementById('changeAddressBtn').classList.remove('d-none');
+
+    // 👉 Expand ORDER SUMMARY
+    document.getElementById('orderSummaryBlock').classList.remove('d-none');
+  });
+
+  document.getElementById('changeAddressBtn').addEventListener('click', function () {
+    // Show address form again
+    document.getElementById('webAddressForm').classList.remove('d-none');
+    document.getElementById('webAddressSavedSummary').classList.add('d-none');
+    document.getElementById('changeAddressBtn').classList.add('d-none');
+
+    // Hide saved address summary
+    document.getElementById('finalSavedAddress').classList.add('d-none');
+
+    // 👉 Collapse ORDER SUMMARY
+    document.getElementById('orderSummaryBlock').classList.add('d-none');
+  });
+</script>
+
+</body>
+</html>
