@@ -1,0 +1,355 @@
+  /* General */
+body {
+  background-color: #f1f3f6;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+.container {
+    margin-top: 20vh;
+}
+
+@media (max-width: 767px) {
+    .container{
+        margin-top: 12vh;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container{
+        margin-top: 12vh;
+    }
+}
+
+/* Sidebar (Web/Tab) */
+.sidebar-box {
+    background: #fff;
+    padding: 20px 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.sidebar-header .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+}
+
+.sidebar-header .user-info small {
+    font-size: 13px;
+    color: #888;
+    display: block;
+}
+
+.sidebar-header .user-info strong {
+    font-size: 15px;
+    font-weight: 600;
+    color: #212121;
+}
+
+.sidebar-section-title {
+    font-size: 13px;
+    color: #878787;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #212121;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+    background-color: #f1f1f1;
+}
+
+.sidebar-item i {
+    color: #000;
+    margin-right: 12px;
+    width: 18px;
+    text-align: center;
+}
+
+/* Mobile Only */
+@media (max-width: 767px) {
+    .mobile-slider-box {
+        width: 100vw;
+        margin-left: calc(-1 * (100vw - 100%) / 2);
+        background: #fff;
+        padding: 16px;
+        border-radius: 12px;
+        box-sizing: border-box;
+        margin-top: 24px;
+    }
+
+    .mobile-header {
+        font-weight: 600;
+        font-size: 16px;
+        background: #eef3ff;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    .mobile-grid .grid-2,
+    .mobile-grid .grid-3 {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 8px;
+        border-radius: 10px;
+        background: #f8f9fa;
+        font-size: 13px;
+        font-weight: 500;
+        color: #212121;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
+
+    .grid-item i {
+        font-size: 18px;
+        color: #1976d2;
+        margin-bottom: 6px;
+    }
+}
+
+
+/* Edit Card */
+.pi-edit-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.pi-edit-card h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.pi-form-control {
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.btn-save {
+  background-color: #2b2b2c;
+  color: #fff;
+  font-weight: 500;
+  padding: 6px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  display: inline-block;
+}
+
+.pi-toggle-edit {
+  font-weight: 500;
+  font-size: 13px;
+  color: #1d1e1e;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.pi-toggle-edit:hover {
+  text-decoration: underline;
+}
+
+.api-lign-items-start{
+    padding: 10px;
+}
+/* Input Handling */
+.pi-input-wrapper {
+  position: relative;
+  width: 100%;
+  height:40px;
+}
+.pi-input-wrapper input{
+    padding: 13px;
+}
+
+input[readonly] {
+  cursor: not-allowed;
+  background-color: #f8f9fa;
+  pointer-events: auto !important;
+}
+
+input[readonly]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  top: -30px;
+  left: 0;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Label styling */
+.pi-form-label span {
+  font-size: 20px;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .flex-md-row {
+    flex-direction: column !important;
+  }
+
+  .sidebar-box {
+    margin-bottom: 20px;
+  }
+
+  .pi-edit-card form .mb-3 {
+    flex-direction: column;
+  }
+
+  .pi-edit-card .w-50,
+  .pi-edit-card .pe-3,
+  .pi-edit-card .mt-4 {
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+
+  .btn-save {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .pi-form-label {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+}
+
+#address-section{
+    background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  
+}
+.address-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      position: relative;
+    
+    }
+
+.address-menu {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+
+.address-type {
+  font-size: 0.75rem;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.address-more-options {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+.address-dropdown {
+      display: none;
+      position: absolute;
+      top: 30px;
+      right: 0;
+      background: white;
+      border: 1px solid #ccc;
+      z-index: 999;
+      border-radius: 5px;
+    }
+    .address-dropdown a {
+      display: block;
+      padding: 8px 12px;
+      text-decoration: none;
+      color: black;
+    }
+    .address-dropdown a:hover {
+      background: #f8f9fa;
+    }
+
+.address-dropdown-menu {
+  min-width: 110px;
+  font-size: 14px;
+  padding: 0.25rem 0;
+}
+
+/* Show dropdown on hover (optional) */
+.address-more-options:hover .dropdown-menu {
+  display: block;
+}
+
+ .address-3dot {
+      cursor: pointer;
+    }
+    .address-edit-form {
+      display: none;
+      border-top: 1px solid #ccc;
+      padding-top: 15px;
+      margin-top: 15px;
+    }
+
+.address-form-card {
+  background-color: #f9f9f9;
+}
+
+.address-add-btn {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .address-dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .address-form-container .form-label {
+    font-size: 0.875rem;
+  }
+}
