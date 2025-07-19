@@ -9,12 +9,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet"> -->
-  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/home_menu.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/new-home.css' %}" />
+  {% comment %} <link rel="stylesheet" href="{% static 'css/home_menu.css' %}" /> {% endcomment %}
   <style>
     .mobile-side-menu ul li.settings-item {
       margin-top: 50px;
@@ -29,192 +32,106 @@
   
 </head>
 <body>
+  {% include "navbar.html" %}
   {% include "signin.html" %}
+<div class="top-main">
 
+  <!-- ========== WEB VIEW ========== -->
   <div class="web-view">
-    <header class="navbar-desktop">
-      <div class="nav-top-row">
-        <!-- optional brand / logo here -->
-        <div class="desktop-icons">
-          <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-          <a href="javascript:void(0);" onclick="toggleWebMenu()">
-            <i class="fa-solid fa-bars"></i>
-          </a>
-        </div>
-      </div>
-    
-      <nav class="nav-bottom-row">
-        <ul id="rollingNav">
-          <li><a href="#">Best Selling</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">New Arrivals</a></li>
-          <li><a href="#">Accessories</a></li>
-          <li><a href="#">Membership</a></li>
-          <li><a href="#">Lookbook</a></li>
-          <li><a href="#">Gift Cards</a></li>
-          <li><a href="#">Sale</a></li>
-          <li><a href="#">Outlet</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Community</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    
-  <section class="main-content">
-    <div class="title-text">
-      <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
-    </div>
 
-    <div class="content-row">
-      <div class="description">
-        <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
-        <button>Check More</button>
+    <!-- Slider container for Section 1 & 2 -->
+    <div class="web-slider owl-carousel">
+      <div class="slide">
+        <section class="main-content">
+          <div class="title-text">
+            <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
+          </div>
+          <div class="content-row">
+            <div class="description">
+              <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
+              <button>Check More</button>
+            </div>
+            <div class="jersey-center">
+              <img id="heroImg" src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey" />
+            </div>
+            <div class="add-to-cart">
+              <div class="circle">+</div>
+              <p>Add To Cart</p>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <div class="jersey-center">
-        <img id="heroImg" src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey" />
-      </div>
-
-      <div class="add-to-cart">
-        <div class="circle">+</div>
-        <p>Add To Cart</p>
+      <div class="slide">
+        <section class="main-content">
+          <div class="title-text">
+            <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
+          </div>
+          <div class="content-row">
+            <div class="description">
+              <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
+              <button>Check More</button>
+            </div>
+            <div class="jersey-center">
+              <img id="heroImg" src="{% static 'img/rono/j1.png' %}" alt="CR7 Jersey" />
+            </div>
+            <div class="add-to-cart">
+              <div class="circle">+</div>
+              <p>Add To Cart</p>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
-  </section>
-    
-  <!-- Web Side Menu (Right Side) -->
-  <div class="web-side-menu" id="webSideMenu">
-    <a href="javascript:void(0);" class="close-web-menu" onclick="toggleWebMenu()">
-      <i class="fa-solid fa-circle-xmark"></i>
-    </a>
-    <ul>
-      <li class="active new-item"><a href="#" onclick="selectWebMainItem(this)"><img src="{% static 'icons/new-in.svg' %}"> New In</a></li>
-      <li><a href="#" onclick="selectWebMainItem(this)"><img src="{% static 'icons/recent-drops.svg' %}"> Recent Drops</a></li>
-      <li><a href="#" onclick="selectWebMainItem(this)"><img src="{% static 'icons/classic.svg' %}"> Classic</a></li>
-      <li><a href="#" onclick="showWebSubmenu('current-season', this)"><img src="{% static 'icons/current-season.svg' %}"> Current Season</a></li>
-      <li><a href="#" onclick="showWebSubmenu('clearance', this)"><img src="{% static 'icons/clearence.svg' %}"> Clearance</a></li>
-      <li><a href="#" onclick="showWebSubmenu('fifa-world-cup', this)"><img src="{% static 'icons/worldcup.svg' %}"> FIFA World Cup</a></li>
-      <li><a href="#" onclick="showWebSubmenu('premier-league', this)"><img src="{% static 'icons/' %}"> Premier League</a></li>
-      <li><a href="#" onclick="showWebSubmenu('laiga', this)"><img src="{% static 'icons/laliga.svg' %}"> La Liga</a></li>
-      <li><a href="#" onclick="showWebSubmenu('national', this)"><img src="{% static 'icons/national.svg' %}"> National</a></li>
-      <li class="settings-item"><a href="#" onclick="selectWebMainItem(this)"><i class="fas fa-cog icon"></i> Settings</a></li>
-      {% if user.is_authenticated %}
-      <li><a href="#" onclick="selectWebMainItem(this)"><i class="fas fa-user icon"></i> Profile</a></li>
-      {% else %}
-      <li>
-        <a href="#" onclick="toggleWebMenu(); openSigninModal('login'); return false;">
-          <i class="fas fa-user icon"></i> Signin
-        </a>
-      </li>
-      {% endif %}
-    </ul>
+
   </div>
 
-  <!-- Web Submenu (Left of Web Menu) -->
-  <div class="web-submenu" id="webSubmenu">
-    <h3 id="webSubmenuTitle">Submenu</h3>
-    <ul id="webSubmenuItems"></ul>
-  </div>
-  </div>
-
-  <!-- Mobile View Layout -->
-
-  <header class="mobile-hero-navbar">
-    <div class="top-icons">
-      <a href="#"><img src="{% static 'icons/search.svg' %}"> </a>
-      <a href="#" onclick="toggleMobileMenu()"><img src="{% static 'icons/menu.svg' %}"> </a>
-    </div>
-  
-    <!-- Scrolling nav section -->
-    <nav class="mobile-scroll-nav">
-      <ul id="mobileRollingNav">
-        <li><a href="#">Best Selling</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">New Arrivals</a></li>
-        <li><a href="#">Accessories</a></li>
-        <li><a href="#">Membership</a></li>
-        <li><a href="#">Lookbook</a></li>
-        <li><a href="#">Gift Cards</a></li>
-        <li><a href="#">Sale</a></li>
-        <li><a href="#">Outlet</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Community</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-      
+  <!-- ========== MOBILE VIEW ========== -->
   <div class="mobile-hero">
-    
 
-    <div class="mobile-hero-title">
-      <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
-    </div>
-
-  <div class="mobile-hero-image">
-    <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey" />
-  </div>
-<style>
-  .mobile-side-menu ul li.settings-item {
-    margin-top: 50px;
-}
-</style>
-  
-  <div class="mobile-side-menu" id="mobileSideMenu">
-          <a href="#" class="close-menu" onclick="toggleMobileMenu()">
-              <i class="fa-solid fa-circle-xmark"></i>
-          </a>
-          <ul>
-              <li class="active new-item"><a href="#" onclick="selectMainMenuItem(this)"><img src="{% static 'icons/new-in.svg' %}"> New In</a></li>
-              <li><a href="#" onclick="selectMainMenuItem(this)"><img src="{% static 'icons/recent-drops.svg' %}">Recent Drops</a></li>
-              <li><a href="#" onclick="selectMainMenuItem(this)"><img src="{% static 'icons/classic.svg' %}">  Classic</a></li>
-              <li><a href="#" onclick="showSubmenu('current-season', this)"><img src="{% static 'icons/current-season.svg' %}"> Current Season</a></li>
-              <li><a href="#" onclick="showSubmenu('clearance', this)"><img src="{% static 'icons/clearence.svg' %}">Clearance</a></li>
-              <li><a href="#" onclick="showSubmenu('fifa-world-cup', this)"><img src="{% static 'icons/worldcup.svg' %}">FIFA World Cup</a></li>
-              <li><a href="#" onclick="showSubmenu('premier-league', this)"><img src="{% static 'icons/' %}">Premier League</a></li>
-              <li><a href="#" onclick="showSubmenu('laiga', this)"><img src="{% static 'icons/laliga.svg' %}"> Laiga</a></li>
-              <li><a href="#" onclick="showSubmenu('national', this)"><img src="{% static 'icons/national.svg' %}"> National</a></li>
-              <li class="settings-item"><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-cog icon"></i> Settings</a></li>
-              {% if user.is_authenticated %}
-              <li><a href="#" onclick="selectMainMenuItem(this)"><i class="fas fa-user icon"></i> Profile</a></li>
-              {% else %}
-              <li>
-                <a href="#" onclick="toggleMobileMenu(); openSigninModal('login'); return false; ">
-                  <i class="fas fa-user icon"></i> Signin
-                </a>
-              </li>
-              {% endif %}
-          </ul>
+    <!-- Slider container for Section 1 & 2 -->
+    <div class="mobile-slider owl-carousel">
+      <div class="slide">
+        <section class="mobile-top-section">
+          <div class="mobile-hero-title">
+            <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
+          </div>
+          <div class="mobile-hero-image">
+            <img src="{% static 'img/rono/j3.png' %}" alt="CR7 Jersey" />
+          </div>
+          <div class="mobile-hero-description-under">
+            <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
+            <button>Check More</button>
+          </div>
+          <div class="mobile-hero-cart">
+            <div class="circle"><img src="{% static 'icons/cart.svg' %}"></div>
+            <p>Add To Cart</p>
+          </div>
+        </section>
       </div>
 
-      <!-- Submenu -->
-      <div class="submenu" id="submenu">
-          <!-- <div class="back-button" onclick="hideSubmenu()">
-              <i class="fas fa-arrow-left"></i>
-              <span>Back</span>
-          </div> -->
-          <h3 id="submenuTitle">Current Season</h3>
-          <ul id="submenuItems">
-              <!-- Submenu items will be populated by JavaScript -->
-          </ul>
+      <div class="slide">
+        <section class="mobile-top-section">
+          <div class="mobile-hero-title">
+            <h1><span>RONALDO</span><br><span class="second">JERSEY</span></h1>
+          </div>
+          <div class="mobile-hero-image">
+            <img src="{% static 'img/rono/j1.png' %}" alt="CR7 Jersey" />
+          </div>
+          <div class="mobile-hero-description-under">
+            <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
+            <button>Check More</button>
+          </div>
+          <div class="mobile-hero-cart">
+            <div class="circle"><img src="{% static 'icons/cart.svg' %}"></div>
+            <p>Add To Cart</p>
+          </div>
+        </section>
       </div>
-
-      <!-- Click outside overlay -->
-      <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="toggleMobileMenu()"></div>
-
-
-    <div class="mobile-hero-description-under">
-      <p>Iconic No. 7 with premium fit. A must for every CR7 fan.</p>
-      <button>Check More</button>
     </div>
 
-    <div class="mobile-hero-cart">
-      <div class="circle"><img src="{% static 'icons/cart.svg' %}"></div>
-      <p>Add To Cart</p>
-    </div>
   </div>
-
+</div>
 
 <!-- category -->
   <section class="category-wrapper">
@@ -958,61 +875,33 @@
 <!-- best seller end -->
 
 {% include "footer.html" %}
-
-{% comment %} web top slider {% endcomment %}
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-  
-    /* ▼ images to cycle through */
-    const pics = [
-      "{% static 'img/rono/j1.png' %}",
-      "{% static 'img/rono/j3.png' %}"
-    ];
-  
-    const wrapper = document.querySelector(".jersey-center");
-    const base    = document.getElementById("heroImg");   // main <img>
-    let   index   = 0;
-  
-    /* helper: overlay clone positioned exactly on top */
-    function overlayClone(src){
-      const ov = src.cloneNode(true);
-      ov.removeAttribute("id");
-      const r  = src.getBoundingClientRect();
-      ov.style.cssText = `
-        position:absolute; top:${src.offsetTop}px; left:${src.offsetLeft}px;
-        width:${r.width}px; height:${r.height}px;
-        object-fit:${src.style.objectFit||'cover'};
-        z-index:2;
-        transition:transform 1.1s ease;
-      `;
-      return ov;
-    }
-  
-    setInterval(() => {
-      /* ----- outgoing image ----- */
-      const outgoing = overlayClone(base);
-      wrapper.appendChild(outgoing);
-  
-      /* slide it LEFT off the viewport (‑100 vw) */
-      requestAnimationFrame(() => {
-        outgoing.style.transform = "translateX(-100vw)";
-      });
-  
-      /* ----- incoming image ----- */
-      index = (index + 1) % pics.length;
-      base.src = pics[index];
-      base.style.transition = "none";
-      base.style.transform  = "translateX(100vw)";  // start off-screen right
-      void base.offsetWidth;                        // force reflow
-      base.style.transition = "transform 1.1s ease";
-      base.style.transform  = "translateX(0)";      // slide to center
-  
-      /* clean up overlay after animation */
-      setTimeout(() => outgoing.remove(), 1200);
-  
-    }, 5000);     // change slide every 5 s
+  $(document).ready(function(){
+    $('.web-slider').owlCarousel({
+      items: 1,
+      loop: true,
+      margin: 20,
+      nav: false,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 6000,
+      autoplayHoverPause: true
+    });
+
+    $('.mobile-slider').owlCarousel({
+      items: 1,
+      loop: true,
+      margin: 20,
+      nav: false,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 6000,
+      autoplayHoverPause: true
+    });
   });
-  </script>
+</script>
+
+
 
 <!-- category slider js -->
 <script>
@@ -1150,6 +1039,8 @@
     }, 2500);
   </script>
   <script src="{% static 'js/home_menu.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>
 </html>
 
