@@ -18,10 +18,7 @@ def Wishlist(request):
     return render(request,"new-wishlist.html")
 
 def Checkout(request):
-    return render(request,"checkout-new.html")
-
-def OrderSummary(request):
-    return render(request,"order-summary.html")
+    return render(request,"checkout-ordersummary.html")
 
 def Details(request):
     return render(request,"product_details.html")
@@ -49,7 +46,3 @@ def MyAccount(request):
 
 def MyOrders(request):
     return render(request,"my-orders.html")
-
-
-def CheckoutSummary(request):
-    return render(request,"checkot-summary.html")

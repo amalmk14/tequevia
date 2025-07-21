@@ -10,7 +10,6 @@ urlpatterns = [
     path('cart/',views.Cart,name="cart"),
     path('wishlist/',views.Wishlist,name="wishlist"),
     path('checkout/',views.Checkout,name="checkout"),
-    path('order-summary',views.OrderSummary,name="oder-summary"),
     path('details/',views.Details,name="product_details"),
     path('lists/',views.Lists,name="product_lists"),
     path('footer/',views.Footer,name="footer"),
@@ -20,5 +19,4 @@ urlpatterns = [
     path("shipping-delivery",views.ShippingDelivery,name="shipping-delivery"),
     path("account/",views.MyAccount,name="my-account"),
     path('my-orders/',views.MyOrders,name="my-orders"),
-    path('checkouts/',views.CheckoutSummary,name="checkouts"),
 ]
