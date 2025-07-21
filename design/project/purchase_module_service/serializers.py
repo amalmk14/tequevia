@@ -45,10 +45,23 @@ class BadgeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Badge
         fields = "__all__"
-        
-                
+                   
 class ColorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Color
         fields = "__all__"
         
+class MasterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Master
+        fields = "__all__"
+
+class MasterVariantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MasterVariant
+        fields = "__all__"
+
+class MasterVariantImagesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MasterVariantImage
+        fields = "__all__"
