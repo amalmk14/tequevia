@@ -47,5 +47,8 @@ class BadgeSerializer(serializers.ModelSerializer):
         fields = "__all__"
         
                 
-        
+class ColorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Color
+        fields = "__all__"
         
