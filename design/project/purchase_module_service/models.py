@@ -46,7 +46,7 @@ class Size(models.Model):
     def __str__(self):
         return self.size
     
-class material(models.Model):
+class Material(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     material = models.CharField(max_length=250)
     delete_status = models.BooleanField(default=False)
@@ -98,6 +98,36 @@ class Master(models.Model):
 
 
 
+class MasterVariant(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    
+    master = models.ForeignKey(Master, on_delete=models.CASCADE, related_name="variants")
+    size = models.ForeignKey(Size, on_delete=models.SET_NULL, null=True, blank=True)
+    sleeve = models.ForeignKey(Sleeve, on_delete=models.SET_NULL, null=True, blank=True)
+    neck = models.ForeignKey(Neck, on_delete=models.SET_NULL, null=True, blank=True)
+    collar = models.ForeignKey(Collar, on_delete=models.SET_NULL, null=True, blank=True)
+    material = models.ForeignKey(Material, on_delete=models.SET_NULL, null=True, blank=True)
+
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    stock = models.PositiveIntegerField(default=0)
+    main_image = models.ImageField(upload_to='variant-main/', null=True, blank=True)
+    description = models.TextField(blank=True,null=True)
+    is_active = models.BooleanField(default=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.master.product_name} - {self.size} - {self.material}"
+
+
+class MasterVariantImage(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    
+    variant = models.ForeignKey(MasterVariant, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to="variant-images/")
+    alt_text = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return f"Image for {self.variant}"
     
     
     
