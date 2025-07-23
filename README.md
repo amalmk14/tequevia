@@ -1,8 +1,3 @@
 # tequevia
 
-mobile view side heading  16px 
-
-my-account
-
-profile dit ok
-address option running
+https://dashboardpack.com/live-demo-preview/?livedemo=357190
