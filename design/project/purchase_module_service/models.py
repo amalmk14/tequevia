@@ -49,8 +49,27 @@ class Level3Category(models.Model):
 
     def __str__(self):
         return self.l3category_name
-    
-    
+
+
+class Vendor(models.Model):
+    reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='vendor_profile', null=True, blank=True)
+    vendor_name = models.CharField(max_length=250)
+    email = models.EmailField(unique=True)
+    phone_number = models.CharField(max_length=15, unique=True)
+    address = models.TextField(blank=True, null=True)
+    city = models.CharField(max_length=100, blank=True, null=True)
+    state = models.CharField(max_length=100, blank=True, null=True)
+    country = models.CharField(max_length=100, blank=True, null=True)
+    pincode = models.CharField(max_length=20, blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+    delete_status = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.vendor_name
+
+
 class Size(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     size = models.CharField(max_length=10)
@@ -124,6 +143,7 @@ class Color(models.Model):
 
 class Master(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True, related_name="products")
     product_name = models.CharField(max_length=250)
     product_code = models.CharField(max_length=250)
     level2_reference = models.ForeignKey(Level2Category, on_delete=models.CASCADE, related_name="products")
