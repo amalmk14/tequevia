@@ -16,7 +16,7 @@ router.register(r'badge/',BadgeViewsets)
 router.register(r'color/',ColorViewsets)
 router.register(r'master/',MasterViewsets)
 router.register(r'master-variant/',MasterVariantViewsets)
-# router.register(r'master-variant-image/',MasterVariantImagesViewsets)
+router.register(r'master-variant-image/',MasterVariantImagesViewsets)
 
 urlpatterns = [
     path('',include(router.urls))
