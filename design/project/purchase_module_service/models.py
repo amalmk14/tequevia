@@ -156,6 +156,7 @@ class MasterVariantImage(models.Model):
     variant = models.ForeignKey(MasterVariant, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to="variant-images/")
     alt_text = models.CharField(max_length=255, blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Image for {self.variant}"
