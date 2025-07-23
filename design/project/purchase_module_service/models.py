@@ -2,6 +2,20 @@ from django.db import models
 import uuid
 
 
+from django.contrib.auth.models import AbstractUser
+
+class CustomUser(AbstractUser):
+    reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    phone_number = models.CharField(max_length=15, unique=True)
+    is_employ = models.BooleanField(blank=True,null=True)
+    is_admin = models.BooleanField(blank=True,null=True)
+    is_shop = models.BooleanField(blank=True,null=True)
+
+    def __str__(self):
+        return self.phone_number
+
+
+
 # Create your models here.
 class Category(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
