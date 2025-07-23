@@ -63,7 +63,7 @@ REST_FRAMEWORK = {
 }
 
 
-AUTH_USER_MODEL = 'purchase_module_service.CustomUser'
+AUTH_USER_MODEL = 'purchase_module_service.AuthUser'
 
 ROOT_URLCONF = 'project.urls'
 

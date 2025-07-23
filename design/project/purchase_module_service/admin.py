@@ -3,11 +3,11 @@ from .models import *
 
 # Register your models here.
 
-@admin.register(CustomUser)
+@admin.register(AuthUser)
 class CustomUserAdmin(admin.ModelAdmin):
     readonly_fields = ['reference']
     list_display = ['reference', 'phone_number'] 
-    fields = [field.name for field in CustomUser._meta.fields]
+    fields = [field.name for field in AuthUser._meta.fields]
 
 # admin.site.register(Category)
 @admin.register(Category)

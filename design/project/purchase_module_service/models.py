@@ -4,7 +4,7 @@ import uuid
 
 from django.contrib.auth.models import AbstractUser
 
-class CustomUser(AbstractUser):
+class AuthUser(AbstractUser):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     phone_number = models.CharField(max_length=15, unique=True)
     is_employ = models.BooleanField(blank=True,null=True)
@@ -53,7 +53,7 @@ class Level3Category(models.Model):
 
 class Vendor(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='vendor_profile', null=True, blank=True)
+    user = models.OneToOneField(AuthUser, on_delete=models.CASCADE, related_name='vendor_profile')
     vendor_name = models.CharField(max_length=250)
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=15, unique=True)
