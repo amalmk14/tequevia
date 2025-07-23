@@ -1,14 +1,16 @@
 from django.shortcuts import render
 from rest_framework import viewsets, filters, generics, status
+from rest_framework.viewsets import ViewSet
 # from rest_framework.permissions import AllowAny
 # from rest_framework_simplejwt.views import TokenObtainPairView
 # from rest_framework.views import APIView
-# from rest_framework.response import Response
+from rest_framework.response import Response
 # from rest_framework.permissions import IsAuthenticated
 # from rest_framework_simplejwt.tokens import RefreshToken
 
 from .models import *
 from .serializers import *
+from django.db.models import Q
 
 # Create your views here.
 
@@ -90,3 +92,46 @@ class MasterVariantImagesViewsets(viewsets.ModelViewSet):
     queryset = MasterVariantImage.objects.all()
     serializer_class = MasterVariantImagesSerializer                                          
     
+
+class FilteredMasterViewSet(ViewSet):
+    def list(self, request):
+        category = request.query_params.get('category')
+        size = request.query_params.get('size')
+        material = request.query_params.get('material')
+        collar = request.query_params.get('collar')
+        neck = request.query_params.get('neck')
+        sleeve = request.query_params.get('sleeve')
+        badge = request.query_params.get('badge')
+        color = request.query_params.get('color')
+
+        queryset = Master.objects,all()
+        if category:
+            queryset = queryset.objects.filter(level2_reference__category_reference=category)
+        
+        if size or material or collar or neck or sleeve or badge or color:
+            variant_filter = Q()
+
+            if size:
+                variant_filter &= Q(size_reference__reference=size)
+            if material:
+                variant_filter &= Q(material_reference__reference=material)
+            if collar:
+                variant_filter &= Q(collar_reference__reference=collar)
+            if neck:
+                variant_filter &= Q(neck_reference__reference=neck)
+            if sleeve:
+                variant_filter &= Q(sleeve_reference__reference=sleeve)
+            if badge:
+                variant_filter &= Q(badge_reference__reference=badge)
+            if color:
+                variant_filter &= Q(color_reference__reference=color)
+
+            variant_master_ids = MasterVariant.objects.filter(
+                variant_filter).values_list('master_reference', flat=True)
+            
+            queryset = queryset.filter(reference__in=variant_master_ids)
+
+        serializer = MasterNestedSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+            

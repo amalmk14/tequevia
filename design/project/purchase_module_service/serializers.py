@@ -114,3 +114,28 @@ class MasterVariantImagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = MasterVariantImage
         fields = "__all__"
+
+
+## filter option
+class MasterVariantImageNestedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MasterVariantImage
+        fields = ['reference', 'image', 'alt_text']
+
+class MasterVariantNestedSerializer(serializers.ModelSerializer):
+    images = MasterVariantImagesSerializer(many=True, read_only=True)
+    class Meta:
+        model = MasterVariant
+        fields = ['reference', 'size_reference', 'sleeve_reference', 'neck_reference',
+                  'collar_reference', 'material_reference', 'badge_reference', 'color_reference',
+                  'price', 'offer_price', 'offer_percentage', 'stock','weight', 'main_image', 
+                  'description', 'tag', 'is_active','created_on', 'images']
+        
+class MasterNestedSerializer(serializers.ModelSerializer):
+    variant = MasterVariantNestedSerializer(many=True, read_only=True)
+    class Meta:
+        model = Master
+        fields = ['reference', 'product_name', 'product_code', 'image',
+                  'created_on', 'is_active', 'variants']
+        
+        

@@ -21,7 +21,8 @@ router.register(r'master-variant-image/',MasterVariantImagesViewsets)
 
 urlpatterns = [
     path('',include(router.urls)),
-    
+    path('filtered-masters/', FilteredMasterViewSet.as_view({'get': 'list'})),
+
     # path('signup/',SignupView.as_view(), name="signup"),
     # path('login/', LoginView.as_view(), name= "login"),
     # path('signout/',SignoutView.as_view(), name="signout"),
