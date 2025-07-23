@@ -1,8 +1,39 @@
 from django.shortcuts import render
-from rest_framework import viewsets, filters
+from rest_framework import viewsets, filters, generics, status
+from rest_framework.permissions import AllowAny
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
+
 from .models import *
 from .serializers import *
+
 # Create your views here.
+
+class SignupView(generics.CreateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = SignupSerializer
+    permission_classes = [AllowAny]
+
+class LoginView(TokenObtainPairView):
+    serializers = LoginSerializer
+
+def SignoutView(APIView):
+    permission_class = [IsAuthenticated]
+
+    def post(self, request):
+        refresh_token = request.data.get('refresh')
+        if not refresh_token:
+            return Response({'error':'refresh token is required'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        try:
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+            return Response({'detail':'successfully logedout'}, status=status.HTTP_205_RESET_CONTENT)
+        except Exception:
+            return Response({'error':'invalid or expired token'})
 
 class CategoryViewsets(viewsets.ModelViewSet):
     queryset = Category.objects.all().order_by('-created_on')
