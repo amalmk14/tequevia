@@ -1,53 +1,53 @@
 from rest_framework import serializers
 from .models import *
-from django.contrib.auth.password_validation import validate_password
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from django.db.models import Q
+# from django.contrib.auth.password_validation import validate_password
+# from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+# from django.db.models import Q
 
-class SignupSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
-    class Meta:
-        model = CustomUser
-        fields = ['reference', 'username', 'email', 'phone_number', 'password']
+# class SignupSerializer(serializers.ModelSerializer):
+#     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
+#     class Meta:
+#         model = CustomUser
+#         fields = ['reference', 'username', 'email', 'phone_number', 'password']
 
-        def create(self, validate_data):
-            user = CustomUser(
-                username = validate_data['username'],
-                email = validate_data['email'],
-                phone_number = validate_data['phone_number']
-            )
-            user.set_password(validate_data['password'])
-            user.save()
-            return user
+#         def create(self, validate_data):
+#             user = CustomUser(
+#                 username = validate_data['username'],
+#                 email = validate_data['email'],
+#                 phone_number = validate_data['phone_number']
+#             )
+#             user.set_password(validate_data['password'])
+#             user.save()
+#             return user
 
-class LoginSerializer(TokenObtainPairSerializer):
-    identifier = serializers.CharField(write_only=True)
-    password = serializers.CharField(write_only=True)
+# class LoginSerializer(TokenObtainPairSerializer):
+#     identifier = serializers.CharField(write_only=True)
+#     password = serializers.CharField(write_only=True)
 
-    def validate(self, attrs):
-        identifier = attrs.get('identifier')
-        password = attrs.get('password')
+#     def validate(self, attrs):
+#         identifier = attrs.get('identifier')
+#         password = attrs.get('password')
 
-        user = CustomUser.object.filter(
-            Q(username=identifier) | Q(email=identifier) | Q(phone_number=identifier)
-            ).first()
+#         user = CustomUser.object.filter(
+#             Q(username=identifier) | Q(email=identifier) | Q(phone_number=identifier)
+#             ).first()
         
-        if user is None or not user.check_password(password):
-            raise serializers.ValidationError("Invalid login credentials")
+#         if user is None or not user.check_password(password):
+#             raise serializers.ValidationError("Invalid login credentials")
         
-        data = super().validate({
-            'username' : user.username,
-            'password' : password
-        })
+#         data = super().validate({
+#             'username' : user.username,
+#             'password' : password
+#         })
 
-        data['user'] = {
-            'reference' : str(user.reference),
-            'username' : user.username,
-            'email' : user.email,
-            'phone_number' : user.phone_number
-        }
+#         data['user'] = {
+#             'reference' : str(user.reference),
+#             'username' : user.username,
+#             'email' : user.email,
+#             'phone_number' : user.phone_number
+#         }
 
-        return data
+#         return data
     
 
 class CategorySerializer(serializers.ModelSerializer):
