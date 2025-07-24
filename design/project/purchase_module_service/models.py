@@ -197,7 +197,7 @@ class ProductMasterVariant(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.master_reference.product_name} - {self.size} - {self.material}"
+        return f"{self.product_master_reference.product_name} - {self.size_reference} - {self.material_reference}"
 
 
 class ProductMasterVariantImage(models.Model):
@@ -219,4 +219,3 @@ class ProductPlatformMapping(models.Model):
     delete_status = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
-    
