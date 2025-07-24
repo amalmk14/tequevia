@@ -1,8 +1,7 @@
 from django.db import models
 import uuid
-
-
 from django.contrib.auth.models import AbstractUser
+
 
 class AuthUser(AbstractUser):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -24,8 +23,8 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category_name
-    
-    
+
+
 class Level2Category(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="level2_categories")
@@ -36,7 +35,7 @@ class Level2Category(models.Model):
 
     def __str__(self):
         return self.l2category_name
-    
+
 
 class Level3Category(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -77,7 +76,7 @@ class Size(models.Model):
 
     def __str__(self):
         return self.size
-    
+
 
 class Material(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -87,8 +86,8 @@ class Material(models.Model):
 
     def __str__(self):
         return self.material
-    
-    
+
+
 class Collar(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     collar = models.CharField(max_length=250)
@@ -97,8 +96,8 @@ class Collar(models.Model):
 
     def __str__(self):
         return self.collar
-    
-    
+
+
 class Neck(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     neck = models.CharField(max_length=250)
@@ -107,7 +106,7 @@ class Neck(models.Model):
 
     def __str__(self):
         return self.neck
-    
+
 
 class Sleeve(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -117,7 +116,7 @@ class Sleeve(models.Model):
 
     def __str__(self):
         return self.sleeve
-    
+
 
 class Badge(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -127,7 +126,7 @@ class Badge(models.Model):
 
     def __str__(self):
         return self.badge
-    
+
 
 class Color(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -138,7 +137,7 @@ class Color(models.Model):
 
     def __str__(self):
         return self.color
-   
+
 
 class Master(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -192,6 +191,4 @@ class MasterVariantImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.variant}"
-    
-    
     
