@@ -23,6 +23,7 @@ class Platform(models.Model):
     def __str__(self):
         return self.name
 
+
 class Category(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     category_name = models.CharField(max_length=250)
@@ -217,3 +218,5 @@ class ProductPlatformMapping(models.Model):
     platform_reference = models.ForeignKey(Platform, on_delete=models.CASCADE, default='platforms')
     delete_status = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    

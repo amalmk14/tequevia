@@ -12,7 +12,6 @@ from .models import *
 from .serializers import *
 from django.db.models import Q
 
-# Create your views here.
 
 # class SignupView(generics.CreateAPIView):
 #     queryset = CustomUser.objects.all()
@@ -37,6 +36,7 @@ from django.db.models import Q
 #         except Exception:
 #             return Response({'error':'invalid or expired token'})
 
+
 class PlatformViewsets(viewsets.ModelViewSet):
     queryset = Platform.objects.all().order_by('-created_on')
     serializer_class = PlatformSerializer
@@ -51,6 +51,7 @@ class CategoryViewsets(viewsets.ModelViewSet):
 
     filter_backends = [filters.SearchFilter]
     search_fields= ['category_name']
+
 
 class SubCategoryViewsets(viewsets.ModelViewSet):
     queryset = SubCategory.objects.all().order_by('-created_on')
@@ -75,37 +76,46 @@ class VendorViewsets(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields = ['vendor_name', 'city', 'state', 'country']
 
+
 class SizeViewsets(viewsets.ModelViewSet):
     queryset = Size.objects.all().order_by('-created_on')
     serializer_class = Sizeserializer
+
 
 class MaterialViewsets(viewsets.ModelViewSet):
     queryset = Material.objects.all().order_by('-created_on')
     serializer_class = MaterialSerializer
 
+
 class CollarViewsets(viewsets.ModelViewSet):
     queryset = Collar.objects.all().order_by('-created_on')
     serializer_class = CollarSerializer
+
 
 class NeckViewsets(viewsets.ModelViewSet):
     queryset = Neck.objects.all().order_by('-created_on')
     serializer_class = NeckSerializer
 
+
 class SleeveViewsets(viewsets.ModelViewSet):
     queryset = Sleeve.objects.all().order_by('-created_on')
     serializer_class = SleeveSerializer
+
 
 class BadgeViewsets(viewsets.ModelViewSet):
     queryset = Badge.objects.all().order_by('-created_on')
     serializer_class = BadgeSerializer
 
+
 class ColorViewsets(viewsets.ModelViewSet):
     queryset = Color.objects.all().order_by('-created_on')
     serializer_class = ColorSerializer
 
+
 class SeasonViewsets(viewsets.ModelViewSet):
     queryset = Season.objects.all().order_by('-created_on')
     serializer_class = SeasonSerializer
+
 
 class ProductMasterViewsets(viewsets.ModelViewSet):
     queryset = ProductMaster.objects.all().order_by('-created_on')
@@ -114,6 +124,7 @@ class ProductMasterViewsets(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields= ['product_name']
 
+
 class ProductMasterVariantViewsets(viewsets.ModelViewSet):
     queryset = ProductMasterVariant.objects.all().order_by('-created_on')
     serializer_class = ProductMasterVariantSerializer
@@ -121,12 +132,14 @@ class ProductMasterVariantViewsets(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields= ['product_master_reference__product_name']
 
+
 class ProductMasterVariantImagesViewsets(viewsets.ModelViewSet):
     queryset = ProductMasterVariantImage.objects.all()
     serializer_class = ProductMasterVariantImagesSerializer
 
     filter_backends = [filters.SearchFilter]
-    search_fields= ['variant_reference__product_master_reference__product_name']                                    
+    search_fields= ['variant_reference__product_master_reference__product_name'] 
+
 
 class ProductPlatformMappingViewsets(viewsets.ModelViewSet):
     queryset = ProductPlatformMapping.objects.all().order_by('-created_on')
@@ -134,8 +147,6 @@ class ProductPlatformMappingViewsets(viewsets.ModelViewSet):
 
     # filter_backends = [filters.SearchFilter]
     # search_fields= ['name']
-
-
 
 
 class FilteredProductMasterViewSet(ViewSet):
@@ -180,3 +191,5 @@ class FilteredProductMasterViewSet(ViewSet):
 
         serializer = ProductMasterNestedSerializer(queryset, many=True)
         return Response(serializer.data)
+
+
