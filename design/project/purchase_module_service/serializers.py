@@ -70,10 +70,17 @@ class SubCategorySerializer(serializers.ModelSerializer):
         model = SubCategory
         fields = '__all__'
 
+
 # class Level3Serializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = Level3Category
 #         fields = '__all__'
+
+
+class VendorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vendor
+        fields = '__all__'
 
 class Sizeserializer(serializers.ModelSerializer):
     class Meta:

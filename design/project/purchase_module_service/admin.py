@@ -96,3 +96,18 @@ class ProductMastervariantImageAdmin(admin.ModelAdmin):
     get_variant_name.short_description = 'Product_name'
     
 
+@admin.register(Vendor)
+class vendorAdmin(admin.ModelAdmin):
+    readonly_fields = ['reference']
+    list_display = ['reference', 'vendor_name']
+
+@admin.register(Platform)
+class PlatformAdmin(admin.ModelAdmin):
+    readonly_fields = ['reference']
+    list_display = ['reference', 'name']
+
+
+@admin.register(ProductPlatformMapping)
+class ProductPlatformMappingAdmin(admin.ModelAdmin):
+    readonly_fields = ['reference']
+    list_display = ['reference', 'product_master_reference__product_name', 'platform_reference__name']

@@ -21,6 +21,7 @@ router.register(r'productmaster-variant',ProductMasterVariantViewsets)
 router.register(r'productmaster-variant-image',ProductMasterVariantImagesViewsets)
 router.register(r'platform',PlatformViewsets)
 router.register(r'product-platform-mapping',ProductPlatformMappingViewsets)
+router.register(r'vendor',VendorViewsets)
 
 urlpatterns = [
     path('',include(router.urls)),

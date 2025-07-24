@@ -59,13 +59,21 @@ class SubCategoryViewsets(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields= ['l2category_name', 'category__category_name']
 
+
 # class Level3CategoryViewsets(viewsets.ModelViewSet):
 #     queryset = Level3Category.objects.all().order_by('-created_on')
 #     serializer_class = Level3Serializer
 
+#     filter_backends = [filters.SearchFilter]
+#     search_fields= ['l3category_name', 'SubCategory_category__l2category_name', 
+#                      'SubCategory_category__category__category_name']
+
+
+class VendorViewsets(viewsets.ModelViewSet):
+    queryset = Vendor.objects.all().order_by('-created_on')
+    serializer_class = VendorSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields= ['l3category_name', 'SubCategory_category__l2category_name', 
-                     'SubCategory_category__category__category_name']
+    search_fields = ['vendor_name', 'city', 'state', 'country']
 
 class SizeViewsets(viewsets.ModelViewSet):
     queryset = Size.objects.all().order_by('-created_on')

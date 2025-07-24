@@ -60,7 +60,6 @@ class SubCategory(models.Model):
 
 class Vendor(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.OneToOneField(AuthUser, on_delete=models.CASCADE, related_name='vendor_profile')
     vendor_name = models.CharField(max_length=250)
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=15, unique=True)
@@ -160,7 +159,6 @@ class Season(models.Model):
 
 class ProductMaster(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True, related_name="products")
     product_name = models.CharField(max_length=250)
     product_code = models.CharField(max_length=250)
     sub_category_reference = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name="products")
@@ -214,6 +212,7 @@ class ProductMasterVariantImage(models.Model):
     
 
 class ProductPlatformMapping(models.Model):
+    reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     product_master_reference = models.ForeignKey(ProductMaster, on_delete=models.CASCADE, default='platforms')
     platform_reference = models.ForeignKey(Platform, on_delete=models.CASCADE, default='platforms')
     delete_status = models.BooleanField(default=False)
