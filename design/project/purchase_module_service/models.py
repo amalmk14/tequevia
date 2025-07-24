@@ -15,7 +15,6 @@ class AuthUser(AbstractUser):
         return self.phone_number
 
 
-# Create your models here.
 class Category(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     category_name = models.CharField(max_length=250)
