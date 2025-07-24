@@ -17,6 +17,8 @@ class AuthUser(AbstractUser):
 class Platform(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=250, unique=True)
+    delete_status = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
@@ -144,6 +146,16 @@ class Color(models.Model):
 
     def __str__(self):
         return self.color
+    
+
+class Season(models.Model):
+    reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    season = models.CharField(max_length=250)
+    delete_status = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.season
 
 
 class ProductMaster(models.Model):
@@ -155,7 +167,7 @@ class ProductMaster(models.Model):
     image = models.ImageField(upload_to="master-image/")
     is_active = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    platform = models.ManyToManyField(Platform, default="products")
+    platform_reference = models.ManyToManyField(Platform, default="products")
 
     def __str__(self):
         return self.product_name
@@ -172,6 +184,7 @@ class ProductMasterVariant(models.Model):
     material_reference = models.ForeignKey(Material, on_delete=models.SET_NULL, null=True)
     badge_reference = models.ForeignKey(Badge, on_delete=models.SET_NULL, null=True)
     color_reference = models.ForeignKey(Color, on_delete=models.SET_NULL, null=True)
+    season_reference = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True)
 
     price = models.DecimalField(max_digits=10, decimal_places=2)
     offer_price = models.DecimalField(max_digits=10, decimal_places=2,default=0)
@@ -191,7 +204,7 @@ class ProductMasterVariant(models.Model):
 class ProductMasterVariantImage(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     
-    variant = models.ForeignKey(ProductMasterVariant, on_delete=models.CASCADE, related_name="images")
+    variant_reference = models.ForeignKey(ProductMasterVariant, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to="variant-images/")
     alt_text = models.CharField(max_length=255, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -200,7 +213,8 @@ class ProductMasterVariantImage(models.Model):
         return f"Image for {self.variant}"
     
 
-
-class ProductPlatform(models.Model):
+class ProductPlatformMapping(models.Model):
     product_master_reference = models.ForeignKey(ProductMaster, on_delete=models.CASCADE, default='platforms')
     platform_reference = models.ForeignKey(Platform, on_delete=models.CASCADE, default='platforms')
+    delete_status = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)

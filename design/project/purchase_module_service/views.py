@@ -37,6 +37,14 @@ from django.db.models import Q
 #         except Exception:
 #             return Response({'error':'invalid or expired token'})
 
+class PlatformViewsets(viewsets.ModelViewSet):
+    queryset = Platform.objects.all().order_by('-created_on')
+    serializer_class = PlatformSerializer
+
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name']
+
+
 class CategoryViewsets(viewsets.ModelViewSet):
     queryset = Category.objects.all().order_by('-created_on')
     serializer_class = CategorySerializer
@@ -65,7 +73,7 @@ class SizeViewsets(viewsets.ModelViewSet):
 
 class MaterialViewsets(viewsets.ModelViewSet):
     queryset = Material.objects.all().order_by('-created_on')
-    serializer_class = ProductMasterSerializer
+    serializer_class = MaterialSerializer
 
 class CollarViewsets(viewsets.ModelViewSet):
     queryset = Collar.objects.all().order_by('-created_on')
@@ -87,6 +95,10 @@ class ColorViewsets(viewsets.ModelViewSet):
     queryset = Color.objects.all().order_by('-created_on')
     serializer_class = ColorSerializer
 
+class SeasonViewsets(viewsets.ModelViewSet):
+    queryset = Season.objects.all().order_by('-created_on')
+    serializer_class = SeasonSerializer
+
 class ProductMasterViewsets(viewsets.ModelViewSet):
     queryset = ProductMaster.objects.all().order_by('-created_on')
     serializer_class = ProductMasterSerializer
@@ -101,6 +113,7 @@ class ProductMasterVariantViewsets(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields= ['ProductMaster_reference__product_name']
 
+
 class ProductMasterVariantImagesViewsets(viewsets.ModelViewSet):
     queryset = ProductMasterVariantImage.objects.all()
     serializer_class = ProductMasterVariantImagesSerializer
@@ -108,6 +121,14 @@ class ProductMasterVariantImagesViewsets(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields= ['variant_ProductMaster_reference__product_name']                                    
     
+
+class ProductPlatformMappingViewsets(viewsets.ModelViewSet):
+    queryset = ProductPlatformMapping.objects.all().order_by('-created_on')
+    serializer_class = ProductPlatformMappingSerializer
+
+    # filter_backends = [filters.SearchFilter]
+    # search_fields= ['name']
+
 
 class FilteredProductMasterViewSet(ViewSet):
     def list(self, request):

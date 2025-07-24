@@ -15,9 +15,12 @@ router.register(r'neck',NeckViewsets)
 router.register(r'sleeve',SleeveViewsets)
 router.register(r'badge',BadgeViewsets)
 router.register(r'color',ColorViewsets)
+router.register(r'season',SeasonViewsets)
 router.register(r'productmaster',ProductMasterViewsets)
 router.register(r'productmaster-variant',ProductMasterVariantViewsets)
 router.register(r'productmaster-variant-image',ProductMasterVariantImagesViewsets)
+router.register(r'platform',PlatformViewsets)
+router.register(r'product-platform-mapping',ProductPlatformMappingViewsets)
 
 urlpatterns = [
     path('',include(router.urls)),

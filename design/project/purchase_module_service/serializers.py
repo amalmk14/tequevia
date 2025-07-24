@@ -48,7 +48,17 @@ from .models import *
 #         }
 
 #         return data
-    
+
+
+class PlatformSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Platform
+        fields = '__all__'
+
+class ProductPlatformMappingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductPlatformMapping
+        fields = '__all__'
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -98,6 +108,11 @@ class BadgeSerializer(serializers.ModelSerializer):
 class ColorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Color
+        fields = "__all__"
+
+class SeasonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Season
         fields = "__all__"
         
 class ProductMasterSerializer(serializers.ModelSerializer):
