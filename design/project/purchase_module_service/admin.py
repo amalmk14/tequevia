@@ -19,7 +19,7 @@ class CategoryAdmin(admin.ModelAdmin):
 # admin.site.register(SubCategory)
 @admin.register(SubCategory)
 class SubCategoryAdmin(admin.ModelAdmin):
-    readonly_fields = ['reference']
+    readonly_fields = ['reference', 'created_on']
     list_display = ['reference', 'category_name']
     fields = [field.name for field in SubCategory._meta.fields]
 
@@ -70,6 +70,12 @@ class BadgeAdmin(admin.ModelAdmin):
 class ColorAdmin(admin.ModelAdmin):
     readonly_fields = ['reference']
     list_display = ['reference', 'color']
+    fields = [field.name for field in Color._meta.fields]
+
+@admin.register(Season)
+class SeasonAdmin(admin.ModelAdmin):
+    readonly_fields = ['reference']
+    list_display = ['reference', 'season']
     fields = [field.name for field in Color._meta.fields]
 
 @admin.register(ProductMaster)

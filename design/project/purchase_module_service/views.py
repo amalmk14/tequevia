@@ -119,16 +119,14 @@ class ProductMasterVariantViewsets(viewsets.ModelViewSet):
     serializer_class = ProductMasterVariantSerializer
 
     filter_backends = [filters.SearchFilter]
-    search_fields= ['ProductMaster_reference__product_name']
-
+    search_fields= ['product_master_reference__product_name']
 
 class ProductMasterVariantImagesViewsets(viewsets.ModelViewSet):
     queryset = ProductMasterVariantImage.objects.all()
     serializer_class = ProductMasterVariantImagesSerializer
 
     filter_backends = [filters.SearchFilter]
-    search_fields= ['variant_ProductMaster_reference__product_name']                                    
-    
+    search_fields= ['variant_reference__product_master_reference__product_name']                                    
 
 class ProductPlatformMappingViewsets(viewsets.ModelViewSet):
     queryset = ProductPlatformMapping.objects.all().order_by('-created_on')
@@ -136,6 +134,8 @@ class ProductPlatformMappingViewsets(viewsets.ModelViewSet):
 
     # filter_backends = [filters.SearchFilter]
     # search_fields= ['name']
+
+
 
 
 class FilteredProductMasterViewSet(ViewSet):
@@ -149,11 +149,12 @@ class FilteredProductMasterViewSet(ViewSet):
         badge = request.query_params.get('badge')
         color = request.query_params.get('color')
 
-        queryset = ProductMaster.objects,all()
+        queryset = ProductMaster.objects.all()  # ✅ Fix: not ProductMaster.objects,all()
+
         if category:
-            queryset = queryset.objects.filter(SubCategory_reference__category_reference=category)
-        
-        if size or material or collar or neck or sleeve or badge or color:
+            queryset = queryset.filter(sub_category_reference__category__reference=category)
+
+        if any([size, material, collar, neck, sleeve, badge, color]):
             variant_filter = Q()
 
             if size:
@@ -172,11 +173,10 @@ class FilteredProductMasterViewSet(ViewSet):
                 variant_filter &= Q(color_reference__reference=color)
 
             variant_productmaster_ids = ProductMasterVariant.objects.filter(
-                variant_filter).values_list('ProductMaster_reference', flat=True)
-            
+                variant_filter
+            ).values_list('product_master_reference__reference', flat=True)
+
             queryset = queryset.filter(reference__in=variant_productmaster_ids)
 
         serializer = ProductMasterNestedSerializer(queryset, many=True)
         return Response(serializer.data)
-
-            

@@ -36,14 +36,14 @@ class Category(models.Model):
 
 class SubCategory(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="level2_categories")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="sub_categories")
     category_name = models.CharField(max_length=250)
-    image = models.ImageField(upload_to="level2-image/")
+    image = models.ImageField(upload_to="subcategory-image/")
     delete_status = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.l2category_name
+        return self.category_name
 
 
 # class Level3Category(models.Model):
@@ -174,7 +174,7 @@ class ProductMaster(models.Model):
 class ProductMasterVariant(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     
-    master_reference = models.ForeignKey(ProductMaster, on_delete=models.CASCADE, related_name="variants")
+    product_master_reference = models.ForeignKey(ProductMaster, on_delete=models.CASCADE, related_name="variants")
     size_reference = models.ForeignKey(Size, on_delete=models.SET_NULL, null=True)
     sleeve_reference = models.ForeignKey(Sleeve, on_delete=models.SET_NULL, null=True)
     neck_reference = models.ForeignKey(Neck, on_delete=models.SET_NULL, null=True)
