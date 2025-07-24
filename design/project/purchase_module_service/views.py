@@ -145,8 +145,8 @@ class ProductPlatformMappingViewsets(viewsets.ModelViewSet):
     queryset = ProductPlatformMapping.objects.all().order_by('-created_on')
     serializer_class = ProductPlatformMappingSerializer
 
-    # filter_backends = [filters.SearchFilter]
-    # search_fields= ['name']
+    filter_backends = [filters.SearchFilter]
+    search_fields= ['product_master_reference__product_name', 'platform_reference__name']
 
 
 class FilteredProductMasterViewSet(ViewSet):
