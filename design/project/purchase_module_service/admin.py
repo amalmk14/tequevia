@@ -88,7 +88,7 @@ class ColorAdmin(admin.ModelAdmin):
 class SeasonAdmin(admin.ModelAdmin):
     readonly_fields = ['reference', 'created_on']
     list_display = ['reference', 'season']
-    fields = [field.name for field in Color._meta.fields]
+    fields = [field.name for field in Season._meta.fields]
 
 
 @admin.register(ProductMaster)
