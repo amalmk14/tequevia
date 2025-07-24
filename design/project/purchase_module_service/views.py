@@ -42,15 +42,22 @@ class CategoryViewsets(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
 
     filter_backend = [filters.SearchFilter]
-    search_filter = ['category_name']
+    search_filter = ['category_name', 'deleted_status']
 
 class Level2CategoryViewsets(viewsets.ModelViewSet):
     queryset = Level2Category.objects.all().order_by('-created_on')
     serializer_class = Level2Serializer
 
+    filter_backends = [filters.SearchFilter]
+    search_filter = ['l2category_name', 'deleted_status', 'category__category_name']
+
 class Level3CategoryViewsets(viewsets.ModelViewSet):
     queryset = Level3Category.objects.all().order_by('-created_on')
     serializer_class = Level3Serializer
+
+    filter_backends = [filters.SearchFilter]
+    search_filter = ['l3category_name', 'deleted_status', 'level2_category__l2category_name', 
+                     'level2_category__category__category_name']
 
 class SizeViewsets(viewsets.ModelViewSet):
     queryset = Size.objects.all().order_by('-created_on')
@@ -84,13 +91,22 @@ class MasterViewsets(viewsets.ModelViewSet):
     queryset = Master.objects.all().order_by('-created_on')
     serializer_class = MasterSerializer
 
+    filter_backends = [filters.SearchFilter]
+    search_filter = ['product_name']
+
 class MasterVariantViewsets(viewsets.ModelViewSet):
     queryset = MasterVariant.objects.all().order_by('-created_on')
     serializer_class = MasterVariantSerializer
 
+    filter_backends = [filters.SearchFilter]
+    search_filter = ['master_reference__product_name']
+
 class MasterVariantImagesViewsets(viewsets.ModelViewSet):
     queryset = MasterVariantImage.objects.all()
-    serializer_class = MasterVariantImagesSerializer                                          
+    serializer_class = MasterVariantImagesSerializer
+
+    filter_backends = [filters.SearchFilter]
+    search_filter = ['variant_master_reference__product_name']                                    
     
 
 class FilteredMasterViewSet(ViewSet):
