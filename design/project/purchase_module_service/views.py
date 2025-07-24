@@ -160,7 +160,7 @@ class FilteredProductMasterViewSet(ViewSet):
         badge = request.query_params.get('badge')
         color = request.query_params.get('color')
 
-        queryset = ProductMaster.objects.all()  # ✅ Fix: not ProductMaster.objects,all()
+        queryset = ProductMaster.objects.all() 
 
         if category:
             queryset = queryset.filter(sub_category_reference__category__reference=category)
