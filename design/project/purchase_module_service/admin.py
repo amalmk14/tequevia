@@ -113,7 +113,7 @@ class ProductMastervariantImageAdmin(admin.ModelAdmin):
     list_display = ['reference', 'get_variant_name']
 
     def get_variant_name(self, obj):
-        return obj.variant.product_master_reference.product_name
+        return obj.variant_reference.product_master_reference.product_name
     get_variant_name.short_description = 'Product_name'
     
 

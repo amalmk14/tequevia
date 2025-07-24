@@ -209,7 +209,7 @@ class ProductMasterVariantImage(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Image for {self.variant}"
+        return f"Image for {self.variant_reference}"
     
 
 class ProductPlatformMapping(models.Model):
