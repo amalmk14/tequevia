@@ -14,6 +14,13 @@ class AuthUser(AbstractUser):
         return self.phone_number
 
 
+class Platform(models.Model):
+    reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=250, unique=True)
+
+    def __str__(self):
+        return self.name
+
 class Category(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     category_name = models.CharField(max_length=250)
@@ -25,10 +32,10 @@ class Category(models.Model):
         return self.category_name
 
 
-class Level2Category(models.Model):
+class SubCategory(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="level2_categories")
-    l2category_name = models.CharField(max_length=250)
+    category_name = models.CharField(max_length=250)
     image = models.ImageField(upload_to="level2-image/")
     delete_status = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -37,16 +44,16 @@ class Level2Category(models.Model):
         return self.l2category_name
 
 
-class Level3Category(models.Model):
-    reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    level2_category = models.ForeignKey(Level2Category, on_delete=models.CASCADE, related_name="level3_categories")
-    l3category_name = models.CharField(max_length=250)
-    image = models.ImageField(upload_to="level3-image/")
-    delete_status = models.BooleanField(default=False)
-    created_on = models.DateTimeField(auto_now_add=True)
+# class Level3Category(models.Model):
+#     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+#     level2_category = models.ForeignKey(Level2Category, on_delete=models.CASCADE, related_name="level3_categories")
+#     l3category_name = models.CharField(max_length=250)
+#     image = models.ImageField(upload_to="level3-image/")
+#     delete_status = models.BooleanField(default=False)
+#     created_on = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.l3category_name
+    # def __str__(self):
+    #     return self.l3category_name
 
 
 class Vendor(models.Model):
@@ -139,25 +146,25 @@ class Color(models.Model):
         return self.color
 
 
-class Master(models.Model):
+class ProductMaster(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True, related_name="products")
     product_name = models.CharField(max_length=250)
     product_code = models.CharField(max_length=250)
-    level2_reference = models.ForeignKey(Level2Category, on_delete=models.CASCADE, related_name="products")
-    level3_reference = models.ForeignKey(Level3Category,on_delete=models.CASCADE, related_name="products")
+    sub_category_reference = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name="products")
     image = models.ImageField(upload_to="master-image/")
     is_active = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
+    platform = models.ManyToManyField(Platform, default="products")
 
     def __str__(self):
         return self.product_name
 
 
-class MasterVariant(models.Model):
+class ProductMasterVariant(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     
-    master_reference = models.ForeignKey(Master, on_delete=models.CASCADE, related_name="variants")
+    master_reference = models.ForeignKey(ProductMaster, on_delete=models.CASCADE, related_name="variants")
     size_reference = models.ForeignKey(Size, on_delete=models.SET_NULL, null=True)
     sleeve_reference = models.ForeignKey(Sleeve, on_delete=models.SET_NULL, null=True)
     neck_reference = models.ForeignKey(Neck, on_delete=models.SET_NULL, null=True)
@@ -178,13 +185,13 @@ class MasterVariant(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.master.product_name} - {self.size} - {self.material}"
+        return f"{self.master_reference.product_name} - {self.size} - {self.material}"
 
 
-class MasterVariantImage(models.Model):
+class ProductMasterVariantImage(models.Model):
     reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     
-    variant = models.ForeignKey(MasterVariant, on_delete=models.CASCADE, related_name="images")
+    variant = models.ForeignKey(ProductMasterVariant, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to="variant-images/")
     alt_text = models.CharField(max_length=255, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -192,3 +199,8 @@ class MasterVariantImage(models.Model):
     def __str__(self):
         return f"Image for {self.variant}"
     
+
+
+class ProductPlatform(models.Model):
+    product_master_reference = models.ForeignKey(ProductMaster, on_delete=models.CASCADE, default='platforms')
+    platform_reference = models.ForeignKey(Platform, on_delete=models.CASCADE, default='platforms')

@@ -16,19 +16,19 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['reference', 'category_name']
     fileds = [field.name for field in Category._meta.fields]
     
-# admin.site.register(Level2Category)
-@admin.register(Level2Category)
-class Level2categoryAdmin(admin.ModelAdmin):
+# admin.site.register(SubCategory)
+@admin.register(SubCategory)
+class SubCategoryAdmin(admin.ModelAdmin):
     readonly_fields = ['reference']
-    list_display = ['reference', 'l2category_name']
-    fields = [field.name for field in Level2Category._meta.fields]
+    list_display = ['reference', 'category_name']
+    fields = [field.name for field in SubCategory._meta.fields]
 
 # admin.site.register(Level3Category)
-@admin.register(Level3Category)
-class Level3categoryAdmin(admin.ModelAdmin):
-    readonly_fields = ['reference']
-    list_display = ['reference', 'l3category_name']
-    fields = [field.name for field in Level3Category._meta.fields]
+# @admin.register(Level3Category)
+# class Level3categoryAdmin(admin.ModelAdmin):
+#     readonly_fields = ['reference']
+#     list_display = ['reference', 'l3category_name']
+#     fields = [field.name for field in Level3Category._meta.fields]
 
 @admin.register(Size)
 class SizeAdmin(admin.ModelAdmin):
@@ -72,26 +72,27 @@ class ColorAdmin(admin.ModelAdmin):
     list_display = ['reference', 'color']
     fields = [field.name for field in Color._meta.fields]
 
-@admin.register(Master)
-class MasterAdmin(admin.ModelAdmin):
+@admin.register(ProductMaster)
+class ProductMasterAdmin(admin.ModelAdmin):
     readonly_fields = ['reference']
     list_display = ['reference', 'product_name']
 
-@admin.register(MasterVariant)
-class MastervariantAdmin(admin.ModelAdmin):
+@admin.register(ProductMasterVariant)
+class ProductMastervariantAdmin(admin.ModelAdmin):
     readonly_fields = ['reference']
     list_display = ['reference', 'get_product_name', 'price', 'stock', 'is_active']
 
     def get_product_name(self, obj):
-        return obj.master_reference.product_name
+        return obj.ProductMaster_reference.product_name
     get_product_name.short_descrition = 'Product_name'
 
-@admin.register(MasterVariantImage)
-class MastervariantImageAdmin(admin.ModelAdmin):
+@admin.register(ProductMasterVariantImage)
+class ProductMastervariantImageAdmin(admin.ModelAdmin):
     readonly_fields = ['reference']
     list_display = ['reference', 'get_variant_name']
 
     def get_variant_name(self, obj):
-        return obj.variant.master_reference.product_name
+        return obj.variant.ProductMaster_reference.product_name
     get_variant_name.short_description = 'Product_name'
     
+

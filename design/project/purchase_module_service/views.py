@@ -41,23 +41,23 @@ class CategoryViewsets(viewsets.ModelViewSet):
     queryset = Category.objects.all().order_by('-created_on')
     serializer_class = CategorySerializer
 
-    filter_backend = [filters.SearchFilter]
-    search_filter = ['category_name', 'deleted_status']
+    filter_backends = [filters.SearchFilter]
+    search_fields= ['category_name']
 
-class Level2CategoryViewsets(viewsets.ModelViewSet):
-    queryset = Level2Category.objects.all().order_by('-created_on')
-    serializer_class = Level2Serializer
+class SubCategoryViewsets(viewsets.ModelViewSet):
+    queryset = SubCategory.objects.all().order_by('-created_on')
+    serializer_class = SubCategorySerializer
 
     filter_backends = [filters.SearchFilter]
-    search_filter = ['l2category_name', 'deleted_status', 'category__category_name']
+    search_fields= ['l2category_name', 'category__category_name']
 
-class Level3CategoryViewsets(viewsets.ModelViewSet):
-    queryset = Level3Category.objects.all().order_by('-created_on')
-    serializer_class = Level3Serializer
+# class Level3CategoryViewsets(viewsets.ModelViewSet):
+#     queryset = Level3Category.objects.all().order_by('-created_on')
+#     serializer_class = Level3Serializer
 
     filter_backends = [filters.SearchFilter]
-    search_filter = ['l3category_name', 'deleted_status', 'level2_category__l2category_name', 
-                     'level2_category__category__category_name']
+    search_fields= ['l3category_name', 'SubCategory_category__l2category_name', 
+                     'SubCategory_category__category__category_name']
 
 class SizeViewsets(viewsets.ModelViewSet):
     queryset = Size.objects.all().order_by('-created_on')
@@ -65,7 +65,7 @@ class SizeViewsets(viewsets.ModelViewSet):
 
 class MaterialViewsets(viewsets.ModelViewSet):
     queryset = Material.objects.all().order_by('-created_on')
-    serializer_class = MasterSerializer
+    serializer_class = ProductMasterSerializer
 
 class CollarViewsets(viewsets.ModelViewSet):
     queryset = Collar.objects.all().order_by('-created_on')
@@ -87,29 +87,29 @@ class ColorViewsets(viewsets.ModelViewSet):
     queryset = Color.objects.all().order_by('-created_on')
     serializer_class = ColorSerializer
 
-class MasterViewsets(viewsets.ModelViewSet):
-    queryset = Master.objects.all().order_by('-created_on')
-    serializer_class = MasterSerializer
+class ProductMasterViewsets(viewsets.ModelViewSet):
+    queryset = ProductMaster.objects.all().order_by('-created_on')
+    serializer_class = ProductMasterSerializer
 
     filter_backends = [filters.SearchFilter]
-    search_filter = ['product_name']
+    search_fields= ['product_name']
 
-class MasterVariantViewsets(viewsets.ModelViewSet):
-    queryset = MasterVariant.objects.all().order_by('-created_on')
-    serializer_class = MasterVariantSerializer
-
-    filter_backends = [filters.SearchFilter]
-    search_filter = ['master_reference__product_name']
-
-class MasterVariantImagesViewsets(viewsets.ModelViewSet):
-    queryset = MasterVariantImage.objects.all()
-    serializer_class = MasterVariantImagesSerializer
+class ProductMasterVariantViewsets(viewsets.ModelViewSet):
+    queryset = ProductMasterVariant.objects.all().order_by('-created_on')
+    serializer_class = ProductMasterVariantSerializer
 
     filter_backends = [filters.SearchFilter]
-    search_filter = ['variant_master_reference__product_name']                                    
+    search_fields= ['ProductMaster_reference__product_name']
+
+class ProductMasterVariantImagesViewsets(viewsets.ModelViewSet):
+    queryset = ProductMasterVariantImage.objects.all()
+    serializer_class = ProductMasterVariantImagesSerializer
+
+    filter_backends = [filters.SearchFilter]
+    search_fields= ['variant_ProductMaster_reference__product_name']                                    
     
 
-class FilteredMasterViewSet(ViewSet):
+class FilteredProductMasterViewSet(ViewSet):
     def list(self, request):
         category = request.query_params.get('category')
         size = request.query_params.get('size')
@@ -120,9 +120,9 @@ class FilteredMasterViewSet(ViewSet):
         badge = request.query_params.get('badge')
         color = request.query_params.get('color')
 
-        queryset = Master.objects,all()
+        queryset = ProductMaster.objects,all()
         if category:
-            queryset = queryset.objects.filter(level2_reference__category_reference=category)
+            queryset = queryset.objects.filter(SubCategory_reference__category_reference=category)
         
         if size or material or collar or neck or sleeve or badge or color:
             variant_filter = Q()
@@ -142,12 +142,12 @@ class FilteredMasterViewSet(ViewSet):
             if color:
                 variant_filter &= Q(color_reference__reference=color)
 
-            variant_master_ids = MasterVariant.objects.filter(
-                variant_filter).values_list('master_reference', flat=True)
+            variant_productmaster_ids = ProductMasterVariant.objects.filter(
+                variant_filter).values_list('ProductMaster_reference', flat=True)
             
-            queryset = queryset.filter(reference__in=variant_master_ids)
+            queryset = queryset.filter(reference__in=variant_productmaster_ids)
 
-        serializer = MasterNestedSerializer(queryset, many=True)
+        serializer = ProductMasterNestedSerializer(queryset, many=True)
         return Response(serializer.data)
 
             
