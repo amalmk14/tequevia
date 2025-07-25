@@ -153,7 +153,7 @@ class ProductPlatformMappingViewsets(viewsets.ModelViewSet):
 class FilteredProductMasterViewSet(ViewSet):
     def list(self, request):
         category = request.query_params.get('category')
-        sub_category = request.query_params.get('sub_category')  # <-- Added
+        sub_category = request.query_params.get('sub_category') 
         size = request.query_params.get('size')
         material = request.query_params.get('material')
         collar = request.query_params.get('collar')
