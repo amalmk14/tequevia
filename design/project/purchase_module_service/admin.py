@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import *
 
-# Register your models here.
 
 @admin.register(AuthUser)
 class CustomUserAdmin(admin.ModelAdmin):
@@ -9,7 +8,6 @@ class CustomUserAdmin(admin.ModelAdmin):
     list_display = ['reference', 'phone_number'] 
     # fields = [field.name for field in AuthUser._meta.fields]
     
-
 
 # admin.site.register(Category)
 @admin.register(Category)
