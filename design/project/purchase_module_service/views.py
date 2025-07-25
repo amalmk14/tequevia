@@ -149,9 +149,11 @@ class ProductPlatformMappingViewsets(viewsets.ModelViewSet):
     search_fields= ['product_master_reference__product_name', 'platform_reference__name']
 
 
+## filter normal or category or sub_category
 class FilteredProductMasterViewSet(ViewSet):
     def list(self, request):
         category = request.query_params.get('category')
+        sub_category = request.query_params.get('sub_category')  # <-- Added
         size = request.query_params.get('size')
         material = request.query_params.get('material')
         collar = request.query_params.get('collar')
@@ -160,11 +162,17 @@ class FilteredProductMasterViewSet(ViewSet):
         badge = request.query_params.get('badge')
         color = request.query_params.get('color')
 
-        queryset = ProductMaster.objects.all() 
+        queryset = ProductMaster.objects.all()
 
+        # Filter by category
         if category:
             queryset = queryset.filter(sub_category_reference__category__reference=category)
 
+        # Filter by sub-category
+        if sub_category:
+            queryset = queryset.filter(sub_category_reference__reference=sub_category)
+
+        # Filter by variant options
         if any([size, material, collar, neck, sleeve, badge, color]):
             variant_filter = Q()
 
@@ -184,12 +192,11 @@ class FilteredProductMasterViewSet(ViewSet):
                 variant_filter &= Q(color_reference__reference=color)
 
             variant_productmaster_ids = ProductMasterVariant.objects.filter(
-                variant_filter
+                variant_filter,
+                product_master_reference__in=queryset
             ).values_list('product_master_reference__reference', flat=True)
 
             queryset = queryset.filter(reference__in=variant_productmaster_ids)
 
         serializer = ProductMasterNestedSerializer(queryset, many=True)
         return Response(serializer.data)
-
-
