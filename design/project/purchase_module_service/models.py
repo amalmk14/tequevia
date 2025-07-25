@@ -201,8 +201,7 @@ class ProductMasterVariant(models.Model):
 
 
 class ProductMasterVariantImage(models.Model):
-    reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    
+    reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)    
     variant_reference = models.ForeignKey(ProductMasterVariant, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to="variant-images/")
     alt_text = models.CharField(max_length=255, blank=True)

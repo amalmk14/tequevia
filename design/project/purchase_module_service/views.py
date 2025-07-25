@@ -18,8 +18,10 @@ from django.db.models import Q
 #     serializer_class = SignupSerializer
 #     permission_classes = [AllowAny]
 
+
 # class LoginView(TokenObtainPairView):
 #     serializers = LoginSerializer
+
 
 # class SignoutView(APIView):
 #     permission_class = [IsAuthenticated]
@@ -200,3 +202,4 @@ class FilteredProductMasterViewSet(ViewSet):
 
         serializer = ProductMasterNestedSerializer(queryset, many=True)
         return Response(serializer.data)
+

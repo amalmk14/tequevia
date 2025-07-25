@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import *
 
+
 # from django.contrib.auth.password_validation import validate_password
 # from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 # from django.db.models import Q
@@ -20,6 +21,7 @@ from .models import *
 #             user.set_password(validate_data['password'])
 #             user.save()
 #             return user
+
 
 # class LoginSerializer(TokenObtainPairSerializer):
 #     identifier = serializers.CharField(write_only=True)
