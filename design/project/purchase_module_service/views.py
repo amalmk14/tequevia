@@ -152,6 +152,62 @@ class ProductPlatformMappingViewsets(viewsets.ModelViewSet):
 
 
 ## filter normal or category or sub_category
+# class FilteredProductMasterViewSet(ViewSet):
+#     def list(self, request):
+#         category = request.query_params.get('category')
+#         sub_category = request.query_params.get('sub_category') 
+#         size = request.query_params.get('size')
+#         material = request.query_params.get('material')
+#         collar = request.query_params.get('collar')
+#         neck = request.query_params.get('neck')
+#         sleeve = request.query_params.get('sleeve')
+#         badge = request.query_params.get('badge')
+#         color = request.query_params.get('color')
+
+#         queryset = ProductMaster.objects.all()
+
+#         # Filter by category
+#         if category:
+#             queryset = queryset.filter(sub_category_reference__category__reference=category)
+
+#         # Filter by sub-category
+#         if sub_category:
+#             queryset = queryset.filter(sub_category_reference__reference=sub_category)
+
+#         # Filter by variant options
+#         if any([size, material, collar, neck, sleeve, badge, color]):
+#             variant_filter = Q()
+
+#             if size:
+#                 variant_filter &= Q(size_reference__reference=size)
+#             if material:
+#                 variant_filter &= Q(material_reference__reference=material)
+#             if collar:
+#                 variant_filter &= Q(collar_reference__reference=collar)
+#             if neck:
+#                 variant_filter &= Q(neck_reference__reference=neck)
+#             if sleeve:
+#                 variant_filter &= Q(sleeve_reference__reference=sleeve)
+#             if badge:
+#                 variant_filter &= Q(badge_reference__reference=badge)
+#             if color:
+#                 variant_filter &= Q(color_reference__reference=color)
+
+#             variant_productmaster_ids = ProductMasterVariant.objects.filter(
+#                 variant_filter,
+#                 product_master_reference__in=queryset
+#             ).values_list('product_master_reference__reference', flat=True)
+
+#             queryset = queryset.filter(reference__in=variant_productmaster_ids)
+
+#         serializer = ProductMasterNestedSerializer(queryset, many=True)
+#         return Response(serializer.data)
+
+
+from rest_framework.viewsets import ViewSet
+from rest_framework.response import Response
+from django.db.models import Q
+
 class FilteredProductMasterViewSet(ViewSet):
     def list(self, request):
         category = request.query_params.get('category')
@@ -174,10 +230,9 @@ class FilteredProductMasterViewSet(ViewSet):
         if sub_category:
             queryset = queryset.filter(sub_category_reference__reference=sub_category)
 
-        # Filter by variant options
+        # Filter product IDs that have at least one matching variant
         if any([size, material, collar, neck, sleeve, badge, color]):
             variant_filter = Q()
-
             if size:
                 variant_filter &= Q(size_reference__reference=size)
             if material:
@@ -193,13 +248,23 @@ class FilteredProductMasterViewSet(ViewSet):
             if color:
                 variant_filter &= Q(color_reference__reference=color)
 
-            variant_productmaster_ids = ProductMasterVariant.objects.filter(
+            matching_product_ids = ProductMasterVariant.objects.filter(
                 variant_filter,
                 product_master_reference__in=queryset
-            ).values_list('product_master_reference__reference', flat=True)
+            ).values_list('product_master_reference__reference', flat=True).distinct()
 
-            queryset = queryset.filter(reference__in=variant_productmaster_ids)
+            queryset = queryset.filter(reference__in=matching_product_ids)
 
-        serializer = ProductMasterNestedSerializer(queryset, many=True)
+        serializer = ProductMasterNestedSerializer(
+            queryset, many=True, context={
+                'size': size,
+                'material': material,
+                'collar': collar,
+                'neck': neck,
+                'sleeve': sleeve,
+                'badge': badge,
+                'color': color,
+            }
+        )
         return Response(serializer.data)
 

@@ -155,6 +155,35 @@ class ProductMasterVariantImagesSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
         
+# class ProductMasterVariantImageNestedSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = ProductMasterVariantImage
+#         fields = ['reference', 'image', 'alt_text']
+
+
+# class ProductMasterVariantNestedSerializer(serializers.ModelSerializer):
+#     images = ProductMasterVariantImageNestedSerializer(many=True, read_only=True)
+
+#     class Meta:
+#         model = ProductMasterVariant
+#         fields = [
+#             'reference', 'size_reference', 'sleeve_reference', 'neck_reference',
+#             'collar_reference', 'material_reference', 'badge_reference', 'color_reference',
+#             'price', 'offer_price', 'offer_percentage', 'stock', 'weight',
+#             'main_image', 'description', 'tag', 'is_active', 'created_on', 'images'
+#         ]
+
+
+# class ProductMasterNestedSerializer(serializers.ModelSerializer):
+#     variants = ProductMasterVariantNestedSerializer(many=True, read_only=True)
+
+#     class Meta:
+#         model = ProductMaster
+#         fields = [
+#             'reference', 'product_name', 'product_code', 'image',
+#             'created_on', 'is_active', 'variants'
+#         ]
+
 class ProductMasterVariantImageNestedSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductMasterVariantImage
@@ -173,9 +202,30 @@ class ProductMasterVariantNestedSerializer(serializers.ModelSerializer):
             'main_image', 'description', 'tag', 'is_active', 'created_on', 'images'
         ]
 
+    def to_representation(self, instance):
+        context = self.context
+
+        # Variant-level filter logic
+        if context.get('size') and str(instance.size_reference.reference) != context.get('size'):
+            return None
+        if context.get('material') and str(instance.material_reference.reference) != context.get('material'):
+            return None
+        if context.get('collar') and str(instance.collar_reference.reference) != context.get('collar'):
+            return None
+        if context.get('neck') and str(instance.neck_reference.reference) != context.get('neck'):
+            return None
+        if context.get('sleeve') and str(instance.sleeve_reference.reference) != context.get('sleeve'):
+            return None
+        if context.get('badge') and str(instance.badge_reference.reference) != context.get('badge'):
+            return None
+        if context.get('color') and str(instance.color_reference.reference) != context.get('color'):
+            return None
+
+        return super().to_representation(instance)
+
 
 class ProductMasterNestedSerializer(serializers.ModelSerializer):
-    variants = ProductMasterVariantNestedSerializer(many=True, read_only=True)
+    variants = serializers.SerializerMethodField()
 
     class Meta:
         model = ProductMaster
@@ -184,3 +234,9 @@ class ProductMasterNestedSerializer(serializers.ModelSerializer):
             'created_on', 'is_active', 'variants'
         ]
 
+    def get_variants(self, obj):
+        variants = obj.variants.all()
+        serializer = ProductMasterVariantNestedSerializer(
+            variants, many=True, context=self.context
+        )
+        return [v for v in serializer.data if v is not None]
